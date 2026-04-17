@@ -1,0 +1,66 @@
+name: newsletter
+
+on:
+  schedule:
+    # Mondays 08:00 UTC
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Preview only (no email sent, no state updated)"
+        type: boolean
+        default: false
+
+concurrency:
+  group: newsletter
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Compose and send newsletter
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          NEWSLETTER_TO_EMAIL: ${{ secrets.NEWSLETTER_TO_EMAIL }}
+          NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            python src/newsletter.py --dry-run
+          else
+            python src/newsletter.py
+          fi
+
+      - name: Commit sent archive
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/)" ]; then
+            git add data/
+            git commit -m "newsletter: $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "Nothing to commit."
+          fi
+
+      - name: Upload preview (dry run)
+        if: ${{ inputs.dry_run == true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsletter-preview
+          path: data/sent/preview.html
