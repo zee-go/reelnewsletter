@@ -93,7 +93,7 @@ def wrap_email(body_html: str, title: str) -> str:
 
 def send_email(html: str, subject: str, to: str) -> str:
     resend.api_key = os.environ["RESEND_API_KEY"]
-    from_addr = os.environ.get("NEWSLETTER_FROM", "Reel Digest <newsletter@resend.dev>")
+    from_addr = os.environ.get("NEWSLETTER_FROM") or "Reel Digest <onboarding@resend.dev>"
     result = resend.Emails.send(
         {"from": from_addr, "to": to, "subject": subject, "html": html}
     )
