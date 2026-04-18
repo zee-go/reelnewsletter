@@ -74,6 +74,9 @@ def shortcode(url: str) -> str:
     m = re.search(r"facebook\.com/reel/(\d+)", url, re.IGNORECASE)
     if m:
         return f"fb{m.group(1)}"
+    m = re.search(r"facebook\.com/share/[rvp]/([A-Za-z0-9_-]+)", url, re.IGNORECASE)
+    if m:
+        return f"fbs{m.group(1)}"
     m = re.search(r"fb\.watch/([A-Za-z0-9_-]+)", url, re.IGNORECASE)
     if m:
         return f"fbw{m.group(1)}"
@@ -92,6 +95,7 @@ def _ytdlp_cmd(url: str, workdir: Path, *, write_thumbnails: bool) -> list[str]:
         "-o", str(workdir / "media_%(playlist_index|1)s_%(id)s.%(ext)s"),
         "--write-info-json",
         "--no-warnings",
+        "--ignore-no-formats-error",
     ]
     if write_thumbnails:
         cmd += ["--write-all-thumbnails", "--skip-download"]
@@ -135,10 +139,20 @@ def _download_from_info(info: dict, workdir: Path) -> list[Path]:
         if u:
             candidates.append(u)
 
+    # IG/FB CDNs block requests with no UA or a bot UA. Spoof a real browser.
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 "
+            "(KHTML, like Gecko) Version/17.1 Safari/605.1.15"
+        ),
+        "Accept": "image/webp,image/apng,image/*,*/*;q=0.8",
+        "Referer": "https://www.instagram.com/",
+    }
+
     out: list[Path] = []
     for i, url in enumerate(candidates[:MAX_IMAGES_PER_POST]):
         try:
-            r = requests.get(url, timeout=30)
+            r = requests.get(url, timeout=30, headers=headers)
             r.raise_for_status()
             content = r.content
             if len(content) > MAX_IMAGE_BYTES:
@@ -155,7 +169,7 @@ def _download_from_info(info: dict, workdir: Path) -> list[Path]:
 
 def download_content(url: str, workdir: Path) -> dict:
     """Download video or images + metadata. Returns dict with videos, images, caption, author, duration."""
-    result = subprocess.run(
+    r1 = subprocess.run(
         _ytdlp_cmd(url, workdir, write_thumbnails=False),
         capture_output=True, text=True, cwd=workdir,
     )
@@ -164,18 +178,24 @@ def download_content(url: str, workdir: Path) -> dict:
 
     if not videos and not images:
         # Photo/carousel post: re-run to grab thumbnails, then fall back to info.json
-        subprocess.run(
+        r2 = subprocess.run(
             _ytdlp_cmd(url, workdir, write_thumbnails=True),
             capture_output=True, text=True, cwd=workdir,
         )
         images = _scan(workdir, IMAGE_EXTS)
         if not images:
             info = _load_info(workdir)
-            images = _download_from_info(info, workdir)
+            if info:
+                print(f"  photo fallback: info.json has keys {list(info)[:10]}", flush=True)
+                images = _download_from_info(info, workdir)
+            else:
+                print(f"  photo fallback: no info.json. "
+                      f"ytdlp-v1 stderr: {r1.stderr[:300]} "
+                      f"ytdlp-v2 stderr: {r2.stderr[:300]}", flush=True)
 
     if not videos and not images:
         raise RuntimeError(
-            f"yt-dlp produced no media. stderr: {result.stderr[:400]} stdout: {result.stdout[:200]}"
+            f"yt-dlp produced no media. stderr: {r1.stderr[:400]} stdout: {r1.stdout[:200]}"
         )
 
     info = _load_info(workdir)
