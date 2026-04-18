@@ -10,7 +10,14 @@ from prompts import NEWSLETTER_SYSTEM_PROMPT, TAG_SYSTEM_PROMPT
 
 _client = anthropic.Anthropic()
 
-Tag = Literal["ai", "investment", "politics", "psychology"]
+Tag = Literal["ai", "investment", "politics", "psychology", "food", "other"]
+
+
+class Recipe(BaseModel):
+    ingredients: list[str] = Field(default_factory=list)
+    instructions: list[str] = Field(default_factory=list)
+    prep_time: str | None = None
+    servings: str | None = None
 
 
 class ReelTag(BaseModel):
@@ -18,6 +25,7 @@ class ReelTag(BaseModel):
     title: str = Field(max_length=80)
     one_liner: str = Field(max_length=200)
     key_points: list[str] = Field(min_length=1, max_length=4)
+    recipe: Recipe | None = None
 
 
 def tag_reel(
@@ -65,7 +73,7 @@ def compose_newsletter(reels: list[dict], week_label: str) -> str:
     """Compose a weekly newsletter HTML fragment from a list of reel records."""
     reel_blocks = []
     for r in reels:
-        reel_blocks.append(
+        block = (
             "---\n"
             f"tag: {r['tag']}\n"
             f"title: {r.get('title') or r.get('one_liner', '')[:60]}\n"
@@ -74,9 +82,19 @@ def compose_newsletter(reels: list[dict], week_label: str) -> str:
             f"key_points: {r.get('key_points', [])}\n"
             f"author: {r.get('author') or '(unknown)'}\n"
         )
+        if r.get("recipe"):
+            rec = r["recipe"]
+            block += (
+                f"recipe:\n"
+                f"  ingredients: {rec.get('ingredients', [])}\n"
+                f"  instructions: {rec.get('instructions', [])}\n"
+                f"  prep_time: {rec.get('prep_time') or '(none)'}\n"
+                f"  servings: {rec.get('servings') or '(none)'}\n"
+            )
+        reel_blocks.append(block)
     user_content = (
         f"Compose this week's newsletter. Week: {week_label}. "
-        f"{len(reels)} reels were saved.\n\n"
+        f"{len(reels)} posts were saved.\n\n"
         + "\n".join(reel_blocks)
     )
 

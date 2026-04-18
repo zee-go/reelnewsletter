@@ -274,6 +274,7 @@ def process_reel(url: str, received_at: str) -> dict:
         "title": tagged.title,
         "one_liner": tagged.one_liner,
         "key_points": tagged.key_points,
+        "recipe": tagged.recipe.model_dump() if tagged.recipe else None,
         "sent_in_newsletter": None,
     }
 
