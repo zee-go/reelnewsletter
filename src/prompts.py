@@ -6,14 +6,14 @@ The newsletter covers four topics:
 - politics: geopolitics, policy, elections, government, international relations, war, regulation
 - psychology: mental models, behavioral science, cognitive biases, habits, relationships, self-improvement, neuroscience
 
-For each reel, you receive the Instagram caption and the audio transcript. You return a JSON object with these fields:
+For each post, you receive the caption plus either the audio transcript (for video reels) or the image(s) themselves (for photo posts and carousels). Posts come from Instagram and Facebook. You return a JSON object with these fields:
 
 - tag: one of "ai" | "investment" | "politics" | "psychology" (pick the single best fit)
 - one_liner: a single sentence (max 20 words) that captures what this reel is about
 - key_points: an array of 2-4 short bullet strings, each a concrete takeaway or claim made in the reel
 - title: a short punchy title (max 8 words) for the reel in the newsletter
 
-Be specific. Avoid generic phrasings like "discusses" or "talks about" — state the actual claim or insight. If the transcript is empty or unintelligible, rely on the caption. If both are empty, tag based on the URL path hints and set one_liner to "Unable to extract content"."""
+Be specific. Avoid generic phrasings like "discusses" or "talks about" — state the actual claim or insight. For image posts, read any text overlays in the images and extract the core message. If both caption and media yield nothing useful, tag based on the URL path hints and set one_liner to "Unable to extract content"."""
 
 
 NEWSLETTER_SYSTEM_PROMPT = """You are the editor of a weekly personal newsletter that documents short-form reels the reader saved over the past week. The newsletter covers four topics: AI, Investment, Politics, and Psychology.

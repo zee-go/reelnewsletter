@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import base64
 from typing import Literal
 
 import anthropic
@@ -19,12 +20,30 @@ class ReelTag(BaseModel):
     key_points: list[str] = Field(min_length=1, max_length=4)
 
 
-def tag_reel(caption: str, transcript: str, url: str) -> ReelTag:
-    user_content = (
+def tag_reel(
+    caption: str,
+    transcript: str,
+    url: str,
+    images: list[tuple[bytes, str]] | None = None,
+) -> ReelTag:
+    """Tag a post. `images` is a list of (bytes, media_type) tuples for Claude vision."""
+    blocks: list[dict] = []
+    for data, media_type in images or []:
+        blocks.append({
+            "type": "image",
+            "source": {
+                "type": "base64",
+                "media_type": media_type,
+                "data": base64.standard_b64encode(data).decode(),
+            },
+        })
+
+    text = (
         f"URL: {url}\n\n"
         f"Caption:\n{caption or '(none)'}\n\n"
-        f"Transcript:\n{transcript or '(none)'}"
+        f"Transcript:\n{transcript or '(none — this is a photo/image post, analyze the images above)'}"
     )
+    blocks.append({"type": "text", "text": text})
 
     response = _client.messages.parse(
         model="claude-sonnet-4-6",
@@ -36,7 +55,7 @@ def tag_reel(caption: str, transcript: str, url: str) -> ReelTag:
                 "cache_control": {"type": "ephemeral"},
             }
         ],
-        messages=[{"role": "user", "content": user_content}],
+        messages=[{"role": "user", "content": blocks}],
         output_format=ReelTag,
     )
     return response.parsed_output

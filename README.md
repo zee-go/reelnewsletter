@@ -1,6 +1,12 @@
 # Reel Newsletter Bot
 
-Share Instagram reels to a Telegram bot throughout the week — get a weekly email digest Monday morning, grouped by AI / Investment / Politics / Psychology.
+Share Instagram and Facebook posts to a Telegram bot throughout the week — get a weekly email digest Monday morning, grouped by AI / Investment / Politics / Psychology.
+
+**Supported URLs:**
+- Instagram reels (`/reel/`), posts (`/p/`, photos or videos), carousels, IGTV (`/tv/`)
+- Facebook reels, videos (`/watch`, `/video`), `fb.watch` links, photo posts
+
+Videos are transcribed via Whisper. Photo posts and carousels are understood via Claude Vision (reads text overlays and describes image content).
 
 ## How it works
 
@@ -39,9 +45,9 @@ Settings → Secrets and variables → Actions → New repository secret:
 | `NEWSLETTER_TO_EMAIL` | Where to send the digest |
 | `NEWSLETTER_FROM` | Optional — `Name <from@yourdomain>`. Default: `Reel Digest <newsletter@resend.dev>` |
 
-### 4. Instagram cookies (required — Instagram blocks unauthenticated downloads)
+### 4. Instagram + Facebook cookies (required — Meta blocks unauthenticated downloads)
 
-Instagram gates most posts behind login. Without cookies, yt-dlp returns "0 items" for almost every URL. You need to export cookies from a browser where you're logged into Instagram.
+Instagram and Facebook gate most posts behind login. Without cookies, yt-dlp returns "0 items" for almost every URL. You need to export cookies from a browser where you're logged into **both** services — the same `INSTAGRAM_COOKIES` secret holds both (Netscape cookies format supports multiple domains in one file).
 
 **Option A — Firefox (easiest, recommended):**
 
