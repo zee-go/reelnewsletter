@@ -29,6 +29,18 @@ jobs:
       - name: Install Python deps
         run: pip install -r requirements.txt
 
+      - name: Write Instagram cookies file (if provided)
+        env:
+          INSTAGRAM_COOKIES: ${{ secrets.INSTAGRAM_COOKIES }}
+        run: |
+          if [ -n "$INSTAGRAM_COOKIES" ]; then
+            echo "$INSTAGRAM_COOKIES" > /tmp/ig_cookies.txt
+            echo "INSTAGRAM_COOKIES_FILE=/tmp/ig_cookies.txt" >> "$GITHUB_ENV"
+            echo "Cookies file written."
+          else
+            echo "No INSTAGRAM_COOKIES secret set — proceeding without auth (Instagram may block)."
+          fi
+
       - name: Run ingest
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

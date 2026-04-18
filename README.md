@@ -39,7 +39,29 @@ Settings → Secrets and variables → Actions → New repository secret:
 | `NEWSLETTER_TO_EMAIL` | Where to send the digest |
 | `NEWSLETTER_FROM` | Optional — `Name <from@yourdomain>`. Default: `Reel Digest <newsletter@resend.dev>` |
 
-### 4. First run
+### 4. Instagram cookies (required — Instagram blocks unauthenticated downloads)
+
+Instagram gates most posts behind login. Without cookies, yt-dlp returns "0 items" for almost every URL. You need to export cookies from a browser where you're logged into Instagram.
+
+**Option A — Firefox (easiest, recommended):**
+
+1. Log into `instagram.com` in Firefox
+2. Install the [cookies.txt extension](https://addons.mozilla.org/en-US/firefox/addon/cookies-txt/) (or use `yt-dlp --cookies-from-browser firefox --cookies-to-stdout`)
+3. With the extension: go to instagram.com → click the extension → "Export as" → copy the Netscape-format cookies file contents
+
+**Option B — use a throwaway account:**
+
+Create a new Instagram account just for this bot (reduces risk to your main account), log in once, export cookies.
+
+**Then add the cookies to GitHub Secrets:**
+
+```bash
+gh secret set INSTAGRAM_COOKIES < /path/to/cookies.txt
+```
+
+Cookies expire periodically — if ingest starts failing, re-export and update the secret.
+
+### 5. First run
 
 1. Actions → `ingest` → Run workflow. Should exit cleanly (no reels yet).
 2. Share a reel to your Telegram bot.

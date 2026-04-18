@@ -64,20 +64,26 @@ def shortcode(url: str) -> str:
 def download_reel(url: str, workdir: Path) -> dict:
     """Download video + metadata via yt-dlp. Returns dict with video_path, caption, author, duration."""
     info_path = workdir / "info.json"
-    video_path = workdir / "video.mp4"
-    subprocess.run(
-        [
-            "yt-dlp",
-            "-o",
-            str(video_path),
-            "--write-info-json",
-            "--no-warnings",
-            "--quiet",
-            url,
-        ],
-        check=True,
-        cwd=workdir,
-    )
+    video_path = workdir / "video.%(ext)s"
+    cmd = [
+        "yt-dlp",
+        "-o",
+        str(video_path),
+        "--write-info-json",
+        "--no-warnings",
+    ]
+    cookies_file = os.environ.get("INSTAGRAM_COOKIES_FILE")
+    if cookies_file and Path(cookies_file).exists():
+        cmd += ["--cookies", cookies_file]
+    cmd.append(url)
+
+    result = subprocess.run(cmd, capture_output=True, text=True, cwd=workdir)
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"yt-dlp exited {result.returncode}. "
+            f"stderr: {result.stderr[:500]} stdout: {result.stdout[:200]}"
+        )
+
     written_info = next(workdir.glob("*.info.json"), None)
     if written_info and written_info != info_path:
         written_info.rename(info_path)
@@ -86,6 +92,12 @@ def download_reel(url: str, workdir: Path) -> dict:
         (p for p in workdir.iterdir() if p.suffix.lower() in (".mp4", ".mov", ".mkv", ".webm")),
         None,
     )
+    if not found_video:
+        hint = "" if cookies_file else " (hint: set INSTAGRAM_COOKIES secret — see README)"
+        raise RuntimeError(
+            f"yt-dlp succeeded but produced no video file.{hint} "
+            f"stdout: {result.stdout[:400]}"
+        )
     return {
         "video_path": found_video,
         "caption": info.get("description") or info.get("title") or "",
@@ -126,8 +138,6 @@ def process_reel(url: str, received_at: str) -> dict:
     with tempfile.TemporaryDirectory() as tmpdir:
         work = Path(tmpdir)
         meta = download_reel(url, work)
-        if not meta["video_path"]:
-            raise RuntimeError(f"yt-dlp produced no video for {url}")
         audio = work / "audio.mp3"
         extract_audio(meta["video_path"], audio)
         transcript = transcribe(audio)
