@@ -1,0 +1,66 @@
+name: site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/reels/**"
+      - "data/sent/**"
+      - "site/**"
+      - "src/build_site.py"
+      - ".github/workflows/site.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Install Pagefind
+        run: npm install -g pagefind
+
+      - name: Build site
+        env:
+          SITE_BASE_PATH: /reelnewsletter/
+        run: python src/build_site.py
+
+      - name: Generate Pagefind index
+        run: pagefind --site site/_dist
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/_dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

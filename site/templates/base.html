@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Reel Archive{% endblock %}</title>
+<link rel="stylesheet" href="{{ static('styles.css') }}">
+<link rel="stylesheet" href="{{ static('pagefind/pagefind-ui.css') }}" onerror="this.remove()">
+<script src="{{ static('pagefind/pagefind-ui.js') }}" defer onerror="this.remove()"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <header class="site-header">
+    <a class="brand" href="{{ url('index') }}">Reel Archive</a>
+    <span class="tagline">Weekly digest · AI · Investment · Politics · Psychology · Food</span>
+  </header>
+
+  <nav class="site-nav">
+    <a href="{{ url('index') }}"{% if page == 'home' %} class="active"{% endif %}>Home</a>
+    <a href="{{ url('archive') }}"{% if page == 'archive' %} class="active"{% endif %}>Archive</a>
+    {% for tag in tags %}
+      <a href="{{ url('tag', tag=tag.slug) }}"{% if page == 'tag' and active_tag == tag.slug %} class="active"{% endif %}>{{ tag.label }}</a>
+    {% endfor %}
+    <a href="{{ url('search') }}"{% if page == 'search' %} class="active"{% endif %}>Search</a>
+  </nav>
+
+  <main data-pagefind-body>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    {{ total_posts }} posts archived · <a href="https://github.com/zee-go/reelnewsletter">Source</a>
+  </footer>
+</div>
+</body>
+</html>

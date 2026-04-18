@@ -1,12 +1,17 @@
 # Reel Newsletter Bot
 
-Share Instagram and Facebook posts to a Telegram bot throughout the week — get a weekly email digest Monday morning, grouped by AI / Investment / Politics / Psychology.
+Share Instagram and Facebook posts to a Telegram bot throughout the week — get:
+
+1. **Weekly email digest** every Monday via Resend, grouped by AI / Investment / Politics / Psychology / Food / Other
+2. **Searchable public archive** at `https://zee-go.github.io/reelnewsletter/` — full-text search via Pagefind, browse by tag or week
+3. **Google Sheet** with one row per post — easy to filter, export, sort
+4. **In-repo backup** — `data/reels/*.json`, `data/records.csv`, `data/INDEX.md` regenerated on every ingest
 
 **Supported URLs:**
 - Instagram reels (`/reel/`), posts (`/p/`, photos or videos), carousels, IGTV (`/tv/`)
 - Facebook reels, videos (`/watch`, `/video`), `fb.watch` links, photo posts
 
-Videos are transcribed via Whisper. Photo posts and carousels are understood via Claude Vision (reads text overlays and describes image content).
+Videos are transcribed via Whisper. Photo posts and carousels are understood via Claude Vision (reads text overlays and describes image content). Recipes (tag=food) have structured ingredients + instructions extracted into the digest.
 
 ## How it works
 
@@ -31,6 +36,31 @@ Cost: ~$1/month.
 - **OpenAI** — [platform.openai.com/api-keys](https://platform.openai.com/api-keys) (used for Whisper)
 - **Resend** — [resend.com](https://resend.com) → API Keys (3k emails/mo free)
 
+### 3a. Google Sheet backup (optional but recommended)
+
+The bot auto-appends one row per saved reel to a Google Sheet. Requires a service account (free, ~3 min).
+
+1. Create a new Google Sheet, name it "Reel Archive". Copy the sheet ID from its URL (the long string between `/d/` and `/edit`).
+2. In [Google Cloud Console](https://console.cloud.google.com/iam-admin/serviceaccounts), create a new project (or reuse one), then:
+   - Enable the **Google Sheets API** (APIs & Services → Library → search → Enable)
+   - IAM & Admin → Service Accounts → **Create Service Account** → give any name → Done
+   - Click the new account → **Keys** → Add Key → Create → JSON → download the file
+3. Open the Google Sheet → Share → paste the service account email (looks like `xxx@yyy.iam.gserviceaccount.com`) → Editor → Share.
+4. Add two secrets:
+   - `GSHEET_ID` — the sheet ID
+   - `GSHEET_SERVICE_ACCOUNT_JSON` — the entire contents of the JSON key file (paste as-is)
+
+If you skip this, ingest just logs "GSHEET_ID not set — skipping" and continues. Sheet export is non-blocking.
+
+### 3b. Public archive website (optional but recommended)
+
+The archive site is built by `.github/workflows/site.yml` and deployed to GitHub Pages.
+
+1. **Make the repo public**: `gh repo edit zee-go/reelnewsletter --visibility public --accept-visibility-change-consequences` (GitHub Pages free tier requires public repos).
+2. **Enable Pages**: repo → Settings → Pages → Source: **GitHub Actions**.
+3. First deploy triggers on the next push to `data/**` or `site/**`, or via manual dispatch.
+4. Site URL: `https://zee-go.github.io/reelnewsletter/`.
+
 ### 3. Push this repo to GitHub, then add secrets
 
 Settings → Secrets and variables → Actions → New repository secret:
@@ -43,7 +73,9 @@ Settings → Secrets and variables → Actions → New repository secret:
 | `OPENAI_API_KEY` | From OpenAI platform |
 | `RESEND_API_KEY` | From Resend |
 | `NEWSLETTER_TO_EMAIL` | Where to send the digest |
-| `NEWSLETTER_FROM` | Optional — `Name <from@yourdomain>`. Default: `Reel Digest <newsletter@resend.dev>` |
+| `NEWSLETTER_FROM` | Optional — `Name <from@yourdomain>`. Default: `Reel Digest <onboarding@resend.dev>` |
+| `GSHEET_ID` | Optional — Google Sheet ID for the backup |
+| `GSHEET_SERVICE_ACCOUNT_JSON` | Optional — service account JSON for writing to the Sheet |
 
 ### 4. Instagram + Facebook cookies (required — Meta blocks unauthenticated downloads)
 

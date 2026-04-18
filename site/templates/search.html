@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Search · Reel Archive{% endblock %}
+
+{% block content %}
+<h1>Search</h1>
+<p class="intro">Full-text search across every post's title, summary, key points, and transcript.</p>
+
+<div class="search-wrap">
+  <div id="search"></div>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    if (window.PagefindUI) {
+      new PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        showImages: false,
+        resetStyles: false,
+      });
+    } else {
+      document.getElementById('search').innerHTML =
+        '<p style="color:var(--text-soft)">Search index not built yet. Come back after the next deploy.</p>';
+    }
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Archive · Reel Archive{% endblock %}
+
+{% block content %}
+<h1>Archive</h1>
+<p class="intro">Every weekly digest, plus a direct link to the posts of each week.</p>
+
+<ul class="week-list">
+  {% for w in weeks %}
+    <li>
+      <a href="{{ url('week', week=w.id) }}">Week of {{ w.label }}</a>
+      <span class="count">{{ w.count }} post{{ 's' if w.count != 1 else '' }}</span>
+    </li>
+  {% else %}
+    <li><span class="count">No weeks archived yet.</span></li>
+  {% endfor %}
+</ul>
+{% endblock %}

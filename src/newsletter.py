@@ -39,38 +39,59 @@ def mark_sent(reels: list[dict], newsletter_id: str) -> None:
 
 
 EMAIL_CSS = """
-  body { margin:0; padding:0; background:#f5f3ef; }
+  body { margin:0; padding:0; background:#FFFBF0; }
   .container {
     max-width:640px; margin:0 auto; padding:40px 24px;
-    background:#ffffff;
+    background:#FFFFFF;
     font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-    color:#1a1a1a; line-height:1.55; font-size:16px;
+    color:#0B1F3A; line-height:1.6; font-size:17px;
   }
   h1 {
-    font-size:28px; line-height:1.2; margin:0 0 4px; letter-spacing:-0.02em;
-    color:#0f172a; font-weight:700;
+    font-size:34px; line-height:1.15; margin:0 0 6px; letter-spacing:-0.015em;
+    color:#0B1F3A; font-weight:700;
+    font-family:Charter,'Iowan Old Style',Georgia,'Times New Roman',serif;
   }
-  .date { margin:0 0 24px; color:#64748b; font-size:14px; font-weight:500; letter-spacing:0.04em; text-transform:uppercase; }
-  .intro { margin:0 0 32px; color:#334155; font-size:17px; }
+  .date { margin:0 0 28px; color:#4A5B75; font-size:13px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; }
+  .intro {
+    margin:0 0 36px; color:#4A5B75; font-size:18px;
+    padding-left:16px; border-left:3px solid #FFE066;
+  }
   h2 {
-    font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
-    color:#0891b2; border-top:1px solid #e2e8f0; padding-top:24px; margin:32px 0 16px;
+    font-size:13px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:#0B1F3A; padding:8px 0 8px 22px; margin:40px 0 18px;
+    border-bottom:1px solid #E8E2D1; position:relative;
   }
-  .post { margin:0 0 28px; padding:0; }
-  .post h3 { font-size:18px; font-weight:600; margin:0 0 6px; color:#0f172a; line-height:1.3; }
-  .post .lead { margin:0 0 12px; color:#1e293b; }
-  .post ul, .post ol { margin:0 0 12px; padding-left:20px; color:#334155; }
+  h2::before {
+    content:""; position:absolute; left:0; top:12px;
+    width:12px; height:12px; background:#FFE066; border-radius:2px;
+  }
+  .post {
+    background:#FFFFFF; border:1px solid #E8E2D1; border-radius:10px;
+    padding:22px 26px; margin:0 0 20px;
+  }
+  .post h3 {
+    font-family:Charter,'Iowan Old Style',Georgia,serif;
+    font-size:21px; font-weight:600; margin:0 0 8px; color:#0B1F3A; line-height:1.25;
+  }
+  .post .lead { margin:0 0 12px; color:#0B1F3A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:22px; color:#4A5B75; }
   .post ul li, .post ol li { margin:0 0 6px; }
-  .meta { font-size:14px; color:#64748b; margin:0; }
-  .meta a { color:#0891b2; text-decoration:none; border-bottom:1px solid #bae6fd; }
-  .meta a:hover { color:#0e7490; border-bottom-color:#0891b2; }
-  .recipe { background:#fefce8; border:1px solid #fde68a; border-radius:8px; padding:20px 24px; }
-  .recipe h3 { color:#78350f; }
-  .recipe .lead { color:#713f12; }
-  .recipe-meta { font-style:italic; color:#92400e; font-size:14px; margin:0 0 12px; }
-  .ingredients, .steps { margin:8px 0 16px; }
-  .recipe p strong { color:#78350f; font-size:14px; letter-spacing:0.04em; text-transform:uppercase; }
-  a { color:#0891b2; }
+  .meta {
+    font-size:13px; color:#4A5B75; margin:14px 0 0;
+    padding-top:12px; border-top:1px dashed #E8E2D1; letter-spacing:0.02em;
+  }
+  .meta a {
+    color:#0B1F3A; text-decoration:none;
+    border-bottom:1.5px solid #FFE066; padding-bottom:1px;
+  }
+  .recipe { background:#FFF4D6; border-color:#F0D98A; }
+  .recipe h3 { color:#0B1F3A; }
+  .recipe-meta { font-style:italic; color:#4A5B75; font-size:14px; margin:0 0 14px; }
+  .recipe p strong {
+    color:#0B1F3A; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:700;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+  a { color:#0B1F3A; }
 """
 
 

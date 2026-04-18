@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ r.title or r.one_liner }} · Reel Archive{% endblock %}
+
+{% block content %}
+<p class="date">{{ r.received_at[:10] }} · <a href="{{ url('tag', tag=r.tag) }}">{{ r.tag }}</a></p>
+
+{% include "_post.html" %}
+
+{% if r.transcript %}
+<details class="transcript">
+  <summary>Show transcript</summary>
+  <div class="transcript-body">{{ r.transcript }}</div>
+</details>
+{% endif %}
+
+{% if r.caption %}
+<details class="transcript">
+  <summary>Show original caption</summary>
+  <div class="transcript-body">{{ r.caption }}</div>
+</details>
+{% endif %}
+{% endblock %}

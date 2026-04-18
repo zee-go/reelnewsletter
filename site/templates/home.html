@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Reel Archive{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <h1>Reels, decoded.</h1>
+  <p>A searchable archive of every short-form post we saved, tagged, transcribed, and distilled into the weekly digest. Pick a topic below or search for anything.</p>
+</section>
+
+<div class="tag-grid">
+  {% for tag in tags %}
+    <a href="{{ url('tag', tag=tag.slug) }}">{{ tag.label }} <span class="count">{{ tag.count }}</span></a>
+  {% endfor %}
+</div>
+
+{% if recent %}
+<h2>Recently saved</h2>
+{% for r in recent %}
+  {% include "_post.html" %}
+{% endfor %}
+{% endif %}
+
+{% if weeks %}
+<h2>Weekly digests</h2>
+<ul class="week-list">
+  {% for w in weeks %}
+    <li><a href="{{ url('week', week=w.id) }}">Week of {{ w.label }}</a><span class="count">{{ w.count }} posts</span></li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

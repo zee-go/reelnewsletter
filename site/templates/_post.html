@@ -1,0 +1,36 @@
+<article class="post{% if r.recipe %} recipe{% endif %}" data-pagefind-meta="tag:{{ r.tag }}">
+  <h3><a href="{{ url('reel', shortcode=r.shortcode) }}">{{ r.title or r.one_liner }}</a></h3>
+  <p class="lead">{{ r.one_liner }}</p>
+
+  {% if r.recipe %}
+    {% if r.recipe.prep_time or r.recipe.servings %}
+      <p class="recipe-meta">
+        {% if r.recipe.prep_time %}Prep: {{ r.recipe.prep_time }}{% endif %}
+        {% if r.recipe.prep_time and r.recipe.servings %} · {% endif %}
+        {% if r.recipe.servings %}Serves: {{ r.recipe.servings }}{% endif %}
+      </p>
+    {% endif %}
+    {% if r.recipe.ingredients %}
+      <p><strong>Ingredients</strong></p>
+      <ul class="ingredients">
+        {% for ing in r.recipe.ingredients %}<li>{{ ing }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+    {% if r.recipe.instructions %}
+      <p><strong>Instructions</strong></p>
+      <ol class="steps">
+        {% for step in r.recipe.instructions %}<li>{{ step }}</li>{% endfor %}
+      </ol>
+    {% endif %}
+  {% elif r.key_points %}
+    <ul>
+      {% for kp in r.key_points %}<li>{{ kp }}</li>{% endfor %}
+    </ul>
+  {% endif %}
+
+  <p class="meta">
+    <span class="tag-chip">{{ r.tag }}</span>
+    {% if r.author %}by <strong>{{ r.author }}</strong> · {% endif %}
+    <a href="{{ r.url }}" target="_blank" rel="noopener">Watch original →</a>
+  </p>
+</article>

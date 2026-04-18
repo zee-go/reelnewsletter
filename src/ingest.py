@@ -14,6 +14,8 @@ import openai
 import requests
 
 import telegram
+import csv_export
+import sheets_export
 from claude_client import tag_reel
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -328,12 +330,23 @@ def main() -> int:
             processed += 1
             kind = "video" if record["has_video"] else f"{record['image_count']} image(s)"
             print(f"Saved {path.name} [{record['tag']}] ({kind}) {record['one_liner']}", flush=True)
+            try:
+                sheets_export.append(record)
+            except Exception as e:
+                print(f"  sheets_export failed (non-fatal): {e}", flush=True)
             if not args.dry_run:
                 reply = (
                     f"Logged [{record['tag']}] {record['title']}\n"
                     f"{record['one_liner']}"
                 )
                 telegram.send_message(chat_id, reply)
+
+    if processed:
+        try:
+            csv_export.rebuild()
+            print(f"Rebuilt data/records.csv and data/INDEX.md.", flush=True)
+        except Exception as e:
+            print(f"csv_export failed (non-fatal): {e}", flush=True)
 
     new_offset = max_update_id + 1 if updates else offset
     if not args.dry_run and new_offset != offset:
