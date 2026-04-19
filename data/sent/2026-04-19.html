@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 001</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:34px; line-height:1.1; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 001
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of April 19, 2026</div>
+    <h1>AI Efficiency Meets Human Biology's Stubborn Resistance</h1>
+    <div class="hero-meta">
+      6 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">This week leaned into bodies and brains — how language quietly shapes thought, why your brain treats weight loss like a threat, and what hanging from a bar can do for your shoulders. Plus a parallel-agent framework worth a look, and two food science deep-dives that might upgrade your pantry.</p>
+
+<h2>AI</h2>
+
+<article class="post cat-ai">
+  <h3>ClaudeFlow: 60 Parallel Agents, 75% Cost Cut</h3>
+  <p class="lead">An open-source multi-agent framework that stretches your existing Claude subscription further than you'd expect.</p>
+  <ul>
+    <li>Runs 60 agents simultaneously — planning, coding, testing, and security review — all sharing memory.</li>
+    <li>Smart routing: simple tasks hit the free tier, complex ones go to the optimal Claude model.</li>
+    <li>Claims a 75% cut in API costs and roughly 2.5× more mileage from your current subscription.</li>
+    <li>Ranked #1 agent framework on GitHub with 14,100+ stars. Fully open source, no extra fees.</li>
+  </ul>
+  <p class="meta">by <strong>@Ajay Yadav</strong> · <a href="https://www.instagram.com/reel/DVRGrHmEmXi">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>How Language Shapes How You Think</h3>
+  <p class="lead">The words available to you quietly decide what you notice, remember, and blame.</p>
+  <ul>
+    <li>Kuuk Thaayorre speakers use cardinal directions instead of left/right — and develop remarkable spatial orientation as a result.</li>
+    <li>Grammatical gender colors perception: German and Spanish speakers describe the same bridge in strikingly different ways.</li>
+    <li>Spanish often omits the agent in accident descriptions, which makes speakers less quick to assign blame.</li>
+    <li>Language trains attention — different tongues lead speakers to notice different details in the same event.</li>
+  </ul>
+  <p class="meta">by <strong>@TED</strong> · <a href="https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<h2>Fitness</h2>
+
+<article class="post cat-fitness">
+  <h3>Your Brain Fights Every Diet You Try</h3>
+  <p class="lead">Weight loss isn't just a willpower problem — your nervous system is actively working against it.</p>
+  <ul>
+    <li>Losing even 5 lbs can register to the brain as a survival threat.</li>
+    <li>It responds by cranking hunger up and quietly lowering your metabolism.</li>
+    <li>Same calories in, but now you store more than you burn.</li>
+    <li>The moment you stop dieting, the brain pulls the weight back — which is why regain feels almost inevitable.</li>
+  </ul>
+  <p class="meta">by <strong>@Steven Bartlett</strong> · <a href="https://www.facebook.com/share/r/1CPH7Pq2AL/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post cat-fitness">
+  <h3>Hang Longer to Fix Your Shoulders</h3>
+  <p class="lead">A case for the simplest rehab movement there is: just hang.</p>
+  <ul>
+    <li>Over time, the acromion bone hooks downward, crowding the shoulder and causing that familiar pinch.</li>
+    <li>Hanging applies enough traction to gradually reshape it back toward flat.</li>
+    <li>The real benefits show up past the one-minute mark — duration matters more than raw grip strength.</li>
+    <li>Dr. John Kirsch reports over 90% of his patients avoided shoulder surgery by adding regular hangs.</li>
+  </ul>
+  <p class="meta">by <strong>@TWS Training</strong> · <a href="https://www.facebook.com/share/v/1Cx2JZ8t29/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<h2>Food</h2>
+
+<article class="post recipe cat-food">
+  <h3>Crispy Lentil Crackers: No Oil, All Crunch</h3>
+  <p class="lead">Three-ingredient crackers that are high in protein, high in fiber, and shockingly crunchy.</p>
+  <p class="recipe-meta">Prep: 8–12 hours soak + 50–55 min bake</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>125g / ⅔ cup dry lentils</li>
+    <li>100ml / ⅓ cup + 1 tbsp water</li>
+    <li>30g / 3 tbsp sesame seeds</li>
+    <li>½ tsp salt</li>
+    <li>¼ tsp dried rosemary</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Soak lentils in cold water for 8–12 hours, then drain and rinse well.</li>
+    <li>Blend soaked lentils and water in a high-speed blender until completely smooth.</li>
+    <li>Stir in sesame seeds, salt, and rosemary.</li>
+    <li>Spread mixture as thinly as possible onto a lined baking tray.</li>
+    <li>Bake at 180°C / 355°F for 20 minutes.</li>
+    <li>Remove from oven and cut into squares or rectangles.</li>
+    <li>Return to oven and bake for a further 30–35 minutes until golden, dry, and crispy.</li>
+    <li>Allow to cool completely before serving — they crisp up further as they cool.</li>
+  </ol>
+  <p class="meta">by <strong>@Wendy the Food Scientist</strong> · <a href="https://www.facebook.com/share/r/18ZmgCkxLy/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post recipe cat-food">
+  <h3>Soak Nuts for the Crispiest Granola Ever</h3>
+  <p class="lead">One overlooked step — soaking — pulls bitter tannins out and leaves you with a cleaner, crunchier granola.</p>
+  <p class="recipe-meta">Prep: 4–12h soaking + ~1h baking</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>Nuts and seeds of choice (almonds, walnuts, pecans, pumpkin seeds, sunflower seeds, cashews, sesame seeds)</li>
+    <li>1.5–2 tsp salt per 1 liter water (for soaking)</li>
+    <li>Remaining granola ingredients (oats, sweetener, oil, etc.) as desired</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Rinse nuts and seeds thoroughly.</li>
+    <li>Soak in salted water (1.5–2 tsp salt per liter): almonds 8–12h, walnuts/pecans/pumpkin/sunflower seeds 4–6h, cashews 2–4h, sesame seeds 1–2h (optional).</li>
+    <li>Rinse soaked nuts and seeds again to wash away released tannins.</li>
+    <li>Spread on a baking tray and bake at 130°C (265°F) for 30–40 minutes until dry to the touch.</li>
+    <li>Add remaining granola ingredients, then bake at 175°C (350°F) for 15–20 minutes until golden.</li>
+    <li>Let cool in the pan — granola will crackle and crisp further as it cools.</li>
+  </ol>
+  <p class="meta">by <strong>@Wendy the Food Scientist</strong> · <a href="https://www.facebook.com/share/r/1ANWnbqkp5/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
