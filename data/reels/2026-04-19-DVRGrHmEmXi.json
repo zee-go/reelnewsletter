@@ -1,0 +1,22 @@
+{
+  "shortcode": "DVRGrHmEmXi",
+  "url": "https://www.instagram.com/reel/DVRGrHmEmXi",
+  "received_at": "2026-04-19T21:54:17+00:00",
+  "caption": "60 Agents Working in Parallel — For Free\n\nMost people use Claude like a single assistant.\n\nClaude-Flow turns it into a team.\n\nThis open-source framework runs 60 AI agents in parallel — planning, coding, testing, reviewing security, and sharing memory across every run.\n\nInstead of one model doing everything, tasks are intelligently routed:\n• Simple jobs → free layer\n• Complex jobs → the right Claude model\n\nResult?\nUp to 75% lower API costs and significantly higher output.\n\nRanked #1 in agent frameworks on GitHub with 14,100+ stars, Claude-Flow is completely open source and requires no extra subscriptions.\n\nIf you’re paying for Claude, this makes your subscription 2.5× more powerful.\n\nComment CLAUDEFLOW for the link.",
+  "author": "Ajay Yadav",
+  "duration_s": 56.513999938964844,
+  "has_video": true,
+  "image_count": 0,
+  "transcript": "Someone just built the most powerful cloud tool on the planet. 60 agents working together simultaneously. All getting smarter every single run. 14,800 developers already found it and you are probably not one of them. So welcome back guys. This is day 60 of building you 100X. And today we are finding the most underrated AI agent tools nobody is talking about. It's called Cloudflow. And this thing is insane. One agent plans, another codes, another tests, another reviews security, all running in parallel, all sharing memory, all learning from each other after every single run. But here is the part that blew my mind. It cuts your cloud API costs by 75%. Simple tasks go to a free layer automatically. Complex tasks go to the right model. Your cloud subscription just became 2.5 times more powerful. Ranked number one in agent frameworks on GitHub. 14,100 stars, 100% open source. Free, zero extra subscriptions, maximum intelligence. Just buy it. Comment Cloudflow and I'll send you the direct link and follow for more videos.",
+  "tag": "ai",
+  "title": "ClaudeFlow: 60 Parallel Agents, 75% Cost Cut",
+  "one_liner": "ClaudeFlow is an open-source multi-agent framework running 60 Claude agents in parallel to slash API costs by 75%.",
+  "key_points": [
+    "60 agents run simultaneously — planning, coding, testing, and reviewing security while sharing memory",
+    "Smart task routing sends simple jobs to a free tier and complex jobs to the optimal Claude model",
+    "Cuts Claude API costs by 75% and makes your existing Claude subscription 2.5× more powerful",
+    "Ranked #1 agent framework on GitHub with 14,100+ stars — fully open source, no extra subscriptions"
+  ],
+  "recipe": null,
+  "sent_in_newsletter": null
+}
