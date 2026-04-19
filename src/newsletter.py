@@ -127,7 +127,7 @@ EMAIL_CSS = """
   }
   .hero h1 {
     font-family:'Fraunces',Georgia,serif;
-    font-size:34px; line-height:1.1; letter-spacing:-0.025em;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
     font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
   }
   .hero-meta {
