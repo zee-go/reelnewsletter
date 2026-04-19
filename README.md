@@ -2,7 +2,7 @@
 
 Share Instagram and Facebook posts to a Telegram bot throughout the week — get:
 
-1. **Weekly email digest** every Monday via Resend, grouped by AI / Investment / Politics / Psychology / Food / Other
+1. **Weekly email digest** every Friday via Resend, grouped by AI / Investment / Politics / Psychology / Food / Other
 2. **Searchable public archive** at `https://zee-go.github.io/reelnewsletter/` — full-text search via Pagefind, browse by tag or week
 3. **Google Sheet** with one row per post — easy to filter, export, sort
 4. **In-repo backup** — `data/reels/*.json`, `data/records.csv`, `data/INDEX.md` regenerated on every ingest
@@ -17,7 +17,7 @@ Videos are transcribed via Whisper. Photo posts and carousels are understood via
 
 1. You share a reel from Instagram → Telegram → your bot
 2. Every 30 minutes, GitHub Actions polls Telegram, downloads each reel, transcribes the audio with Whisper, tags it with Claude, and commits a JSON record to this repo
-3. Monday 08:00 UTC, another workflow composes a newsletter from the week's reels and sends it via Resend
+3. Friday 08:00 UTC, another workflow composes a newsletter from the week's reels and sends it via Resend
 
 Cost: ~$1/month.
 
@@ -105,7 +105,7 @@ Cookies expire periodically — if ingest starts failing, re-export and update t
 2. Share a reel to your Telegram bot.
 3. Actions → `ingest` → Run workflow again. Should download, transcribe, tag, and commit a JSON under `data/reels/`. Bot replies to you in Telegram.
 4. Actions → `newsletter` → Run workflow with `dry_run: true`. Download the `newsletter-preview` artifact and open `preview.html` to check the output.
-5. Let it run naturally. Monday 08:00 UTC the weekly email lands in your inbox.
+5. Let it run naturally. Friday 08:00 UTC the weekly email lands in your inbox.
 
 ## Local development
 
@@ -129,7 +129,7 @@ python src/newsletter.py --dry-run  # writes data/sent/preview.html
 ```
 .github/workflows/
   ingest.yml       # polls Telegram every 30 min
-  newsletter.yml   # composes + sends weekly digest, Mondays 08:00 UTC
+  newsletter.yml   # composes + sends weekly digest, Fridays 08:00 UTC
 src/
   ingest.py        # Telegram → download → Whisper → Claude → JSON
   newsletter.py    # JSON → Claude → Resend email
@@ -146,4 +146,4 @@ data/
 
 - **Instagram may block yt-dlp** on GitHub Actions IPs. Mitigation: fallback to `instaloader` with a session cookie stored as a secret. Swap the `download_reel` implementation in `src/ingest.py` if this happens.
 - **Non-English reels**: Whisper is multilingual but quality varies. Pass a `language` hint in `src/ingest.py` if you find the transcripts are poor.
-- **Empty week**: if you save zero reels for a week, the Monday workflow logs "No reels to send" and skips the email.
+- **Empty week**: if you save zero reels for a week, the Friday workflow logs "No reels to send" and skips the email.

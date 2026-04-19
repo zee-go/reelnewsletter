@@ -2,8 +2,8 @@ name: newsletter
 
 on:
   schedule:
-    # Mondays 08:00 UTC
-    - cron: "0 8 * * 1"
+    # Fridays 08:00 UTC
+    - cron: "0 8 * * 5"
   workflow_dispatch:
     inputs:
       dry_run:
