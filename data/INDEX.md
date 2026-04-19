@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-8 post(s) archived. Auto-generated from `data/reels/*.json`.
+9 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (2)
 
@@ -15,10 +15,11 @@
 |---|---|---|---|
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (3)
+## Food (4)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-04-19 | Fudgy High-Protein Chocolate Cheesecake | theChefoutWest | [watch](https://www.facebook.com/share/r/1FMe9eAWCx/?mibextid=wwXIfr) |
 | 2026-04-19 | Crispy Lentil Crackers: No Oil, All Crunch | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/18ZmgCkxLy/?mibextid=wwXIfr) |
 | 2026-04-19 | Soak Nuts for the Crispiest Granola Ever | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/1ANWnbqkp5/?mibextid=wwXIfr) |
 | 2026-04-18 | High-Protein Blueberry Cheesecake | Keto Snackz | [watch](https://www.facebook.com/share/r/18k7TN59Xg/?mibextid=wwXIfr) |
