@@ -1,11 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Search · Reel Archive{% endblock %}
+{% block title %}Search · Zee Weekly{% endblock %}
 
 {% block content %}
-<h1>Search</h1>
-<p class="intro">Full-text search across every post's title, summary, key points, and transcript.</p>
+<p class="page-date">Full-text</p>
+<h1 class="page-h1">Search</h1>
+<p class="intro">Search every post's title, summary, key points, and transcript.</p>
 
-<div class="search-wrap">
+<div style="margin: 32px 0 40px;">
   <div id="search"></div>
 </div>
 
@@ -20,7 +21,7 @@
       });
     } else {
       document.getElementById('search').innerHTML =
-        '<p style="color:var(--text-soft)">Search index not built yet. Come back after the next deploy.</p>';
+        '<p style="color:var(--ink-dim); font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase;">Search index not built yet. Come back after the next deploy.</p>';
     }
   });
 </script>

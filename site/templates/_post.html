@@ -1,6 +1,21 @@
-<article class="post{% if r.recipe %} recipe{% endif %}" data-pagefind-meta="tag:{{ r.tag }}">
+{#
+  Magazine card — matches the design's CardMag component.
+  Expected vars: r (reel record), loop.index0 (for lead/alternating), layout_ctx (optional)
+  The enclosing template supplies `idx` (0-based) via Jinja loop.
+#}
+{% set _cat = r.tag or 'other' %}
+{% set _is_lead = (idx == 0) %}
+{% set _is_tinted = (idx % 2 == 0) %}
+<article class="mag-card cat-{{ _cat }}{% if _is_lead %} lead{% endif %}{% if _is_tinted %} fill-tinted{% endif %}{% if r.recipe %} recipe{% endif %}"
+         data-pagefind-meta="tag:{{ _cat }}">
+  <header class="mag-head">
+    <span class="cat-label">{{ _cat.upper() }}{% if r.platform %} · {{ r.platform.upper() }}{% endif %}</span>
+    <span class="idx">{{ '%02d' % (idx + 1) }}{% if r.duration_s %} · {{ r.duration_s | round | int }}s{% endif %}</span>
+  </header>
+
   <h3><a href="{{ url('reel', shortcode=r.shortcode) }}">{{ r.title or r.one_liner }}</a></h3>
-  <p class="lead">{{ r.one_liner }}</p>
+
+  <p class="mag-lead-text">{{ r.one_liner }}</p>
 
   {% if r.recipe %}
     {% if r.recipe.prep_time or r.recipe.servings %}
@@ -12,25 +27,27 @@
     {% endif %}
     {% if r.recipe.ingredients %}
       <p><strong>Ingredients</strong></p>
-      <ul class="ingredients">
-        {% for ing in r.recipe.ingredients %}<li>{{ ing }}</li>{% endfor %}
-      </ul>
+      <ul>{% for ing in r.recipe.ingredients %}<li>{{ ing }}</li>{% endfor %}</ul>
     {% endif %}
     {% if r.recipe.instructions %}
       <p><strong>Instructions</strong></p>
-      <ol class="steps">
-        {% for step in r.recipe.instructions %}<li>{{ step }}</li>{% endfor %}
-      </ol>
+      <ol>{% for step in r.recipe.instructions %}<li>{{ step }}</li>{% endfor %}</ol>
     {% endif %}
   {% elif r.key_points %}
-    <ul>
-      {% for kp in r.key_points %}<li>{{ kp }}</li>{% endfor %}
-    </ul>
+    <ul>{% for kp in r.key_points %}<li>{{ kp }}</li>{% endfor %}</ul>
   {% endif %}
 
-  <p class="meta">
-    <span class="tag-chip">{{ r.tag }}</span>
-    {% if r.author %}by <strong>{{ r.author }}</strong> · {% endif %}
-    <a href="{{ r.url }}" target="_blank" rel="noopener">Watch original →</a>
-  </p>
+  {% if r.author %}
+    <div class="mag-byline">
+      <span class="avatar">{{ r.author[:1] | upper }}</span>
+      <span>By {{ r.author }}</span>
+    </div>
+  {% endif %}
+
+  <div class="mag-actions">
+    <a class="open-link" href="{{ r.url }}" target="_blank" rel="noopener">
+      Open link <span>↗</span>
+    </a>
+    <a class="permalink" href="{{ url('reel', shortcode=r.shortcode) }}">Permalink</a>
+  </div>
 </article>

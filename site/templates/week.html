@@ -1,12 +1,57 @@
 {% extends "base.html" %}
-{% block title %}Week of {{ week.label }} · Reel Archive{% endblock %}
+{% block title %}Issue N°{{ week.issue_num }} — {{ week.label }} · Zee Weekly{% endblock %}
 
 {% block content %}
-<p class="date">Week of {{ week.label }}</p>
-<h1>Weekly digest</h1>
-<p class="intro">{{ week.count }} post{{ 's' if week.count != 1 else '' }} saved this week.</p>
+<section class="hero">
+  <div class="hero-ticker">
+    <div class="track">
+      {% for _ in range(2) %}
+      <span>
+        <span class="dot">●</span>
+        <span>Week of {{ week.label }}</span>
+        <span class="dim">Issue {{ '%03d' % week.issue_num }}</span>
+        <span class="dot">●</span>
+        <span>{{ week.count }} post{{ 's' if week.count != 1 else '' }}</span>
+      </span>
+      {% endfor %}
+    </div>
+  </div>
 
-{% for r in week.posts %}
-  {% include "_post.html" %}
+  <h1>{{ week.subject or 'Weekly digest' }}</h1>
+  <div class="hero-meta">
+    <span class="accent">Issue {{ '%03d' % week.issue_num }}</span>
+    <span>{{ week.label }}</span>
+    <span>{{ week.count }} post{{ 's' if week.count != 1 else '' }}</span>
+  </div>
+</section>
+
+{% if week.sections %}
+<div class="cat-filter">
+  <span class="prefix">Jump to:</span>
+  {% for s in week.sections %}
+    <a class="{{ s.slug }}" href="#cat-{{ s.slug }}">{{ s.label }}</a>
+  {% endfor %}
+</div>
+
+{% for section in week.sections %}
+  <section class="section cat-{{ section.slug }}" id="cat-{{ section.slug }}">
+    <header class="section-head">
+      <div>
+        <div class="rule"></div>
+        <h2>{{ section.label }}</h2>
+      </div>
+      <div class="right">
+        <div class="count">{{ section.posts | length }} piece{{ 's' if section.posts | length != 1 else '' }}</div>
+        <p class="blurb">{{ section.blurb }}</p>
+      </div>
+    </header>
+    <div class="mag-grid">
+      {% for r in section.posts %}
+        {% set idx = loop.index0 %}
+        {% include "_post.html" %}
+      {% endfor %}
+    </div>
+  </section>
 {% endfor %}
+{% endif %}
 {% endblock %}

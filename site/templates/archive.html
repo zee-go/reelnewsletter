@@ -1,14 +1,17 @@
 {% extends "base.html" %}
-{% block title %}Archive · Reel Archive{% endblock %}
+{% block title %}Archive · Zee Weekly{% endblock %}
 
 {% block content %}
-<h1>Archive</h1>
-<p class="intro">Every weekly digest, plus a direct link to the posts of each week.</p>
+<p class="page-date">All issues</p>
+<h1 class="page-h1">Archive</h1>
+<p class="intro">Every weekly digest since this began. Click through to read an issue.</p>
 
 <ul class="week-list">
   {% for w in weeks %}
     <li>
-      <a href="{{ url('week', week=w.id) }}">Week of {{ w.label }}</a>
+      <a href="{{ url('week', week=w.id) }}">
+        Issue N°{{ '%03d' % w.issue_num }} &nbsp;—&nbsp; Week of {{ w.label }}
+      </a>
       <span class="count">{{ w.count }} post{{ 's' if w.count != 1 else '' }}</span>
     </li>
   {% else %}

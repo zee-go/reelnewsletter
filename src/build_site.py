@@ -6,6 +6,7 @@ import os
 import shutil
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -22,6 +23,14 @@ TAG_ORDER = ["ai", "investment", "politics", "psychology", "food", "other"]
 TAG_LABELS = {
     "ai": "AI", "investment": "Investment", "politics": "Politics",
     "psychology": "Psychology", "food": "Food", "other": "Other",
+}
+TAG_BLURBS = {
+    "ai": "What shipped, what broke, what's worth your attention.",
+    "investment": "Markets, macro, personal finance, and the art of not setting money on fire.",
+    "politics": "Policy, geopolitics, and the chessboard nobody asked for.",
+    "psychology": "Small experiments on the mushy machine between your ears.",
+    "food": "Recipes worth stealing and meals worth remembering.",
+    "other": "Everything else that earned a spot this week.",
 }
 
 
@@ -45,10 +54,20 @@ def static(path: str) -> str:
     return f"{BASE_PATH}{path.lstrip('/')}"
 
 
+def _platform(url: str) -> str:
+    host = urlparse(url or "").netloc.lower().removeprefix("www.").removeprefix("m.")
+    if "instagram" in host:
+        return "instagram"
+    if "facebook" in host or "fb.watch" in host:
+        return "facebook"
+    return ""
+
+
 def _load_records() -> list[dict]:
     records = []
     for p in sorted(REELS_DIR.glob("*.json")):
         rec = json.loads(p.read_text())
+        rec["platform"] = _platform(rec.get("url", ""))
         records.append(rec)
     records.sort(key=lambda r: r.get("received_at", ""), reverse=True)
     return records
@@ -79,6 +98,24 @@ def _tag_stats(records: list[dict]) -> list[dict]:
     ]
 
 
+def _sections_for(records: list[dict]) -> list[dict]:
+    """Group records by tag into ordered section dicts suitable for the magazine layout."""
+    buckets: dict[str, list[dict]] = {t: [] for t in TAG_ORDER}
+    for r in records:
+        buckets[r.get("tag") or "other"].append(r)
+    return [
+        {
+            "slug": t,
+            "label": TAG_LABELS[t],
+            "blurb": TAG_BLURBS[t],
+            "count": len(buckets[t]),
+            "posts": buckets[t],
+        }
+        for t in TAG_ORDER
+        if buckets[t]
+    ]
+
+
 def _week_stats(records: list[dict]) -> list[dict]:
     buckets: dict[str, list[dict]] = {}
     for r in records:
@@ -86,10 +123,54 @@ def _week_stats(records: list[dict]) -> list[dict]:
             continue
         k = _week_key(r["received_at"])
         buckets.setdefault(k, []).append(r)
-    return [
-        {"id": k, "label": _format_week_label(k), "count": len(v), "posts": v}
-        for k, v in sorted(buckets.items(), reverse=True)
-    ]
+    # Sorted oldest-first for issue numbering, then we reverse for display.
+    sorted_keys = sorted(buckets.keys())
+    weeks = []
+    for i, k in enumerate(sorted_keys, start=1):
+        posts = sorted(buckets[k], key=lambda r: r.get("received_at", ""), reverse=True)
+        weeks.append({
+            "id": k,
+            "label": _format_week_label(k),
+            "count": len(posts),
+            "posts": posts,
+            "issue_num": i,
+            "sections": _sections_for(posts),
+            "subject": _derive_subject(posts),
+        })
+    return list(reversed(weeks))
+
+
+def _derive_subject(posts: list[dict]) -> str:
+    if not posts:
+        return "Weekly digest"
+    # Use the highest-ranked (lead) post's title as the issue subject
+    return posts[0].get("title") or posts[0].get("one_liner") or "Weekly digest"
+
+
+def _derive_letter(total_posts: int, tags: list[dict], latest_week: dict | None) -> str:
+    if total_posts == 0:
+        return ("Nothing in the archive yet. Forward a reel to the bot and it'll land here — "
+                "transcribed, tagged, and distilled into Friday's digest.")
+    topic_bits = ", ".join(t["label"] for t in tags[:-1])
+    if len(tags) > 1:
+        topic_bits += f" and {tags[-1]['label']}"
+    elif tags:
+        topic_bits = tags[0]["label"]
+    latest_bit = ""
+    if latest_week:
+        latest_bit = f" This week leans {latest_week['sections'][0]['label'].lower()}."
+    return (
+        f"Welcome to the archive. {total_posts} posts saved and counting, across "
+        f"{topic_bits}. Everything here started as a reel in my feed, got pulled into "
+        f"a Telegram bot, transcribed, and sorted.{latest_bit} Skim by category, browse by week, "
+        f"or use search to hunt a specific take."
+    )
+
+
+def _derive_hero_title(latest_week: dict | None) -> str:
+    if not latest_week:
+        return "The reels, rewound."
+    return latest_week["subject"]
 
 
 def _write(path: Path, html: str) -> None:
@@ -114,18 +195,28 @@ def build() -> None:
     )
     env.globals.update(url=url_for, static=static)
 
+    latest_week = weeks[0] if weeks else None
     shared = {
         "tags": tags,
         "total_posts": len(records),
+        "latest_issue_num": latest_week["issue_num"] if latest_week else 1,
+        "latest_issue_date": latest_week["label"] if latest_week else "",
+        "current_week_label": f"Week of {latest_week['label']}" if latest_week else None,
     }
 
     # Home
+    home_sections = _sections_for(
+        (latest_week["posts"] if latest_week else records[:10])
+    )
     _write(
         DIST / "index.html",
         env.get_template("home.html").render(
             page="home",
-            recent=records[:10],
-            weeks=weeks[:6],
+            sections_on_home=home_sections,
+            weeks=weeks,
+            hero_title=_derive_hero_title(latest_week),
+            letter=_derive_letter(len(records), tags, latest_week),
+            signoff="That's the week. — Z",
             **shared,
         ),
     )
@@ -155,6 +246,7 @@ def build() -> None:
                 page="tag",
                 active_tag=tag["slug"],
                 label=tag["label"],
+                blurb=TAG_BLURBS[tag["slug"]],
                 posts=tag_posts,
                 **shared,
             ),

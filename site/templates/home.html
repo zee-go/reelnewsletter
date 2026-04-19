@@ -1,31 +1,105 @@
 {% extends "base.html" %}
-{% block title %}Reel Archive{% endblock %}
+{% block title %}Zee Weekly — Issue N°{{ latest_issue_num }}{% endblock %}
 
 {% block content %}
+{# ── Hero (Ticker style from design) ── #}
 <section class="hero">
-  <h1>Reels, decoded.</h1>
-  <p>A searchable archive of every short-form post we saved, tagged, transcribed, and distilled into the weekly digest. Pick a topic below or search for anything.</p>
+  <div class="hero-ticker">
+    <div class="track">
+      {% for _ in range(2) %}
+      <span>
+        {% for t in tags %}
+          <span class="dot">●</span>
+          <span>{{ t.label }}</span>
+          <span class="dim">{{ t.count }} post{{ 's' if t.count != 1 else '' }}</span>
+        {% endfor %}
+        <span class="dot">●</span>
+        <span>Zee Weekly</span>
+        <span class="dim">Issue {{ '%03d' % latest_issue_num }}</span>
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <h1>{{ hero_title }}</h1>
+  <div class="hero-meta">
+    <span class="accent">Issue {{ '%03d' % latest_issue_num }}</span>
+    <span>{{ latest_issue_date }}</span>
+    <span>{{ total_posts }} posts archived</span>
+    <span>{{ tags | length }} categories</span>
+  </div>
 </section>
 
-<div class="tag-grid">
-  {% for tag in tags %}
-    <a href="{{ url('tag', tag=tag.slug) }}">{{ tag.label }} <span class="count">{{ tag.count }}</span></a>
+{# ── Editor's letter ── #}
+<div class="letter">
+  <div>
+    <div class="letter-label">From the desk of Zee</div>
+    <div class="letter-avatar">Z</div>
+  </div>
+  <p class="letter-body">{{ letter }}</p>
+</div>
+
+{# ── Category filter pills ── #}
+<div class="cat-filter">
+  <span class="prefix">Jump to:</span>
+  <a class="all active" href="{{ url('index') }}">All</a>
+  {% for t in tags %}
+    <a class="{{ t.slug }}" href="{{ url('tag', tag=t.slug) }}">{{ t.label }}</a>
   {% endfor %}
 </div>
 
-{% if recent %}
-<h2>Recently saved</h2>
-{% for r in recent %}
-  {% include "_post.html" %}
+{# ── Sections: one per category with recent posts ── #}
+{% for section in sections_on_home %}
+  <section class="section cat-{{ section.slug }}" id="cat-{{ section.slug }}">
+    <header class="section-head">
+      <div>
+        <div class="rule"></div>
+        <h2>{{ section.label }}</h2>
+      </div>
+      <div class="right">
+        <div class="count">{{ section.count }} piece{{ 's' if section.count != 1 else '' }}</div>
+        <p class="blurb">{{ section.blurb }}</p>
+      </div>
+    </header>
+    <div class="mag-grid">
+      {% for r in section.posts %}
+        {% set idx = loop.index0 %}
+        {% include "_post.html" %}
+      {% endfor %}
+    </div>
+  </section>
 {% endfor %}
-{% endif %}
 
+{# ── Signoff ── #}
+<div class="signoff">
+  <div class="label">Signoff</div>
+  <p>{{ signoff }}</p>
+</div>
+
+{# ── Archive preview ── #}
 {% if weeks %}
-<h2>Weekly digests</h2>
-<ul class="week-list">
-  {% for w in weeks %}
-    <li><a href="{{ url('week', week=w.id) }}">Week of {{ w.label }}</a><span class="count">{{ w.count }} posts</span></li>
-  {% endfor %}
-</ul>
+<section class="section">
+  <header class="section-head">
+    <div>
+      <div class="rule" style="background: var(--ink);"></div>
+      <h2>Weekly archive</h2>
+    </div>
+    <div class="right">
+      <div class="count">{{ weeks | length }} week{{ 's' if weeks|length != 1 else '' }}</div>
+      <p class="blurb">Every issue since this started.</p>
+    </div>
+  </header>
+  <ul class="week-list">
+    {% for w in weeks[:8] %}
+      <li>
+        <a href="{{ url('week', week=w.id) }}">Week of {{ w.label }}</a>
+        <span class="count">{{ w.count }} post{{ 's' if w.count != 1 else '' }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+  {% if weeks | length > 8 %}
+    <p style="margin-top: 18px;"><a href="{{ url('archive') }}" class="pill-btn">See all issues →</a></p>
+  {% endif %}
+</section>
 {% endif %}
 {% endblock %}

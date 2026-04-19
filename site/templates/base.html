@@ -1,39 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{% block title %}Reel Archive{% endblock %}</title>
+<title>{% block title %}Zee Weekly — your weekly dose of content curated by Zee{% endblock %}</title>
+<meta name="description" content="{% block description %}A searchable archive of reels and posts distilled into a weekly digest by Zee.{% endblock %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ static('styles.css') }}">
 <link rel="stylesheet" href="{{ static('pagefind/pagefind-ui.css') }}" onerror="this.remove()">
 <script src="{{ static('pagefind/pagefind-ui.js') }}" defer onerror="this.remove()"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-  <header class="site-header">
-    <a class="brand" href="{{ url('index') }}">Reel Archive</a>
-    <span class="tagline">Weekly digest · AI · Investment · Politics · Psychology · Food</span>
-  </header>
 
-  <nav class="site-nav">
-    <a href="{{ url('index') }}"{% if page == 'home' %} class="active"{% endif %}>Home</a>
-    <a href="{{ url('archive') }}"{% if page == 'archive' %} class="active"{% endif %}>Archive</a>
-    {% for tag in tags %}
-      <a href="{{ url('tag', tag=tag.slug) }}"{% if page == 'tag' and active_tag == tag.slug %} class="active"{% endif %}>{{ tag.label }}</a>
-    {% endfor %}
-    <a href="{{ url('search') }}"{% if page == 'search' %} class="active"{% endif %}>Search</a>
-  </nav>
+<header class="masthead">
+  <div class="container masthead-grid">
+    <div class="mast-left">
+      <span class="live">●</span>&nbsp; Live · {{ total_posts }} post{{ 's' if total_posts != 1 else '' }} archived
+    </div>
+    <a class="mast-brand" href="{{ url('index') }}">Zee Weekly</a>
+    <nav class="mast-nav">
+      <a href="{{ url('archive') }}"{% if page == 'archive' %} class="active"{% endif %}>Archive</a>
+      <a href="{{ url('search') }}"{% if page == 'search' %} class="active"{% endif %}>Search</a>
+      <a href="#subscribe">Subscribe</a>
+    </nav>
+  </div>
+</header>
 
-  <main data-pagefind-body>
-    {% block content %}{% endblock %}
-  </main>
-
-  <footer class="site-footer">
-    {{ total_posts }} posts archived · <a href="https://github.com/zee-go/reelnewsletter">Source</a>
-  </footer>
+<div class="container subnav">
+  <div class="tagline">Your weekly dose of content curated by Zee.</div>
+  <a class="pill-btn" href="{{ url('archive') }}">
+    <span class="diamond">◆</span>
+    {% if current_week_label %}{{ current_week_label }}{% else %}All issues{% endif %}
+  </a>
 </div>
+
+<main class="container" data-pagefind-body>
+  {% block content %}{% endblock %}
+</main>
+
+<section class="subscribe" id="subscribe">
+  <div class="container">
+    <div class="kicker">Every Friday, 08:00 UTC</div>
+    <h2>The week, curated. Delivered before your weekend.</h2>
+    <p class="lede">One email. Six categories. Zero filler. Unsubscribe in one click whenever the vibes shift.</p>
+    <form action="mailto:zee@resourcematch.ph" method="post" enctype="text/plain" onsubmit="this.querySelector('button').textContent='On it ✓'; setTimeout(()=>this.querySelector('button').textContent='Subscribe →', 2400);">
+      <input type="email" name="email" placeholder="you@somewhere.com" required>
+      <button type="submit">Subscribe →</button>
+    </form>
+    <div class="tiny">Joined by 1 reader (so far). No sponsors. No spam.</div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container row">
+    <div>© 2026 Zee Weekly · Curated by Zee</div>
+    <div style="display:flex; gap:20px;">
+      <a href="https://t.me/Reelnewsletter_bot" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://github.com/zee-go/reelnewsletter" target="_blank" rel="noopener">Source</a>
+      <a href="{{ url('archive') }}">Archive</a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
