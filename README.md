@@ -1,5 +1,7 @@
 # Reel Newsletter Bot
 
+> Two companion docs: [MASTER.md](MASTER.md) for architecture + operations, [ZEEWEEKLY.md](ZEEWEEKLY.md) for the editorial spec (voice, categories, issue cut, design). This README is the setup guide.
+
 Share Instagram and Facebook posts to a Telegram bot throughout the week — get:
 
 1. **Weekly email digest** every Friday via Resend, grouped by AI / Investment / Politics / Psychology / Food / Other
