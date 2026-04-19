@@ -10,6 +10,10 @@ from urllib.parse import urlparse
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from issue import ISSUE_LIMIT, PRIORITY_TIERS, cut_for_issue  # noqa: F401
+
+THEMES_FILE = Path(__file__).resolve().parent.parent / "data" / "themes.json"
+
 ROOT = Path(__file__).resolve().parent.parent
 REELS_DIR = ROOT / "data" / "reels"
 SITE_DIR = ROOT / "site"
@@ -19,19 +23,27 @@ DIST = SITE_DIR / "_dist"
 
 BASE_PATH = os.environ.get("SITE_BASE_PATH", "/").rstrip("/") + "/"
 
-TAG_ORDER = ["ai", "investment", "politics", "psychology", "food", "other"]
+# Optional Google Form email-capture wiring. If both env vars are set, the site
+# will post subscribe-form submissions to the Form (which auto-appends to its Sheet).
+SUBSCRIBE_FORM_URL = os.environ.get("SUBSCRIBE_FORM_URL", "").strip()
+SUBSCRIBE_FORM_ENTRY = os.environ.get("SUBSCRIBE_FORM_EMAIL_ENTRY", "").strip()
+
+TAG_ORDER = ["ai", "marketing", "investment", "politics", "psychology", "fitness", "food", "other"]
 TAG_LABELS = {
-    "ai": "AI", "investment": "Investment", "politics": "Politics",
-    "psychology": "Psychology", "food": "Food", "other": "Other",
+    "ai": "AI", "marketing": "Marketing", "investment": "Investment", "politics": "Politics",
+    "psychology": "Psychology", "fitness": "Fitness", "food": "Food", "other": "Other",
 }
 TAG_BLURBS = {
-    "ai": "What shipped, what broke, what's worth your attention.",
-    "investment": "Markets, macro, personal finance, and the art of not setting money on fire.",
-    "politics": "Policy, geopolitics, and the chessboard nobody asked for.",
+    "ai": "What shipped, what broke, what's actually worth the hype.",
+    "marketing": "Hooks, pitches, and the quiet psychological heists behind a good campaign.",
+    "investment": "Markets, macro, and the ancient art of not setting money on fire.",
+    "politics": "Policy, power, and the chessboard nobody asked for.",
     "psychology": "Small experiments on the mushy machine between your ears.",
+    "fitness": "Strength, sleep, recovery — the boring stuff that actually works.",
     "food": "Recipes worth stealing and meals worth remembering.",
-    "other": "Everything else that earned a spot this week.",
+    "other": "The stragglers, the oddballs, the couldn't-not-save-this pile.",
 }
+
 
 
 def url_for(name: str, **kwargs) -> str:
@@ -127,15 +139,19 @@ def _week_stats(records: list[dict]) -> list[dict]:
     sorted_keys = sorted(buckets.keys())
     weeks = []
     for i, k in enumerate(sorted_keys, start=1):
-        posts = sorted(buckets[k], key=lambda r: r.get("received_at", ""), reverse=True)
+        all_posts = sorted(buckets[k], key=lambda r: r.get("received_at", ""), reverse=True)
+        issue_posts, backlog_posts = cut_for_issue(all_posts)
         weeks.append({
             "id": k,
             "label": _format_week_label(k),
-            "count": len(posts),
-            "posts": posts,
+            "count": len(issue_posts),
+            "total_count": len(all_posts),
+            "backlog_count": len(backlog_posts),
+            "posts": issue_posts,
+            "backlog": backlog_posts,
             "issue_num": i,
-            "sections": _sections_for(posts),
-            "subject": _derive_subject(posts),
+            "sections": _sections_for(issue_posts),
+            "subject": _derive_subject(issue_posts),
         })
     return list(reversed(weeks))
 
@@ -167,10 +183,49 @@ def _derive_letter(total_posts: int, tags: list[dict], latest_week: dict | None)
     )
 
 
+def _load_themes() -> dict:
+    if THEMES_FILE.exists():
+        try:
+            return json.loads(THEMES_FILE.read_text())
+        except json.JSONDecodeError:
+            return {}
+    return {}
+
+
+def _save_themes(themes: dict) -> None:
+    THEMES_FILE.parent.mkdir(parents=True, exist_ok=True)
+    THEMES_FILE.write_text(json.dumps(themes, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
+
+
+def _week_fingerprint(posts: list[dict]) -> str:
+    """Stable id for a week's post set — used to invalidate cached themes only when posts change."""
+    keys = sorted(p.get("shortcode", "") for p in posts)
+    return str(hash(tuple(keys)))
+
+
+def _resolve_theme(week: dict, themes: dict, generate_if_missing: bool) -> str:
+    """Return the theme headline for a week, generating and caching it on first miss."""
+    wid = week["id"]
+    fp = _week_fingerprint(week["posts"])
+    cached = themes.get(wid)
+    if cached and cached.get("fingerprint") == fp:
+        return cached["headline"]
+    if not generate_if_missing:
+        return week.get("subject") or "Weekly digest"
+    try:
+        from claude_client import compose_week_theme
+        headline = compose_week_theme(week["posts"])
+    except Exception as e:  # noqa: BLE001 — local dev without ANTHROPIC_API_KEY, or network hiccup
+        print(f"  [theme] generation failed ({e}); falling back to lead title.")
+        return week.get("subject") or "Weekly digest"
+    themes[wid] = {"fingerprint": fp, "headline": headline}
+    return headline
+
+
 def _derive_hero_title(latest_week: dict | None) -> str:
     if not latest_week:
         return "The reels, rewound."
-    return latest_week["subject"]
+    return latest_week.get("theme") or latest_week.get("subject") or "Weekly digest"
 
 
 def _write(path: Path, html: str) -> None:
@@ -182,6 +237,12 @@ def build() -> None:
     records = _load_records()
     tags = _tag_stats(records)
     weeks = _week_stats(records)
+    themes = _load_themes()
+
+    # Resolve theme headline per week. Only the latest week can trigger an API call
+    # (older weeks use cache or fall back to subject) — keeps builds cheap and deterministic.
+    for i, w in enumerate(weeks):
+        w["theme"] = _resolve_theme(w, themes, generate_if_missing=(i == 0))
 
     if DIST.exists():
         shutil.rmtree(DIST)
@@ -202,6 +263,8 @@ def build() -> None:
         "latest_issue_num": latest_week["issue_num"] if latest_week else 1,
         "latest_issue_date": latest_week["label"] if latest_week else "",
         "current_week_label": f"Week of {latest_week['label']}" if latest_week else None,
+        "subscribe_form_url": SUBSCRIBE_FORM_URL,
+        "subscribe_form_entry": SUBSCRIBE_FORM_ENTRY,
     }
 
     # Home
@@ -279,6 +342,8 @@ def build() -> None:
 
     # .nojekyll so GH Pages doesn't try to Jekyll-process the output
     (DIST / ".nojekyll").write_text("")
+
+    _save_themes(themes)
 
     print(f"Built {len(records)} posts across {len(tags)} tags and {len(weeks)} weeks.")
     print(f"Output: {DIST}")

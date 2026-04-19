@@ -10,6 +10,7 @@ from pathlib import Path
 import resend
 
 from claude_client import compose_newsletter
+from issue import ISSUE_LIMIT, cut_for_issue
 
 ROOT = Path(__file__).resolve().parent.parent
 REELS_DIR = ROOT / "data" / "reels"
@@ -135,12 +136,20 @@ def main() -> int:
         print("No reels to send. Skipping.", flush=True)
         return 0
 
+    issue_reels, backlog_reels = cut_for_issue(reels)
+    if backlog_reels:
+        print(
+            f"Issue cap is {ISSUE_LIMIT}. Including {len(issue_reels)} by priority; "
+            f"{len(backlog_reels)} deferred to archive-only.",
+            flush=True,
+        )
+
     now = datetime.now(tz=timezone.utc)
     week_label = now.strftime("%B %d, %Y")
     newsletter_id = now.strftime("%Y-%m-%d")
 
     print("Composing newsletter with Claude...", flush=True)
-    body_html = compose_newsletter(reels, week_label)
+    body_html = compose_newsletter(issue_reels, week_label)
     subject = f"Reel digest — week of {week_label}"
 
     full_html = wrap_email(body_html, subject)

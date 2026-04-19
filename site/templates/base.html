@@ -44,14 +44,87 @@
   <div class="container">
     <div class="kicker">Every Friday, 08:00 UTC</div>
     <h2>The week, curated. Delivered before your weekend.</h2>
-    <p class="lede">One email. Six categories. Zero filler. Unsubscribe in one click whenever the vibes shift.</p>
-    <form action="mailto:zee@resourcematch.ph" method="post" enctype="text/plain" onsubmit="this.querySelector('button').textContent='On it ✓'; setTimeout(()=>this.querySelector('button').textContent='Subscribe →', 2400);">
-      <input type="email" name="email" placeholder="you@somewhere.com" required>
+    <p class="lede">One email. Eight categories, capped at ten picks. Zero filler. Unsubscribe in one click whenever the vibes shift.</p>
+    <form class="zw-subscribe-form" data-inline>
+      <input type="email" name="email" placeholder="you@somewhere.com" required autocomplete="email">
       <button type="submit">Subscribe →</button>
     </form>
-    <div class="tiny">Joined by 1 reader (so far). No sponsors. No spam.</div>
+    <div class="tiny">No sponsors. No spam.</div>
   </div>
 </section>
+
+{% if subscribe_form_url and subscribe_form_entry %}
+<div id="zw-popup" class="zw-popup" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="zw-popup-title">
+  <div class="zw-popup-card">
+    <button type="button" class="zw-popup-close" aria-label="Close">×</button>
+    <div class="kicker">Before you go</div>
+    <h2 id="zw-popup-title">Get the Friday digest.</h2>
+    <p class="lede">Ten picks a week. AI and marketing first, the rest when they earn it. Want in?</p>
+    <form class="zw-subscribe-form" data-popup>
+      <input type="email" name="email" placeholder="you@somewhere.com" required autocomplete="email">
+      <button type="submit">Subscribe →</button>
+    </form>
+    <div class="tiny">One email a week. Unsubscribe anytime.</div>
+  </div>
+</div>
+{% endif %}
+
+<script>
+  (function () {
+    var FORM_URL = {{ subscribe_form_url | tojson }};
+    var FORM_ENTRY = {{ subscribe_form_entry | tojson }};
+    var STORAGE_KEY = 'zw_sub_v1';
+
+    function markDone() { try { localStorage.setItem(STORAGE_KEY, '1'); } catch (_) {} }
+    function alreadyDone() { try { return localStorage.getItem(STORAGE_KEY) === '1'; } catch (_) { return false; } }
+
+    function submitEmail(email) {
+      if (!FORM_URL || !FORM_ENTRY) return Promise.resolve();
+      var body = new FormData();
+      body.append(FORM_ENTRY, email);
+      // Google Forms doesn't send CORS headers; no-cors fire-and-forget is fine here.
+      return fetch(FORM_URL, { method: 'POST', mode: 'no-cors', body: body });
+    }
+
+    function wireForm(form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = form.querySelector('button');
+        var input = form.querySelector('input[type=email]');
+        var original = btn.textContent;
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+        submitEmail(input.value).finally(function () {
+          btn.textContent = 'Thanks ✓';
+          input.value = '';
+          markDone();
+          setTimeout(function () {
+            btn.textContent = original;
+            btn.disabled = false;
+            var popup = document.getElementById('zw-popup');
+            if (popup && form.dataset.popup !== undefined) popup.hidden = true;
+          }, 1800);
+        });
+      });
+    }
+
+    document.querySelectorAll('.zw-subscribe-form').forEach(wireForm);
+
+    var popup = document.getElementById('zw-popup');
+    if (popup) {
+      popup.querySelector('.zw-popup-close').addEventListener('click', function () {
+        popup.hidden = true;
+        markDone();
+      });
+      popup.addEventListener('click', function (e) {
+        if (e.target === popup) { popup.hidden = true; markDone(); }
+      });
+      if (!alreadyDone()) {
+        setTimeout(function () { popup.hidden = false; popup.setAttribute('aria-hidden', 'false'); }, 4500);
+      }
+    }
+  })();
+</script>
 
 <footer class="site-footer">
   <div class="container row">

@@ -29,6 +29,10 @@ IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_IMAGES_PER_POST = 5
 MAX_IMAGE_BYTES = 5 * 1024 * 1024
 
+# Whisper is priced per audio-second. Reels are usually <2 min; cap at 10 min
+# to contain worst-case cost when someone forwards a long Facebook upload.
+WHISPER_MAX_AUDIO_SECONDS = 600
+
 URL_RE = re.compile(
     r"https?://(?:www\.|m\.)?"
     r"(?:instagram\.com/(?:reel|reels|p|tv)/[A-Za-z0-9_-]+"
@@ -216,16 +220,21 @@ def download_content(url: str, workdir: Path) -> dict:
     }
 
 
-def extract_audio(video_path: Path, out_path: Path) -> None:
-    subprocess.run(
-        [
-            "ffmpeg", "-y", "-i", str(video_path),
-            "-vn", "-acodec", "mp3", "-ab", "64k",
-            "-loglevel", "error",
-            str(out_path),
-        ],
-        check=True,
-    )
+def extract_audio(video_path: Path, out_path: Path, duration_s: int = 0) -> None:
+    cmd = [
+        "ffmpeg", "-y", "-i", str(video_path),
+        "-vn", "-acodec", "mp3", "-ab", "64k",
+        "-loglevel", "error",
+    ]
+    if duration_s and duration_s > WHISPER_MAX_AUDIO_SECONDS:
+        cmd += ["-t", str(WHISPER_MAX_AUDIO_SECONDS)]
+        print(
+            f"  Source video is {duration_s}s; capping transcript audio at "
+            f"{WHISPER_MAX_AUDIO_SECONDS}s to limit Whisper cost.",
+            flush=True,
+        )
+    cmd.append(str(out_path))
+    subprocess.run(cmd, check=True)
 
 
 def transcribe(audio_path: Path) -> str:
@@ -243,7 +252,7 @@ def process_reel(url: str, received_at: str) -> dict:
         transcript = ""
         if meta["videos"]:
             audio = work / "audio.mp3"
-            extract_audio(meta["videos"][0], audio)
+            extract_audio(meta["videos"][0], audio, duration_s=meta.get("duration_s", 0))
             transcript = transcribe(audio)
 
         # Load images as bytes before tempdir is cleaned up

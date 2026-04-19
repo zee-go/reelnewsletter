@@ -1,16 +1,60 @@
 from __future__ import annotations
 
 import base64
+import io
 from typing import Literal
 
 import anthropic
+from PIL import Image
 from pydantic import BaseModel, Field
 
 from prompts import NEWSLETTER_SYSTEM_PROMPT, TAG_SYSTEM_PROMPT
 
 _client = anthropic.Anthropic()
 
-Tag = Literal["ai", "investment", "politics", "psychology", "food", "other"]
+# Vision-token cost grows with pixel count. Instagram photos are often 2000×2000+;
+# for classification we get the same signal from a 1024px downscale.
+VISION_MAX_DIM = 1024
+VISION_JPEG_QUALITY = 82
+
+
+def _resize_for_vision(data: bytes, media_type: str) -> tuple[bytes, str]:
+    """Downscale + re-encode to keep Vision input cheap. Returns (bytes, media_type)."""
+    try:
+        img = Image.open(io.BytesIO(data))
+        if max(img.size) <= VISION_MAX_DIM and media_type == "image/jpeg":
+            return data, media_type
+        img = img.convert("RGB") if img.mode not in ("RGB", "L") else img
+        img.thumbnail((VISION_MAX_DIM, VISION_MAX_DIM), Image.LANCZOS)
+        buf = io.BytesIO()
+        img.save(buf, format="JPEG", quality=VISION_JPEG_QUALITY, optimize=True)
+        return buf.getvalue(), "image/jpeg"
+    except Exception as e:  # noqa: BLE001 — corrupted image, fall through to original bytes
+        print(f"  [vision] resize failed ({e}); sending original.")
+        return data, media_type
+
+
+def _log_usage(label: str, usage) -> None:
+    """Print token accounting so we can spot silent cache invalidation or cost spikes."""
+    if usage is None:
+        return
+    input_t = getattr(usage, "input_tokens", 0) or 0
+    output_t = getattr(usage, "output_tokens", 0) or 0
+    cache_read = getattr(usage, "cache_read_input_tokens", 0) or 0
+    cache_create = getattr(usage, "cache_creation_input_tokens", 0) or 0
+    cache_note = ""
+    if cache_read or cache_create:
+        billable_in = input_t  # fresh tokens this call, excluding cached
+        cache_note = f" · cache_read={cache_read} cache_create={cache_create}"
+        if cache_read == 0 and cache_create > 0:
+            cache_note += " (MISS — fresh write)"
+        elif cache_read > 0:
+            cache_note += " (HIT)"
+    else:
+        billable_in = input_t
+    print(f"  [usage:{label}] in={billable_in} out={output_t}{cache_note}", flush=True)
+
+Tag = Literal["ai", "marketing", "investment", "politics", "psychology", "fitness", "food", "other"]
 
 
 class Recipe(BaseModel):
@@ -37,6 +81,7 @@ def tag_reel(
     """Tag a post. `images` is a list of (bytes, media_type) tuples for Claude vision."""
     blocks: list[dict] = []
     for data, media_type in images or []:
+        data, media_type = _resize_for_vision(data, media_type)
         blocks.append({
             "type": "image",
             "source": {
@@ -66,7 +111,34 @@ def tag_reel(
         messages=[{"role": "user", "content": blocks}],
         output_format=ReelTag,
     )
+    _log_usage("tag", getattr(response, "usage", None))
     return response.parsed_output
+
+
+def compose_week_theme(posts: list[dict]) -> str:
+    """One-line editorial headline for a week, synthesized from its posts. Uses Haiku for cost."""
+    if not posts:
+        return "The reels, rewound."
+    lines = []
+    for r in posts:
+        tag = r.get("tag", "other")
+        title = (r.get("title") or r.get("one_liner", ""))[:80]
+        lines.append(f"[{tag}] {title}")
+    user = (
+        f"Here are this week's {len(posts)} saved posts:\n\n"
+        + "\n".join(lines)
+        + "\n\nWrite one short editorial headline (6–10 words) that names the dominant theme "
+        "or tension of the week. Be specific, a little witty. No quotes, no trailing period, "
+        "no 'this week' filler — just the headline."
+    )
+    response = _client.messages.create(
+        model="claude-haiku-4-5",
+        max_tokens=80,
+        messages=[{"role": "user", "content": user}],
+    )
+    _log_usage("theme", getattr(response, "usage", None))
+    text = "".join(b.text for b in response.content if b.type == "text").strip()
+    return text.strip('"').strip("'").rstrip(".")
 
 
 def compose_newsletter(reels: list[dict], week_label: str) -> str:
@@ -114,4 +186,5 @@ def compose_newsletter(reels: list[dict], week_label: str) -> str:
     ) as stream:
         final = stream.get_final_message()
 
+    _log_usage("newsletter", getattr(final, "usage", None))
     return "".join(b.text for b in final.content if b.type == "text").strip()

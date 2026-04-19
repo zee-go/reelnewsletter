@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <h1>{{ week.subject or 'Weekly digest' }}</h1>
+  <h1>{{ week.theme or week.subject or 'Weekly digest' }}</h1>
   <div class="hero-meta">
     <span class="accent">Issue {{ '%03d' % week.issue_num }}</span>
     <span>{{ week.label }}</span>
@@ -53,5 +53,26 @@
     </div>
   </section>
 {% endfor %}
+
+{% if week.backlog %}
+<section class="section backlog">
+  <header class="section-head">
+    <div>
+      <div class="rule"></div>
+      <h2>Also saved this week</h2>
+    </div>
+    <div class="right">
+      <div class="count">{{ week.backlog | length }} more</div>
+      <p class="blurb">Overflow past the 10-post issue cap — browsable, but not included in the email digest.</p>
+    </div>
+  </header>
+  <div class="mag-grid">
+    {% for r in week.backlog %}
+      {% set idx = loop.index0 %}
+      {% include "_post.html" %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 {% endif %}
 {% endblock %}

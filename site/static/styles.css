@@ -15,23 +15,29 @@
   /* Wrapper fixed background (from design main.jsx line 72) */
   --wrapper-bg: rgb(255, 253, 252);
 
-  /* Per-category colors (Sorbet-derived, extended to the 6 tags) */
+  /* Per-category colors (Sorbet-derived, extended to the 8 tags) */
   --cat-ai:         #ff6fa5; /* pink */
+  --cat-marketing:  #6aa7f5; /* cornflower blue */
   --cat-investment: #5fcfbc; /* mint */
   --cat-politics:   #f5b84a; /* butter */
   --cat-psychology: #c78fd9; /* lavender */
+  --cat-fitness:    #7dc87a; /* matcha green */
   --cat-food:       #ff9b7a; /* coral peach */
   --cat-other:      #a89f8f; /* warm grey */
 
   /* Category tints (14% alpha) and rule tints (35%) — matches resolveCardStyle */
   --cat-ai-tint:         rgba(255, 111, 165, 0.14);
   --cat-ai-rule:         rgba(255, 111, 165, 0.35);
+  --cat-marketing-tint:  rgba(106, 167, 245, 0.14);
+  --cat-marketing-rule:  rgba(106, 167, 245, 0.35);
   --cat-investment-tint: rgba(95, 207, 188, 0.14);
   --cat-investment-rule: rgba(95, 207, 188, 0.35);
   --cat-politics-tint:   rgba(245, 184, 74, 0.14);
   --cat-politics-rule:   rgba(245, 184, 74, 0.35);
   --cat-psychology-tint: rgba(199, 143, 217, 0.14);
   --cat-psychology-rule: rgba(199, 143, 217, 0.35);
+  --cat-fitness-tint:    rgba(125, 200, 122, 0.14);
+  --cat-fitness-rule:    rgba(125, 200, 122, 0.35);
   --cat-food-tint:       rgba(255, 155, 122, 0.14);
   --cat-food-rule:       rgba(255, 155, 122, 0.35);
   --cat-other-tint:      rgba(168, 159, 143, 0.14);
@@ -281,9 +287,11 @@ button { font-family: inherit; }
 }
 .cat-filter a.all.active   { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .cat-filter a.ai.active          { background: var(--cat-ai);          color: #fff; border-color: var(--cat-ai); }
+.cat-filter a.marketing.active   { background: var(--cat-marketing);   color: #fff; border-color: var(--cat-marketing); }
 .cat-filter a.investment.active  { background: var(--cat-investment);  color: #fff; border-color: var(--cat-investment); }
 .cat-filter a.politics.active    { background: var(--cat-politics);    color: var(--ink); border-color: var(--cat-politics); }
 .cat-filter a.psychology.active  { background: var(--cat-psychology);  color: #fff; border-color: var(--cat-psychology); }
+.cat-filter a.fitness.active     { background: var(--cat-fitness);     color: var(--ink); border-color: var(--cat-fitness); }
 .cat-filter a.food.active        { background: var(--cat-food);        color: var(--ink); border-color: var(--cat-food); }
 .cat-filter a.other.active       { background: var(--cat-other);       color: #fff; border-color: var(--cat-other); }
 
@@ -337,9 +345,11 @@ button { font-family: inherit; }
 
 /* ── Per-category section accent rule colors ─────────────── */
 .cat-ai         .rule { background: var(--cat-ai); }
+.cat-marketing  .rule { background: var(--cat-marketing); }
 .cat-investment .rule { background: var(--cat-investment); }
 .cat-politics   .rule { background: var(--cat-politics); }
 .cat-psychology .rule { background: var(--cat-psychology); }
+.cat-fitness    .rule { background: var(--cat-fitness); }
 .cat-food       .rule { background: var(--cat-food); }
 .cat-other      .rule { background: var(--cat-other); }
 
@@ -376,17 +386,21 @@ button { font-family: inherit; }
 
 /* Per-category top border */
 .mag-card.cat-ai         { border-top-color: var(--cat-ai); }
+.mag-card.cat-marketing  { border-top-color: var(--cat-marketing); }
 .mag-card.cat-investment { border-top-color: var(--cat-investment); }
 .mag-card.cat-politics   { border-top-color: var(--cat-politics); }
 .mag-card.cat-psychology { border-top-color: var(--cat-psychology); }
+.mag-card.cat-fitness    { border-top-color: var(--cat-fitness); }
 .mag-card.cat-food       { border-top-color: var(--cat-food); }
 .mag-card.cat-other      { border-top-color: var(--cat-other); }
 
 /* Alternating card fill — idx-even tints, idx-odd is neutral (matches resolveCardStyle alternating) */
 .mag-card.fill-tinted.cat-ai         { background: var(--cat-ai-tint);          border-color: var(--cat-ai-rule); }
+.mag-card.fill-tinted.cat-marketing  { background: var(--cat-marketing-tint);   border-color: var(--cat-marketing-rule); }
 .mag-card.fill-tinted.cat-investment { background: var(--cat-investment-tint);  border-color: var(--cat-investment-rule); }
 .mag-card.fill-tinted.cat-politics   { background: var(--cat-politics-tint);    border-color: var(--cat-politics-rule); }
 .mag-card.fill-tinted.cat-psychology { background: var(--cat-psychology-tint);  border-color: var(--cat-psychology-rule); }
+.mag-card.fill-tinted.cat-fitness    { background: var(--cat-fitness-tint);     border-color: var(--cat-fitness-rule); }
 .mag-card.fill-tinted.cat-food       { background: var(--cat-food-tint);        border-color: var(--cat-food-rule); }
 .mag-card.fill-tinted.cat-other      { background: var(--cat-other-tint);       border-color: var(--cat-other-rule); }
 
@@ -414,9 +428,11 @@ button { font-family: inherit; }
 
 /* Per-category cat-label color */
 .mag-card.cat-ai         .cat-label { color: var(--cat-ai); }
+.mag-card.cat-marketing  .cat-label { color: var(--cat-marketing); }
 .mag-card.cat-investment .cat-label { color: var(--cat-investment); }
 .mag-card.cat-politics   .cat-label { color: var(--cat-politics); }
 .mag-card.cat-psychology .cat-label { color: var(--cat-psychology); }
+.mag-card.cat-fitness    .cat-label { color: var(--cat-fitness); }
 .mag-card.cat-food       .cat-label { color: var(--cat-food); }
 .mag-card.cat-other      .cat-label { color: var(--cat-other); }
 
@@ -495,9 +511,11 @@ button { font-family: inherit; }
   font-family: var(--font-display);
 }
 .mag-card.cat-ai         .mag-byline .avatar { background: var(--cat-ai); }
+.mag-card.cat-marketing  .mag-byline .avatar { background: var(--cat-marketing); }
 .mag-card.cat-investment .mag-byline .avatar { background: var(--cat-investment); }
 .mag-card.cat-politics   .mag-byline .avatar { background: var(--cat-politics); color: var(--ink); }
 .mag-card.cat-psychology .mag-byline .avatar { background: var(--cat-psychology); }
+.mag-card.cat-fitness    .mag-byline .avatar { background: var(--cat-fitness); color: var(--ink); }
 .mag-card.cat-food       .mag-byline .avatar { background: var(--cat-food); color: var(--ink); }
 .mag-card.cat-other      .mag-byline .avatar { background: var(--cat-other); }
 
@@ -522,9 +540,11 @@ button { font-family: inherit; }
   gap: 6px;
 }
 .mag-card.cat-ai         .open-link { color: var(--cat-ai); }
+.mag-card.cat-marketing  .open-link { color: var(--cat-marketing); }
 .mag-card.cat-investment .open-link { color: var(--cat-investment); }
 .mag-card.cat-politics   .open-link { color: var(--cat-politics); }
 .mag-card.cat-psychology .open-link { color: var(--cat-psychology); }
+.mag-card.cat-fitness    .open-link { color: var(--cat-fitness); }
 .mag-card.cat-food       .open-link { color: var(--cat-food); }
 .mag-card.cat-other      .open-link { color: var(--cat-other); }
 .mag-actions .permalink {
@@ -786,3 +806,54 @@ h1.page-h1 {
   text-transform: uppercase;
   margin: 40px 0 6px;
 }
+
+/* Email-capture popup */
+.zw-popup {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(11, 31, 58, 0.55);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; animation: zw-fade 0.25s ease;
+}
+.zw-popup[hidden] { display: none; }
+@keyframes zw-fade { from { opacity: 0 } to { opacity: 1 } }
+.zw-popup-card {
+  position: relative;
+  max-width: 460px; width: 100%;
+  background: var(--wrapper-bg);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  padding: 36px 32px 28px;
+  box-shadow: 0 20px 60px rgba(11, 31, 58, 0.25);
+  animation: zw-pop 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+@keyframes zw-pop { from { transform: translateY(12px) scale(0.98); opacity: 0 } to { transform: none; opacity: 1 } }
+.zw-popup-card .kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 6px; }
+.zw-popup-card h2 { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 10px; }
+.zw-popup-card .lede { color: var(--ink-dim); margin: 0 0 18px; font-size: 15px; }
+.zw-popup-card .tiny { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); margin-top: 12px; }
+.zw-popup-close {
+  position: absolute; top: 10px; right: 12px;
+  background: none; border: none;
+  font-size: 24px; line-height: 1; cursor: pointer;
+  color: var(--ink-mute); padding: 4px 8px; border-radius: 6px;
+}
+.zw-popup-close:hover { color: var(--ink); background: rgba(0,0,0,0.05); }
+
+/* Shared subscribe-form styling (inline + popup) */
+.zw-subscribe-form { display: flex; gap: 8px; flex-wrap: wrap; }
+.zw-subscribe-form input[type=email] {
+  flex: 1; min-width: 200px;
+  padding: 11px 14px; font-size: 15px;
+  border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+  font-family: var(--font-body); background: #fff;
+}
+.zw-subscribe-form input[type=email]:focus { outline: 2px solid var(--cat-ai); outline-offset: 1px; }
+.zw-subscribe-form button {
+  padding: 11px 18px; font-size: 14px; font-weight: 600;
+  font-family: var(--font-mono); letter-spacing: 0.04em;
+  background: var(--ink); color: var(--bg);
+  border: none; border-radius: 8px; cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.zw-subscribe-form button:hover:not(:disabled) { background: var(--cat-ai); transform: translateY(-1px); }
+.zw-subscribe-form button:disabled { opacity: 0.7; cursor: default; }
