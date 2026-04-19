@@ -137,9 +137,11 @@ The Sheet is the list. When you want to broadcast, export the email column into 
 | Palette | Sorbet — cream background `#FFFDFC`, navy ink `#0B1F3A` |
 | Per-category color | Pink (AI), cornflower blue (Marketing), mint (Investment), butter (Politics), lavender (Psychology), matcha (Fitness), coral (Food), warm grey (Other) |
 | Card grid | Magazine layout — lead post spans full width, runners-up alternate tinted fills |
-| Email shell | Charter/Iowan serif stack, single-column, yellow accent rules |
+| Email shell | Same palette, fonts, and per-category accents as the site. Single column, 640px max, Fraunces masthead over `Zee Weekly · Issue N° NNN`, theme headline as h1, per-category card accents mirror `--cat-X`. Defined in `src/newsletter.py::EMAIL_CSS`. |
+| Email subject | `{theme} · Zee Weekly` — theme leads the inbox preview; brand reassures at the end. Fallback: `Zee Weekly · Issue N° NNN`. |
+| Email sender | `Zee Weekly <onboarding@resend.dev>` until a verified domain is configured. |
 
-All of this lives in `site/static/styles.css` (variables in the `:root` block at the top). Don't hand-code hex values inline — reference the variables.
+All of this lives in `site/static/styles.css` (variables in the `:root` block at the top). Don't hand-code hex values inline — reference the variables. The email CSS is a standalone string inside `src/newsletter.py` — duplication on purpose, because mail clients can't load remote stylesheets.
 
 ---
 
