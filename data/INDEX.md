@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-10 post(s) archived. Auto-generated from `data/reels/*.json`.
+12 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (2)
 
@@ -16,10 +16,11 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (4)
+## Food (5)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-04-21 | Napa Soup Dumpling Lasagna Recipe | Chris Lee | [watch](https://www.facebook.com/share/r/1B7dyEzjtb/?mibextid=wwXIfr) |
 | 2026-04-19 | Fudgy High-Protein Chocolate Cheesecake | theChefoutWest | [watch](https://www.facebook.com/share/r/1FMe9eAWCx/?mibextid=wwXIfr) |
 | 2026-04-19 | Crispy Lentil Crackers: No Oil, All Crunch | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/18ZmgCkxLy/?mibextid=wwXIfr) |
 | 2026-04-19 | Soak Nuts for the Crispiest Granola Ever | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/1ANWnbqkp5/?mibextid=wwXIfr) |
