@@ -58,11 +58,6 @@
         {{ cat_motif(section.slug) }}
         <div class="rule"></div>
         <h2>{{ section.label }}</h2>
-        {% if section.pills %}
-          <div class="section-pills">
-            {% for p in section.pills %}<span class="section-pill">{{ p }}</span>{% endfor %}
-          </div>
-        {% endif %}
       </div>
       <div class="right">
         <div class="count">{{ section.count }} piece{{ 's' if section.count != 1 else '' }}</div>

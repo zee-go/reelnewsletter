@@ -798,33 +798,6 @@ button { font-family: inherit; }
 .section.cat-food       .section-number { color: var(--cat-food); }
 .section.cat-other      .section-number { color: var(--cat-other); }
 
-/* Descriptor pills below h2 — categorical flavor text */
-.section-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 14px;
-}
-.section-pill {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
-  color: var(--ink);
-  background: var(--bg);
-  border: 1px solid var(--rule);
-  border-radius: 999px;
-  padding: 5px 11px;
-}
-.section.cat-ai         .section-pill { background: var(--cat-ai-tint);         border-color: var(--cat-ai-rule); }
-.section.cat-marketing  .section-pill { background: var(--cat-marketing-tint);  border-color: var(--cat-marketing-rule); }
-.section.cat-investment .section-pill { background: var(--cat-investment-tint); border-color: var(--cat-investment-rule); }
-.section.cat-politics   .section-pill { background: var(--cat-politics-tint);   border-color: var(--cat-politics-rule); }
-.section.cat-psychology .section-pill { background: var(--cat-psychology-tint); border-color: var(--cat-psychology-rule); }
-.section.cat-fitness    .section-pill { background: var(--cat-fitness-tint);    border-color: var(--cat-fitness-rule); }
-.section.cat-food       .section-pill { background: var(--cat-food-tint);       border-color: var(--cat-food-rule); }
-.section.cat-other      .section-pill { background: var(--cat-other-tint);      border-color: var(--cat-other-rule); }
-
 /* ─────────────────────────────────────────────────────────── */
 /* Per-category section motifs                                 */
 /* ─────────────────────────────────────────────────────────── */
@@ -986,7 +959,6 @@ button { font-family: inherit; }
   .mag-card { padding: 22px 22px; }
   .cat-motif { height: 72px; margin-bottom: 16px; }
   .section-number { font-size: clamp(56px, 16vw, 96px); margin-top: 24px; }
-  .section-pill { font-size: 9px; padding: 4px 9px; }
 }
 
 /* Intro / archive page headers */
