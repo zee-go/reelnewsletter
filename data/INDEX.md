@@ -1,14 +1,21 @@
 # Reel Archive Index
 
-13 post(s) archived. Auto-generated from `data/reels/*.json`.
+15 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (3)
+## AI (4)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-04-22 | Claude Code Automates Your Entire Content Pipeline | Ohneis - Andries Ohneisser | [watch](https://www.instagram.com/reel/DW1yKfsAoln) |
 | 2026-04-21 | Claude AI Generates On-Brand Emails in One Prompt | Max Sturtevant | [watch](https://www.instagram.com/reel/DXSsRFxCQ0G) |
 | 2026-04-19 | ClaudeFlow: 60 Parallel Agents, 75% Cost Cut | Ajay Yadav | [watch](https://www.instagram.com/reel/DVRGrHmEmXi) |
 | 2026-04-18 | One File Gets Your Business Into ChatGPT | Brycen Wood | [watch](https://www.instagram.com/reel/DWxmSwTDFk2/?igsh=dWFmdzN1emJzdzEw) |
+
+## Investment (1)
+
+| Date | Title | Author | Link |
+|---|---|---|---|
+| 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
 ## Psychology (2)
 
