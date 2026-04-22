@@ -16,11 +16,17 @@
 </div>
 
 <section class="section cat-{{ active_tag }}">
+  <div class="section-number" aria-hidden="true">01</div>
   <header class="section-head">
     <div>
       {{ cat_motif(active_tag) }}
       <div class="rule"></div>
       <h2>{{ label }}</h2>
+      {% if pills %}
+        <div class="section-pills">
+          {% for p in pills %}<span class="section-pill">{{ p }}</span>{% endfor %}
+        </div>
+      {% endif %}
     </div>
     <div class="right">
       <div class="count">{{ posts | length }} piece{{ 's' if posts | length != 1 else '' }}</div>

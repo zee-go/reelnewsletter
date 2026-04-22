@@ -36,11 +36,17 @@
 
 {% for section in week.sections %}
   <section class="section cat-{{ section.slug }}" id="cat-{{ section.slug }}">
+    <div class="section-number" aria-hidden="true">{{ '%02d' % loop.index }}</div>
     <header class="section-head">
       <div>
         {{ cat_motif(section.slug) }}
         <div class="rule"></div>
         <h2>{{ section.label }}</h2>
+        {% if section.pills %}
+          <div class="section-pills">
+            {% for p in section.pills %}<span class="section-pill">{{ p }}</span>{% endfor %}
+          </div>
+        {% endif %}
       </div>
       <div class="right">
         <div class="count">{{ section.posts | length }} piece{{ 's' if section.posts | length != 1 else '' }}</div>

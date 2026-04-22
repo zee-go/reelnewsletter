@@ -44,6 +44,19 @@ TAG_BLURBS = {
     "other": "The stragglers, the oddballs, the couldn't-not-save-this pile.",
 }
 
+# Small pill descriptors shown under each section header — pure flavor,
+# mirrors the infographic inspiration's "collage · craft textures · AI polish".
+TAG_PILLS = {
+    "ai": ["halftone", "automation", "vibe coding"],
+    "marketing": ["hooks", "conversion", "brand"],
+    "investment": ["markets", "macro", "patience"],
+    "politics": ["power", "policy", "regulation"],
+    "psychology": ["habits", "biases", "the mushy machine"],
+    "fitness": ["strength", "sleep", "recovery"],
+    "food": ["recipes", "kitchen craft", "snacks"],
+    "other": ["stragglers", "oddballs", "keepers"],
+}
+
 
 
 def url_for(name: str, **kwargs) -> str:
@@ -120,6 +133,7 @@ def _sections_for(records: list[dict]) -> list[dict]:
             "slug": t,
             "label": TAG_LABELS[t],
             "blurb": TAG_BLURBS[t],
+            "pills": TAG_PILLS.get(t, []),
             "count": len(buckets[t]),
             "posts": buckets[t],
         }
@@ -310,6 +324,7 @@ def build() -> None:
                 active_tag=tag["slug"],
                 label=tag["label"],
                 blurb=TAG_BLURBS[tag["slug"]],
+                pills=TAG_PILLS.get(tag["slug"], []),
                 posts=tag_posts,
                 **shared,
             ),

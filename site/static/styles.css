@@ -763,15 +763,79 @@ button { font-family: inherit; }
 .site-footer a:hover { color: var(--ink); }
 
 /* ─────────────────────────────────────────────────────────── */
+/* Section chrome — numbers, pills, background tints           */
+/* ─────────────────────────────────────────────────────────── */
+.section { position: relative; }
+
+.section.cat-ai         { background: linear-gradient(180deg, var(--cat-ai-tint) 0, transparent 320px); }
+.section.cat-marketing  { background: linear-gradient(180deg, var(--cat-marketing-tint) 0, transparent 320px); }
+.section.cat-investment { background: linear-gradient(180deg, var(--cat-investment-tint) 0, transparent 320px); }
+.section.cat-politics   { background: linear-gradient(180deg, var(--cat-politics-tint) 0, transparent 320px); }
+.section.cat-psychology { background: linear-gradient(180deg, var(--cat-psychology-tint) 0, transparent 320px); }
+.section.cat-fitness    { background: linear-gradient(180deg, var(--cat-fitness-tint) 0, transparent 320px); }
+.section.cat-food       { background: linear-gradient(180deg, var(--cat-food-tint) 0, transparent 320px); }
+.section.cat-other      { background: linear-gradient(180deg, var(--cat-other-tint) 0, transparent 320px); }
+
+/* Oversized italic section number — chapter mark */
+.section-number {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(64px, 10vw, 128px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin: 32px 0 -12px;
+  padding: 0 0 0 6px;
+  display: inline-block;
+}
+.section.cat-ai         .section-number { color: var(--cat-ai); }
+.section.cat-marketing  .section-number { color: var(--cat-marketing); }
+.section.cat-investment .section-number { color: var(--cat-investment); }
+.section.cat-politics   .section-number { color: var(--cat-politics); }
+.section.cat-psychology .section-number { color: var(--cat-psychology); }
+.section.cat-fitness    .section-number { color: var(--cat-fitness); }
+.section.cat-food       .section-number { color: var(--cat-food); }
+.section.cat-other      .section-number { color: var(--cat-other); }
+
+/* Descriptor pills below h2 — categorical flavor text */
+.section-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+.section-pill {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 5px 11px;
+}
+.section.cat-ai         .section-pill { background: var(--cat-ai-tint);         border-color: var(--cat-ai-rule); }
+.section.cat-marketing  .section-pill { background: var(--cat-marketing-tint);  border-color: var(--cat-marketing-rule); }
+.section.cat-investment .section-pill { background: var(--cat-investment-tint); border-color: var(--cat-investment-rule); }
+.section.cat-politics   .section-pill { background: var(--cat-politics-tint);   border-color: var(--cat-politics-rule); }
+.section.cat-psychology .section-pill { background: var(--cat-psychology-tint); border-color: var(--cat-psychology-rule); }
+.section.cat-fitness    .section-pill { background: var(--cat-fitness-tint);    border-color: var(--cat-fitness-rule); }
+.section.cat-food       .section-pill { background: var(--cat-food-tint);       border-color: var(--cat-food-rule); }
+.section.cat-other      .section-pill { background: var(--cat-other-tint);      border-color: var(--cat-other-rule); }
+
+/* ─────────────────────────────────────────────────────────── */
 /* Per-category section motifs                                 */
 /* ─────────────────────────────────────────────────────────── */
 .cat-motif {
-  height: 56px;
-  margin-bottom: 18px;
+  height: 96px;
+  margin-bottom: 22px;
   display: flex;
   align-items: center;
   overflow: hidden;
   position: relative;
+  border-radius: 4px;
 }
 .cat-motif svg {
   height: 100%;
@@ -780,110 +844,132 @@ button { font-family: inherit; }
   display: block;
 }
 
-/* AI — Analog + AI: halftone dot field behind scattered serif sparkles */
+/* AI — halftone dot field + animated serif sparkles + collage scratches */
 .cat-motif-ai {
   color: var(--cat-ai);
   background-image: radial-gradient(
     circle at center,
-    rgba(255, 111, 165, 0.55) 1px,
-    transparent 1.6px
+    rgba(255, 111, 165, 0.55) 1.4px,
+    transparent 2.1px
   );
-  background-size: 9px 9px;
-  background-position: 0 0;
-  padding-left: 4px;
+  background-size: 10px 10px;
+  padding-left: 6px;
 }
-.cat-motif-ai .sparks { filter: drop-shadow(0 1px 0 rgba(255, 111, 165, 0.25)); }
+.cat-motif-ai .m-ai { filter: drop-shadow(0 1px 0 rgba(255, 111, 165, 0.25)); }
+@keyframes zw-sparkle-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.9; }
+  50%      { transform: scale(1.18); opacity: 1;   }
+}
+.cat-motif-ai .spark {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: zw-sparkle-pulse 3.6s ease-in-out infinite;
+}
+.cat-motif-ai .sp2 { animation-delay: 0.4s; }
+.cat-motif-ai .sp3 { animation-delay: 0.9s; }
+.cat-motif-ai .sp4 { animation-delay: 1.4s; }
+.cat-motif-ai .sp5 { animation-delay: 1.9s; }
+.cat-motif-ai .sp6 { animation-delay: 2.4s; }
 
-/* Marketing — Bold shape-driven: flat SVG primitives, no background */
+/* Marketing — bauhaus-ish hard shapes on a grid-lined wash */
 .cat-motif-marketing {
   color: var(--cat-marketing);
-  padding: 2px 0;
-}
-
-/* Investment — Opulent minimalism: soft marble band, hairline gold rule */
-.cat-motif-investment {
   background:
-    linear-gradient(118deg,
-      rgba(95, 207, 188, 0.18) 0%,
-      rgba(255, 253, 252, 0.9) 32%,
-      rgba(95, 207, 188, 0.10) 52%,
-      rgba(255, 253, 252, 0.85) 74%,
-      rgba(95, 207, 188, 0.22) 100%),
-    repeating-linear-gradient(135deg,
-      rgba(95, 207, 188, 0.08) 0 2px,
-      transparent 2px 10px);
-  border-top: 1px solid rgba(95, 207, 188, 0.35);
-  border-bottom: 1px solid rgba(95, 207, 188, 0.35);
-}
-
-/* Politics — Refined grit: SVG fractal noise over butter tint */
-.cat-motif-politics {
-  background-color: rgba(245, 184, 74, 0.16);
-  background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.12  0 0 0 0 0.1  0 0 0 0.55 0'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>");
-  background-size: 180px 180px;
-  border-left: 4px solid var(--cat-politics);
-  padding-left: 14px;
-}
-
-/* Psychology — Motion-first: soft lavender gradient mesh with blurred orb */
-.cat-motif-psychology {
-  background:
-    radial-gradient(circle at 18% 50%, rgba(199, 143, 217, 0.45) 0, transparent 44%),
-    radial-gradient(circle at 62% 30%, rgba(199, 143, 217, 0.28) 0, transparent 52%),
-    radial-gradient(circle at 88% 70%, rgba(255, 155, 122, 0.18) 0, transparent 50%),
-    linear-gradient(90deg, rgba(255, 253, 252, 0.6), rgba(255, 253, 252, 0.9));
-  position: relative;
-}
-.cat-motif-psychology::after {
-  content: "";
-  position: absolute; right: 14px; top: 10px;
-  width: 36px; height: 36px; border-radius: 50%;
-  background: radial-gradient(circle at 32% 32%, #e8d0f0, var(--cat-psychology) 68%);
-  box-shadow: 0 6px 14px rgba(199, 143, 217, 0.4);
-  opacity: 0.9;
-}
-
-/* Fitness — Nature x tech: organic blob on left, clean circuit line on right */
-.cat-motif-fitness {
-  color: var(--cat-fitness);
-  background: linear-gradient(90deg,
-    rgba(125, 200, 122, 0.14) 0%,
-    rgba(255, 253, 252, 0.9) 100%);
+    linear-gradient(90deg, rgba(106, 167, 245, 0.10) 0%, transparent 65%),
+    repeating-linear-gradient(90deg,
+      rgba(106, 167, 245, 0.10) 0 1px,
+      transparent 1px 40px);
   padding: 4px 0;
 }
 
-/* Food — Handmade paper: warm grain texture, imperfect stitched edges */
+/* Investment — opulent marble, slowly shifting sheen */
+.cat-motif-investment {
+  color: var(--cat-investment);
+  background:
+    linear-gradient(118deg,
+      rgba(95, 207, 188, 0.22) 0%,
+      rgba(255, 253, 252, 0.92) 30%,
+      rgba(95, 207, 188, 0.12) 52%,
+      rgba(255, 253, 252, 0.88) 72%,
+      rgba(95, 207, 188, 0.28) 100%),
+    repeating-linear-gradient(135deg,
+      rgba(95, 207, 188, 0.08) 0 2px,
+      transparent 2px 12px);
+  background-size: 220% 100%, 100% 100%;
+  border-top: 1px solid rgba(95, 207, 188, 0.35);
+  border-bottom: 1px solid rgba(95, 207, 188, 0.35);
+  animation: zw-marble-shift 22s ease-in-out infinite alternate;
+}
+@keyframes zw-marble-shift {
+  0%   { background-position: 0% 50%, 0 0; }
+  100% { background-position: 100% 50%, 0 0; }
+}
+
+/* Politics — refined grit: fractal noise over butter tint */
+.cat-motif-politics {
+  color: var(--cat-politics);
+  background-color: rgba(245, 184, 74, 0.22);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.12  0 0 0 0 0.1  0 0 0 0.55 0'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>");
+  background-size: 180px 180px;
+  border-left: 5px solid var(--cat-politics);
+  padding-left: 14px;
+}
+
+/* Psychology — kinetic gradient mesh that subtly drifts */
+.cat-motif-psychology {
+  color: var(--cat-psychology);
+  background:
+    radial-gradient(circle at 18% 50%, rgba(199, 143, 217, 0.45) 0, transparent 44%),
+    radial-gradient(circle at 62% 30%, rgba(199, 143, 217, 0.28) 0, transparent 52%),
+    radial-gradient(circle at 88% 70%, rgba(255, 155, 122, 0.22) 0, transparent 50%),
+    linear-gradient(90deg, rgba(255, 253, 252, 0.55), rgba(255, 253, 252, 0.85));
+  background-size: 140% 140%;
+  animation: zw-mesh-drift 18s ease-in-out infinite alternate;
+}
+@keyframes zw-mesh-drift {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Fitness — organic wash into clean circuit territory */
+.cat-motif-fitness {
+  color: var(--cat-fitness);
+  background: linear-gradient(90deg,
+    rgba(125, 200, 122, 0.22) 0%,
+    rgba(255, 253, 252, 0.92) 75%);
+  padding: 4px 0;
+}
+
+/* Food — paper grain with dashed stitching */
 .cat-motif-food {
-  background-color: rgba(255, 155, 122, 0.10);
+  color: var(--cat-food);
+  background-color: rgba(255, 155, 122, 0.14);
   background-image:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='1' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.95  0 0 0 0 0.55  0 0 0 0 0.45  0 0 0 0.38 0'/></filter><rect width='160' height='160' filter='url(%23p)'/></svg>"),
     repeating-linear-gradient(45deg,
-      rgba(255, 155, 122, 0.04) 0 2px,
-      transparent 2px 5px);
+      rgba(255, 155, 122, 0.05) 0 2px,
+      transparent 2px 6px);
   background-size: 220px 220px, auto;
-  border-top: 1px dashed rgba(255, 155, 122, 0.55);
-  border-bottom: 1px dashed rgba(255, 155, 122, 0.55);
+  border-top: 1px dashed rgba(255, 155, 122, 0.65);
+  border-bottom: 1px dashed rgba(255, 155, 122, 0.65);
 }
 
-/* Other — Quiet luxury: generous whitespace, a single hairline */
+/* Other — quiet but not invisible: centered asterisk + hairlines */
 .cat-motif-other {
-  height: 28px;
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-}
-.cat-motif-other::before {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 1px;
+  color: var(--cat-other);
   background: linear-gradient(90deg,
     transparent 0%,
-    var(--cat-other) 20%,
-    var(--cat-other) 80%,
+    rgba(168, 159, 143, 0.08) 40%,
+    rgba(168, 159, 143, 0.08) 60%,
     transparent 100%);
-  opacity: 0.55;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cat-motif-ai .spark,
+  .cat-motif-investment,
+  .cat-motif-psychology { animation: none; }
 }
 
 /* ─────────────────────────────────────────────────────────── */
@@ -898,9 +984,9 @@ button { font-family: inherit; }
   .mag-grid { grid-template-columns: 1fr; }
   .mag-card.lead { padding: 28px 24px; }
   .mag-card { padding: 22px 22px; }
-  .cat-motif { height: 44px; margin-bottom: 14px; }
-  .cat-motif-other { height: 20px; margin-bottom: 10px; }
-  .cat-motif-psychology::after { width: 28px; height: 28px; right: 10px; top: 8px; }
+  .cat-motif { height: 72px; margin-bottom: 16px; }
+  .section-number { font-size: clamp(56px, 16vw, 96px); margin-top: 24px; }
+  .section-pill { font-size: 9px; padding: 4px 9px; }
 }
 
 /* Intro / archive page headers */
