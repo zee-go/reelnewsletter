@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_cat_motif.html" import cat_motif %}
 {% block title %}{{ label }} · Zee Weekly{% endblock %}
 
 {% block content %}
@@ -17,6 +18,7 @@
 <section class="section cat-{{ active_tag }}">
   <header class="section-head">
     <div>
+      {{ cat_motif(active_tag) }}
       <div class="rule"></div>
       <h2>{{ label }}</h2>
     </div>

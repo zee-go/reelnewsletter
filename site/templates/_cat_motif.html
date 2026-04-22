@@ -1,0 +1,51 @@
+{#
+  Per-category visual motif, decorative only.
+  Renders a <div class="cat-motif cat-motif-{slug}"> which the CSS styles into
+  a distinct visual language for each category (collage/halftone, bold shapes,
+  marble, grain, kinetic mesh, organic blob, paper, quiet minimal).
+  SVG-based motifs (ai, marketing, fitness) emit real shapes inside the div.
+  Pure-CSS motifs (investment, politics, psychology, food, other) leave the
+  div empty and rely on backgrounds + pseudo-elements.
+#}
+{% macro cat_motif(slug) -%}
+<div class="cat-motif cat-motif-{{ slug }}" aria-hidden="true">
+  {%- if slug == 'ai' -%}
+    {# Analog + AI: scattered sparkles over a halftone dot field (bg via CSS). #}
+    <svg viewBox="0 0 240 60" preserveAspectRatio="xMinYMid meet" class="sparks">
+      <g fill="currentColor">
+        <path d="M18 22 L20 32 L30 34 L20 36 L18 46 L16 36 L6 34 L16 32 Z"/>
+        <path d="M58 14 L59.3 20 L65 21.5 L59.3 23 L58 29 L56.7 23 L51 21.5 L56.7 20 Z" opacity="0.65"/>
+        <path d="M98 38 L100.2 46 L108 48 L100.2 50 L98 58 L95.8 50 L88 48 L95.8 46 Z"/>
+        <path d="M148 18 L149 23 L154 24 L149 25 L148 30 L147 25 L142 24 L147 23 Z" opacity="0.55"/>
+        <path d="M196 32 L198.5 41 L207 43 L198.5 45 L196 54 L193.5 45 L185 43 L193.5 41 Z" opacity="0.85"/>
+      </g>
+    </svg>
+  {%- elif slug == 'marketing' -%}
+    {# Bold shape-driven: solid square + outlined circle + dot grid. #}
+    <svg viewBox="0 0 240 60" preserveAspectRatio="xMinYMid meet" class="shapes">
+      <rect x="4" y="10" width="40" height="40" fill="currentColor"/>
+      <circle cx="90" cy="30" r="22" fill="none" stroke="currentColor" stroke-width="3"/>
+      <g fill="currentColor">
+        <circle cx="148" cy="14" r="2.2"/><circle cx="162" cy="14" r="2.2"/><circle cx="176" cy="14" r="2.2"/><circle cx="190" cy="14" r="2.2"/>
+        <circle cx="148" cy="30" r="2.2"/><circle cx="162" cy="30" r="2.2"/><circle cx="176" cy="30" r="2.2"/><circle cx="190" cy="30" r="2.2"/>
+        <circle cx="148" cy="46" r="2.2"/><circle cx="162" cy="46" r="2.2"/><circle cx="176" cy="46" r="2.2"/><circle cx="190" cy="46" r="2.2"/>
+      </g>
+      <rect x="210" y="18" width="24" height="24" fill="currentColor" opacity="0.35"/>
+    </svg>
+  {%- elif slug == 'fitness' -%}
+    {# Nature x tech: organic blob + a clean horizontal circuit-line trace. #}
+    <svg viewBox="0 0 240 60" preserveAspectRatio="xMinYMid meet" class="organic">
+      <path d="M28 12 C58 2 90 6 108 22 C124 38 114 54 82 54 C48 54 18 46 12 32 C8 22 12 14 28 12 Z"
+            fill="currentColor" opacity="0.22"/>
+      <path d="M28 12 C58 2 90 6 108 22 C124 38 114 54 82 54 C48 54 18 46 12 32 C8 22 12 14 28 12 Z"
+            fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="130" y1="30" x2="230" y2="30" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="148" cy="30" r="3" fill="currentColor"/>
+      <circle cx="186" cy="30" r="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="224" cy="30" r="3" fill="currentColor"/>
+      <line x1="166" y1="22" x2="166" y2="38" stroke="currentColor" stroke-width="1.2"/>
+      <line x1="204" y1="22" x2="204" y2="38" stroke="currentColor" stroke-width="1.2"/>
+    </svg>
+  {%- endif -%}
+</div>
+{%- endmacro %}
