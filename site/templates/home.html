@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "_cat_motif.html" import cat_motif %}
+{% from "_bento_icon.html" import bento_icon %}
 {% block title %}Zee Weekly — Issue N°{{ latest_issue_num }}{% endblock %}
 
 {% block content %}
@@ -40,38 +40,81 @@
   <p class="letter-body">{{ letter }}</p>
 </div>
 
-{# ── Category filter pills ── #}
-<div class="cat-filter">
-  <span class="prefix">Jump to:</span>
-  <a class="all active" href="{{ url('index') }}">All</a>
-  {% for t in tags %}
-    <a class="{{ t.slug }}" href="{{ url('tag', tag=t.slug) }}">{{ t.label }}</a>
-  {% endfor %}
-</div>
-
-{# ── Sections: one per category with recent posts ── #}
-{% for section in sections_on_home %}
-  <section class="section cat-{{ section.slug }}" id="cat-{{ section.slug }}">
-    <div class="section-number" aria-hidden="true">{{ '%02d' % loop.index }}</div>
-    <header class="section-head">
-      <div>
-        {{ cat_motif(section.slug) }}
-        <div class="rule"></div>
-        <h2>{{ section.label }}</h2>
-      </div>
-      <div class="right">
-        <div class="count">{{ section.count }} piece{{ 's' if section.count != 1 else '' }}</div>
-        <p class="blurb">{{ section.blurb }}</p>
-      </div>
-    </header>
-    <div class="mag-grid">
-      {% for r in section.posts %}
-        {% set idx = loop.index0 %}
-        {% include "_post.html" %}
-      {% endfor %}
+{# ── Bento top: lead + 2 stacked small cards ── #}
+{% if issue_posts %}
+{% set lead = issue_posts[0] %}
+{% set lead_tag = lead.tag or 'other' %}
+<section class="bento-top">
+  <article class="bento-lead cat-{{ lead_tag }}">
+    <div class="bento-meta">
+      <span class="bento-num">01</span>
+      <span class="bento-cat">{{ lead_tag | upper }}</span>
     </div>
-  </section>
-{% endfor %}
+    <h2><a href="{{ url('reel', shortcode=lead.shortcode) }}">{{ lead.title or lead.one_liner }}</a></h2>
+    {% if lead.one_liner and lead.title %}
+      <p class="bento-lede">{{ lead.one_liner }}</p>
+    {% endif %}
+    {% if lead.key_points %}
+      <ul class="bento-points">
+        {% for pt in lead.key_points[:3] %}<li>{{ pt }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+    {% if lead.author %}
+      <p class="bento-byline">by <strong>@{{ lead.author }}</strong></p>
+    {% endif %}
+    <div class="bento-icon bento-icon-lg">{{ bento_icon(lead_tag) }}</div>
+  </article>
+
+  <div class="bento-top-right">
+    {% for post in issue_posts[1:3] %}
+      {% set t = post.tag or 'other' %}
+      <article class="bento-card cat-{{ t }}">
+        <div class="bento-meta">
+          <span class="bento-num">{{ '%02d' % (loop.index + 1) }}</span>
+          <span class="bento-cat">{{ t | upper }}</span>
+        </div>
+        <h3><a href="{{ url('reel', shortcode=post.shortcode) }}">{{ post.title or post.one_liner }}</a></h3>
+        {% if post.key_points %}
+          <ul class="bento-points">
+            {% for pt in post.key_points[:2] %}<li>{{ pt }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+        <div class="bento-icon">{{ bento_icon(t) }}</div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{# ── Pull quote interstitial ── #}
+{% if pull_quote %}
+<blockquote class="bento-quote cat-{{ pull_quote.tag }}">
+  <p>“{{ pull_quote.text }}”</p>
+  <cite>— {{ pull_quote.attribution }}</cite>
+</blockquote>
+{% endif %}
+
+{# ── Bento grid: remaining posts ── #}
+{% if issue_posts | length > 3 %}
+<section class="bento-grid">
+  {% for post in issue_posts[3:] %}
+    {% set t = post.tag or 'other' %}
+    <article class="bento-card cat-{{ t }}">
+      <div class="bento-meta">
+        <span class="bento-num">{{ '%02d' % (loop.index + 3) }}</span>
+        <span class="bento-cat">{{ t | upper }}</span>
+      </div>
+      <h3><a href="{{ url('reel', shortcode=post.shortcode) }}">{{ post.title or post.one_liner }}</a></h3>
+      {% if post.key_points %}
+        <ul class="bento-points">
+          {% for pt in post.key_points[:2] %}<li>{{ pt }}</li>{% endfor %}
+        </ul>
+      {% endif %}
+      <div class="bento-icon">{{ bento_icon(t) }}</div>
+    </article>
+  {% endfor %}
+</section>
+{% endif %}
 
 {# ── Signoff ── #}
 <div class="signoff">
@@ -79,7 +122,7 @@
   <p>{{ signoff }}</p>
 </div>
 
-{# ── Archive preview ── #}
+{# ── Archive preview + subscribe teaser side-by-side ── #}
 {% if weeks %}
 <section class="section">
   <header class="section-head">

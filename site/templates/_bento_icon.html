@@ -1,0 +1,52 @@
+{#
+  Small corner icon per category, used inside bento cards.
+  Scales to currentColor via CSS. Sized ~32px.
+#}
+{% macro bento_icon(slug) -%}
+<svg class="bento-icon-svg bento-icon-{{ slug }}" viewBox="0 0 32 32" aria-hidden="true" fill="none">
+  {%- if slug == 'ai' -%}
+    {# Sparkle cluster #}
+    <path d="M14 5 L15 11 L21 12 L15 13 L14 19 L13 13 L7 12 L13 11 Z" fill="currentColor"/>
+    <path d="M23 16 L23.8 19 L27 19.8 L23.8 20.6 L23 23.8 L22.2 20.6 L19 19.8 L22.2 19 Z" fill="currentColor" opacity="0.7"/>
+    <path d="M10 21 L10.5 23.5 L13 24 L10.5 24.5 L10 27 L9.5 24.5 L7 24 L9.5 23.5 Z" fill="currentColor" opacity="0.55"/>
+  {%- elif slug == 'marketing' -%}
+    {# Target / bullseye #}
+    <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.8"/>
+    <circle cx="16" cy="16" r="6" stroke="currentColor" stroke-width="1.8"/>
+    <circle cx="16" cy="16" r="2" fill="currentColor"/>
+    <line x1="16" y1="3" x2="16" y2="8" stroke="currentColor" stroke-width="1.6"/>
+  {%- elif slug == 'investment' -%}
+    {# Trend line up #}
+    <polyline points="5,24 12,17 17,20 27,8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="22,8 27,8 27,13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  {%- elif slug == 'politics' -%}
+    {# Scroll / document with lines #}
+    <rect x="7" y="5" width="18" height="22" rx="2" stroke="currentColor" stroke-width="1.8"/>
+    <line x1="11" y1="11" x2="21" y2="11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="11" y1="16" x2="21" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <line x1="11" y1="21" x2="17" y2="21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  {%- elif slug == 'psychology' -%}
+    {# Brain / thought spiral #}
+    <path d="M10 20 C6 20 5 14 9 12 C9 7 16 7 17 11 C22 9 25 14 22 17 C24 20 21 24 17 22 C14 26 9 24 10 20 Z"
+          stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+    <path d="M14 15 C14 13 17 13 17 15" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  {%- elif slug == 'fitness' -%}
+    {# Dumbbell #}
+    <rect x="4" y="12" width="4" height="8" rx="1" fill="currentColor"/>
+    <rect x="24" y="12" width="4" height="8" rx="1" fill="currentColor"/>
+    <rect x="8" y="14" width="2" height="4" fill="currentColor"/>
+    <rect x="22" y="14" width="2" height="4" fill="currentColor"/>
+    <rect x="10" y="15" width="12" height="2" fill="currentColor"/>
+  {%- elif slug == 'food' -%}
+    {# Bowl + steam #}
+    <path d="M5 16 L27 16 C27 22 22 26 16 26 C10 26 5 22 5 16 Z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+    <line x1="4" y1="16" x2="28" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M12 10 C12 7 14 7 14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+    <path d="M17 12 C17 9 19 9 19 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  {%- elif slug == 'other' -%}
+    {# Italic asterisk monogram #}
+    <text x="16" y="24" font-family="Fraunces, serif" font-style="italic" font-weight="500"
+          font-size="26" fill="currentColor" text-anchor="middle">*</text>
+  {%- endif -%}
+</svg>
+{%- endmacro %}

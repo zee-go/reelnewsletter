@@ -946,6 +946,235 @@ button { font-family: inherit; }
 }
 
 /* ─────────────────────────────────────────────────────────── */
+/* Bento grid — home page                                      */
+/* ─────────────────────────────────────────────────────────── */
+.bento-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 20px;
+  margin: 32px 0 24px;
+}
+.bento-top-right {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+
+.bento-lead,
+.bento-card {
+  position: relative;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 26px 28px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.bento-lead {
+  padding: 40px 44px;
+  min-height: 340px;
+  border-top-width: 4px;
+}
+.bento-card {
+  border-top-width: 3px;
+  min-height: 180px;
+}
+
+/* Per-category bg tint + top border color */
+.bento-lead.cat-ai,         .bento-card.cat-ai         { background: var(--cat-ai-tint);         border-top-color: var(--cat-ai); }
+.bento-lead.cat-marketing,  .bento-card.cat-marketing  { background: var(--cat-marketing-tint);  border-top-color: var(--cat-marketing); }
+.bento-lead.cat-investment, .bento-card.cat-investment { background: var(--cat-investment-tint); border-top-color: var(--cat-investment); }
+.bento-lead.cat-politics,   .bento-card.cat-politics   { background: var(--cat-politics-tint);   border-top-color: var(--cat-politics); }
+.bento-lead.cat-psychology, .bento-card.cat-psychology { background: var(--cat-psychology-tint); border-top-color: var(--cat-psychology); }
+.bento-lead.cat-fitness,    .bento-card.cat-fitness    { background: var(--cat-fitness-tint);    border-top-color: var(--cat-fitness); }
+.bento-lead.cat-food,       .bento-card.cat-food       { background: var(--cat-food-tint);       border-top-color: var(--cat-food); }
+.bento-lead.cat-other,      .bento-card.cat-other      { background: var(--cat-other-tint);      border-top-color: var(--cat-other); }
+
+/* Number + category label row */
+.bento-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.bento-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.bento-lead .bento-num { font-size: 30px; }
+.bento-cat {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--ink-dim);
+}
+.bento-lead.cat-ai         .bento-num, .bento-card.cat-ai         .bento-num { color: var(--cat-ai); }
+.bento-lead.cat-marketing  .bento-num, .bento-card.cat-marketing  .bento-num { color: var(--cat-marketing); }
+.bento-lead.cat-investment .bento-num, .bento-card.cat-investment .bento-num { color: var(--cat-investment); }
+.bento-lead.cat-politics   .bento-num, .bento-card.cat-politics   .bento-num { color: var(--cat-politics); }
+.bento-lead.cat-psychology .bento-num, .bento-card.cat-psychology .bento-num { color: var(--cat-psychology); }
+.bento-lead.cat-fitness    .bento-num, .bento-card.cat-fitness    .bento-num { color: var(--cat-fitness); }
+.bento-lead.cat-food       .bento-num, .bento-card.cat-food       .bento-num { color: var(--cat-food); }
+.bento-lead.cat-other      .bento-num, .bento-card.cat-other      .bento-num { color: var(--cat-other); }
+
+/* Titles */
+.bento-lead h2 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: clamp(30px, 3.4vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 0 0 14px;
+  text-wrap: balance;
+  color: var(--ink);
+}
+.bento-card h3 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: 19px;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  margin: 0 0 10px;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.bento-lead h2 a,
+.bento-card h3 a {
+  color: inherit; text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s;
+  padding-bottom: 1px;
+}
+.bento-lead:hover h2 a,
+.bento-card:hover h3 a { border-bottom-color: currentColor; }
+
+.bento-lede {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-dim);
+  margin: 0 0 14px;
+  max-width: 46ch;
+}
+
+/* Key-point bullets on cards */
+.bento-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  font-family: var(--font-body);
+}
+.bento-points li {
+  position: relative;
+  padding-left: 14px;
+  margin: 4px 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+}
+.bento-points li::before {
+  content: "";
+  position: absolute; left: 0; top: 8px;
+  width: 6px; height: 2px;
+  background: currentColor;
+  opacity: 0.65;
+}
+.bento-lead .bento-points li { font-size: 15px; padding-left: 18px; }
+.bento-lead .bento-points li::before { top: 10px; width: 9px; }
+
+/* Byline on lead */
+.bento-byline {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  margin: auto 0 0;
+  padding-top: 14px;
+}
+.bento-byline strong { color: var(--ink); font-weight: 600; }
+
+/* Corner icon */
+.bento-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  opacity: 0.85;
+}
+.bento-icon-lg {
+  top: 28px; right: 32px;
+  width: 44px; height: 44px;
+}
+.bento-icon-svg { width: 100%; height: 100%; }
+.bento-lead.cat-ai         .bento-icon, .bento-card.cat-ai         .bento-icon { color: var(--cat-ai); }
+.bento-lead.cat-marketing  .bento-icon, .bento-card.cat-marketing  .bento-icon { color: var(--cat-marketing); }
+.bento-lead.cat-investment .bento-icon, .bento-card.cat-investment .bento-icon { color: var(--cat-investment); }
+.bento-lead.cat-politics   .bento-icon, .bento-card.cat-politics   .bento-icon { color: var(--cat-politics); }
+.bento-lead.cat-psychology .bento-icon, .bento-card.cat-psychology .bento-icon { color: var(--cat-psychology); }
+.bento-lead.cat-fitness    .bento-icon, .bento-card.cat-fitness    .bento-icon { color: var(--cat-fitness); }
+.bento-lead.cat-food       .bento-icon, .bento-card.cat-food       .bento-icon { color: var(--cat-food); }
+.bento-lead.cat-other      .bento-icon, .bento-card.cat-other      .bento-icon { color: var(--cat-other); }
+
+/* Pull quote interstitial */
+.bento-quote {
+  margin: 40px auto 40px;
+  padding: 32px 0;
+  max-width: 760px;
+  text-align: center;
+  border: none;
+}
+.bento-quote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(24px, 2.8vw, 36px);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+.bento-quote cite {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* Responsive bento */
+@media (max-width: 900px) {
+  .bento-top { grid-template-columns: 1fr; }
+  .bento-top-right { grid-template-rows: auto auto; }
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-lead { padding: 28px 24px; min-height: 0; }
+  .bento-lead h2 { font-size: 28px; }
+  .bento-icon-lg { width: 36px; height: 36px; top: 22px; right: 22px; }
+}
+@media (max-width: 560px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-card { padding: 22px 22px; }
+}
+
+/* ─────────────────────────────────────────────────────────── */
 /* Responsive                                                  */
 /* ─────────────────────────────────────────────────────────── */
 @media (max-width: 720px) {

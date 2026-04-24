@@ -268,15 +268,25 @@ def build() -> None:
         "subscribe_form_entry": SUBSCRIBE_FORM_ENTRY,
     }
 
-    # Home
-    home_sections = _sections_for(
-        (latest_week["posts"] if latest_week else records[:10])
-    )
+    # Home — flat issue posts for the bento grid, plus a derived pull-quote.
+    issue_posts = list(latest_week["posts"]) if latest_week else records[:10]
+    pull_quote = None
+    if issue_posts:
+        lead = issue_posts[0]
+        kp = lead.get("key_points") or []
+        if kp:
+            pull_quote = {
+                "text": kp[0],
+                "attribution": f"@{lead['author']}" if lead.get("author") else lead.get("title", ""),
+                "shortcode": lead.get("shortcode"),
+                "tag": lead.get("tag") or "other",
+            }
     _write(
         DIST / "index.html",
         env.get_template("home.html").render(
             page="home",
-            sections_on_home=home_sections,
+            issue_posts=issue_posts,
+            pull_quote=pull_quote,
             weeks=weeks,
             hero_title=_derive_hero_title(latest_week),
             letter=_derive_letter(len(records), tags, latest_week),
