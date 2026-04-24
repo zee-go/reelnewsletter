@@ -1197,6 +1197,100 @@ button { font-family: inherit; }
 }
 
 /* ─────────────────────────────────────────────────────────── */
+/* Issue cards — weekly archive preview on home + archive page */
+/* ─────────────────────────────────────────────────────────── */
+.issue-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+.issue-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px 26px;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  min-height: 160px;
+}
+.issue-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -18px rgba(26, 26, 26, 0.25);
+  border-color: var(--ink);
+}
+.issue-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.issue-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-transform: none;
+}
+.issue-card h3 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0;
+  color: var(--ink);
+  text-wrap: pretty;
+  flex: 1;
+}
+.issue-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.issue-tags {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+}
+.issue-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--ink-mute);
+}
+.issue-dot.cat-ai         { background: var(--cat-ai); }
+.issue-dot.cat-marketing  { background: var(--cat-marketing); }
+.issue-dot.cat-investment { background: var(--cat-investment); }
+.issue-dot.cat-politics   { background: var(--cat-politics); }
+.issue-dot.cat-psychology { background: var(--cat-psychology); }
+.issue-dot.cat-fitness    { background: var(--cat-fitness); }
+.issue-dot.cat-food       { background: var(--cat-food); }
+.issue-dot.cat-other      { background: var(--cat-other); }
+
+@media (max-width: 820px) { .issue-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .issue-grid { grid-template-columns: 1fr; } }
+
+/* ─────────────────────────────────────────────────────────── */
 /* About the curator                                           */
 /* ─────────────────────────────────────────────────────────── */
 .about {

@@ -6,16 +6,27 @@
 <h1 class="page-h1">Archive</h1>
 <p class="intro">Every weekly digest since this began. Click through to read an issue.</p>
 
-<ul class="week-list">
+<div class="issue-grid">
   {% for w in weeks %}
-    <li>
-      <a href="{{ url('week', week=w.id) }}">
-        Issue N°{{ '%03d' % w.issue_num }} &nbsp;—&nbsp; Week of {{ w.label }}
-      </a>
-      <span class="count">{{ w.count }} post{{ 's' if w.count != 1 else '' }}</span>
-    </li>
+    <a class="issue-card" href="{{ url('week', week=w.id) }}">
+      <div class="issue-meta">
+        <span class="issue-num">N°{{ '%03d' % w.issue_num }}</span>
+        <span class="issue-date">{{ w.label }}</span>
+      </div>
+      <h3>{{ w.theme or w.subject or 'Weekly digest' }}</h3>
+      <div class="issue-footer">
+        <span class="issue-count">{{ w.count }} pick{{ 's' if w.count != 1 else '' }}</span>
+        {% if w.sections %}
+          <span class="issue-tags">
+            {% for s in w.sections %}
+              <span class="issue-dot cat-{{ s.slug }}" title="{{ s.label }}"></span>
+            {% endfor %}
+          </span>
+        {% endif %}
+      </div>
+    </a>
   {% else %}
-    <li><span class="count">No weeks archived yet.</span></li>
+    <p class="intro">No weeks archived yet.</p>
   {% endfor %}
-</ul>
+</div>
 {% endblock %}
