@@ -40,6 +40,15 @@
   <p class="letter-body">{{ letter }}</p>
 </div>
 
+{# ── Category filter pills (jump to per-tag pages) ── #}
+<div class="cat-filter">
+  <span class="prefix">Filter by:</span>
+  <a class="all active" href="{{ url('index') }}">All</a>
+  {% for t in tags %}
+    <a class="{{ t.slug }}" href="{{ url('tag', tag=t.slug) }}">{{ t.label }}</a>
+  {% endfor %}
+</div>
+
 {# ── Bento top: lead + 2 stacked small cards ── #}
 {% if issue_posts %}
 {% set lead = issue_posts[0] %}
