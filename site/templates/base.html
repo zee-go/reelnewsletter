@@ -19,7 +19,26 @@
     <div class="mast-left">
       <span class="live">●</span>&nbsp; Live · {{ total_posts }} post{{ 's' if total_posts != 1 else '' }} archived
     </div>
-    <a class="mast-brand" href="{{ url('index') }}">Zee Weekly</a>
+    <a class="mast-brand" href="{{ url('index') }}" aria-label="Zee Weekly — home">
+      <svg class="mast-logo" viewBox="0 0 100 100" aria-hidden="true" role="img" focusable="false">
+        <g fill="none" stroke="#1A1A1A" stroke-width="2.6" stroke-linejoin="round">
+          <rect x="15" y="15" width="70" height="70"/>
+          <rect x="15" y="15" width="70" height="70" transform="rotate(45 50 50)"/>
+        </g>
+        <g fill="none" stroke="#a89f8f" stroke-width="2">
+          <ellipse cx="50" cy="50" rx="15" ry="26"/>
+          <ellipse cx="50" cy="50" rx="26" ry="15"/>
+          <g transform="rotate(45 50 50)">
+            <ellipse cx="50" cy="50" rx="15" ry="26"/>
+            <ellipse cx="50" cy="50" rx="26" ry="15"/>
+          </g>
+        </g>
+        <text x="50" y="60" text-anchor="middle" font-family="Fraunces, Georgia, serif"
+              font-style="italic" font-weight="600" font-size="22" fill="#1A1A1A"
+              letter-spacing="-1">Z</text>
+      </svg>
+      <span class="mast-wordmark">zeeweekly</span>
+    </a>
     <nav class="mast-nav">
       <a href="{{ url('archive') }}"{% if page == 'archive' %} class="active"{% endif %}>Archive</a>
       <a href="{{ url('search') }}"{% if page == 'search' %} class="active"{% endif %}>Search</a>

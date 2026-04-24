@@ -109,14 +109,27 @@ button { font-family: inherit; }
 }
 .mast-left .live { color: var(--accent); }
 .mast-brand {
-  font-family: var(--font-display);
-  font-weight: var(--display-weight);
-  font-size: 28px;
-  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-self: center;
   color: var(--ink);
   text-decoration: none;
-  text-align: center;
   white-space: nowrap;
+}
+.mast-logo {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: block;
+}
+.mast-wordmark {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 26px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  line-height: 1;
 }
 .mast-nav {
   justify-self: end;
