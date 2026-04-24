@@ -13,7 +13,7 @@ INDEX_PATH = ROOT / "data" / "INDEX.md"
 
 COLUMNS = [
     "received_at", "shortcode", "platform", "url", "author", "tag",
-    "title", "one_liner", "key_points", "transcript",
+    "title", "one_liner", "caption", "key_points", "transcript",
     "has_video", "image_count",
     "recipe_ingredients", "recipe_instructions", "recipe_prep_time", "recipe_servings",
     "sent_in_newsletter",
@@ -46,6 +46,7 @@ def _flatten(rec: dict) -> dict:
         "tag": rec.get("tag", ""),
         "title": rec.get("title", ""),
         "one_liner": rec.get("one_liner", ""),
+        "caption": rec.get("caption", ""),
         "key_points": " | ".join(rec.get("key_points") or []),
         "transcript": rec.get("transcript", ""),
         "has_video": "yes" if rec.get("has_video") else "no",

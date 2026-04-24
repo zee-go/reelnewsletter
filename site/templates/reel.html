@@ -9,20 +9,6 @@
   <div class="mag-grid" style="grid-template-columns: 1fr;">
     {% include "_post.html" %}
   </div>
-
-  {% if r.transcript %}
-    <details class="transcript" open>
-      <summary>Transcript</summary>
-      <div class="body">{{ r.transcript }}</div>
-    </details>
-  {% endif %}
-
-  {% if r.caption %}
-    <details class="caption">
-      <summary>Original caption</summary>
-      <div class="body">{{ r.caption }}</div>
-    </details>
-  {% endif %}
 </section>
 
 <div class="cat-filter" style="margin-top: 40px;">

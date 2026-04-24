@@ -1073,6 +1073,11 @@ button { font-family: inherit; }
   margin: 0 0 14px;
   max-width: 46ch;
 }
+.bento-card .bento-lede {
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
 
 /* Key-point bullets on cards */
 .bento-points {
@@ -1099,16 +1104,33 @@ button { font-family: inherit; }
 .bento-lead .bento-points li { font-size: 15px; padding-left: 18px; }
 .bento-lead .bento-points li::before { top: 10px; width: 9px; }
 
-/* Byline on lead */
+/* Byline + watch link */
 .bento-byline {
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--ink-dim);
   margin: auto 0 0;
   padding-top: 14px;
 }
 .bento-byline strong { color: var(--ink); font-weight: 600; }
+.bento-card .bento-byline { font-size: 10px; padding-top: 12px; }
+.bento-watch {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 1px;
+}
+.bento-watch span { font-weight: 400; margin-left: 1px; }
+.bento-lead.cat-ai         .bento-watch, .bento-card.cat-ai         .bento-watch { border-bottom-color: var(--cat-ai); }
+.bento-lead.cat-marketing  .bento-watch, .bento-card.cat-marketing  .bento-watch { border-bottom-color: var(--cat-marketing); }
+.bento-lead.cat-investment .bento-watch, .bento-card.cat-investment .bento-watch { border-bottom-color: var(--cat-investment); }
+.bento-lead.cat-politics   .bento-watch, .bento-card.cat-politics   .bento-watch { border-bottom-color: var(--cat-politics); }
+.bento-lead.cat-psychology .bento-watch, .bento-card.cat-psychology .bento-watch { border-bottom-color: var(--cat-psychology); }
+.bento-lead.cat-fitness    .bento-watch, .bento-card.cat-fitness    .bento-watch { border-bottom-color: var(--cat-fitness); }
+.bento-lead.cat-food       .bento-watch, .bento-card.cat-food       .bento-watch { border-bottom-color: var(--cat-food); }
+.bento-lead.cat-other      .bento-watch, .bento-card.cat-other      .bento-watch { border-bottom-color: var(--cat-other); }
 
 /* Corner icon */
 .bento-icon {

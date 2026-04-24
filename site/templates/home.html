@@ -56,12 +56,13 @@
     {% endif %}
     {% if lead.key_points %}
       <ul class="bento-points">
-        {% for pt in lead.key_points[:3] %}<li>{{ pt }}</li>{% endfor %}
+        {% for pt in lead.key_points %}<li>{{ pt }}</li>{% endfor %}
       </ul>
     {% endif %}
-    {% if lead.author %}
-      <p class="bento-byline">by <strong>@{{ lead.author }}</strong></p>
-    {% endif %}
+    <p class="bento-byline">
+      {% if lead.author %}by <strong>@{{ lead.author }}</strong> · {% endif %}
+      <a class="bento-watch" href="{{ lead.url }}" target="_blank" rel="noopener">Watch <span>↗</span></a>
+    </p>
     <div class="bento-icon bento-icon-lg">{{ bento_icon(lead_tag) }}</div>
   </article>
 
@@ -74,11 +75,18 @@
           <span class="bento-cat">{{ t | upper }}</span>
         </div>
         <h3><a href="{{ url('reel', shortcode=post.shortcode) }}">{{ post.title or post.one_liner }}</a></h3>
+        {% if post.one_liner and post.title %}
+          <p class="bento-lede">{{ post.one_liner }}</p>
+        {% endif %}
         {% if post.key_points %}
           <ul class="bento-points">
-            {% for pt in post.key_points[:2] %}<li>{{ pt }}</li>{% endfor %}
+            {% for pt in post.key_points %}<li>{{ pt }}</li>{% endfor %}
           </ul>
         {% endif %}
+        <p class="bento-byline">
+          {% if post.author %}by <strong>@{{ post.author }}</strong> · {% endif %}
+          <a class="bento-watch" href="{{ post.url }}" target="_blank" rel="noopener">Watch <span>↗</span></a>
+        </p>
         <div class="bento-icon">{{ bento_icon(t) }}</div>
       </article>
     {% endfor %}
@@ -105,11 +113,18 @@
         <span class="bento-cat">{{ t | upper }}</span>
       </div>
       <h3><a href="{{ url('reel', shortcode=post.shortcode) }}">{{ post.title or post.one_liner }}</a></h3>
+      {% if post.one_liner and post.title %}
+        <p class="bento-lede">{{ post.one_liner }}</p>
+      {% endif %}
       {% if post.key_points %}
         <ul class="bento-points">
-          {% for pt in post.key_points[:2] %}<li>{{ pt }}</li>{% endfor %}
+          {% for pt in post.key_points %}<li>{{ pt }}</li>{% endfor %}
         </ul>
       {% endif %}
+      <p class="bento-byline">
+        {% if post.author %}by <strong>@{{ post.author }}</strong> · {% endif %}
+        <a class="bento-watch" href="{{ post.url }}" target="_blank" rel="noopener">Watch <span>↗</span></a>
+      </p>
       <div class="bento-icon">{{ bento_icon(t) }}</div>
     </article>
   {% endfor %}
