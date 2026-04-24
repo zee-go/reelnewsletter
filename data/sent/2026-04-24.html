@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 002</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 002
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of April 24, 2026</div>
+    <h1>AI Automation Meets Human Body Resistance</h1>
+    <div class="hero-meta">
+      8 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">This week leaned into automation and action: Claude Code running entire content pipelines, a marketing framework that earns the sale before it asks, and a reminder that speed between deciding and doing is the whole game. Plus two high-protein recipes worth the fridge space.</p>
+
+<h2>AI</h2>
+
+<article class="post cat-ai">
+  <h3>Claude Code Automates Your Entire Content Pipeline</h3>
+  <p class="lead">One terminal, one orchestrator, and a full video production stack humming in the background.</p>
+  <ul>
+    <li>Fal.ai handles visuals and turns them into video clips with current-gen models.</li>
+    <li>Remotion layers animated captions and exports the finished cut — no editor required.</li>
+    <li>Notion MCP keeps scripts, assets, and status synced as the project moves.</li>
+    <li>Claude Code ties it all together, killing the context-switching across 15+ tools.</li>
+  </ul>
+  <p class="meta">by <strong>@Ohneis - Andries Ohneisser</strong> · <a href="https://www.instagram.com/reel/DW1yKfsAoln">Watch →</a></p>
+</article>
+
+<article class="post cat-ai">
+  <h3>Claude AI Generates On-Brand Emails in One Prompt</h3>
+  <p class="lead">Claude's new design mode spits out production-ready email variations from a single prompt.</p>
+  <ul>
+    <li>Pro's design mode links to a Figma file and generates high-fidelity variations on demand.</li>
+    <li>You can annotate straight in chat to request tweaks and refinements.</li>
+    <li>Output is noticeably more brand-consistent than previous AI design attempts.</li>
+    <li>Designers aren't being replaced — they're producing at a much higher volume.</li>
+  </ul>
+  <p class="meta">by <strong>@Max Sturtevant</strong> · <a href="https://www.instagram.com/reel/DXSsRFxCQ0G">Watch →</a></p>
+</article>
+
+<h2>Marketing</h2>
+
+<article class="post cat-marketing">
+  <h3>The ATM Strategy for Content That Converts</h3>
+  <p class="lead">A 90/10 value-to-ask ratio, but only if the value is the right currency.</p>
+  <ul>
+    <li>Post actionable, result-driven content — the kind your audience can actually use.</li>
+    <li>Keep a 90% value / 10% ask ratio so the pitch lands after you've already given.</li>
+    <li>Wrong currency: "eat more protein." Right currency: a step-by-step that produces a result.</li>
+    <li>When free content solves the problem, the paid offer becomes the obvious next step.</li>
+  </ul>
+  <p class="meta">by <strong>@Meagan Nunez</strong> · <a href="https://www.instagram.com/reel/DVcdO_Lkk9_">Watch →</a></p>
+</article>
+
+<h2>Investment</h2>
+
+<article class="post cat-investment">
+  <h3>AI Hype Masks Real Market Risks</h3>
+  <p class="lead">Records are being set on vibes while the structural stuff gets waved off.</p>
+  <ul>
+    <li>Allbirds rebranded to "New Bird AI" on a vague $50M deal — the stock ripped 600% and a $3/share conversion ballooned past $300M.</li>
+    <li>Feels a lot like the blockchain-rename era: bets on the narrative, not the business.</li>
+    <li>S&P 500 reclaimed all-time highs within 11 days of a 5–10% drop — the fastest snap-back since 1928.</li>
+    <li>Trump threatening to fire Powell is a systemic risk the market is mostly shrugging off.</li>
+  </ul>
+  <p class="meta">by <strong>@kyla scanlon</strong> · <a href="https://www.instagram.com/reel/DXK9DbGjxiv">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Close the Gap Between Deciding and Doing</h3>
+  <p class="lead">The distance between intention and execution might be the only metric that matters.</p>
+  <ul>
+    <li>A shorter gap means more iterations — 10 attempts instead of 1.</li>
+    <li>Faster action means faster feedback, faster failure, and faster course-correction.</li>
+    <li>Hiding in intention is a form of self-betrayal; reality only responds to what you actually do.</li>
+    <li>Success is the proof your knowing self and your acting self are finally on the same page.</li>
+  </ul>
+  <p class="meta">by <strong>@Claire Beluga</strong> · <a href="https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<h2>Fitness</h2>
+
+<article class="post cat-fitness">
+  <h3>Fix Your Ab Exercises for Better Results</h3>
+  <p class="lead">Small form tweaks that aim the work at your abs instead of your lower back.</p>
+  <ul>
+    <li>Swap leg raises for reverse crunches to hit lower abs without straining the spine.</li>
+    <li>Cradle your neck with your hands during crunches — no neck pain, more ab engagement.</li>
+    <li>Let your knees fall open on the way up to take hip flexors out of the movement.</li>
+  </ul>
+  <p class="meta">by <strong>@Jordan Yeoh</strong> · <a href="https://www.facebook.com/share/r/1bvrvBPDnr/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<h2>Food</h2>
+
+<article class="post recipe cat-food">
+  <h3>Napa Soup Dumpling Lasagna</h3>
+  <p class="lead">All the soup dumpling energy, none of the wonton wrappers — layered napa cabbage does the work.</p>
+  <p class="recipe-meta">Prep: 15 min · Serves: 1 serving</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>150g extra lean beef (raw weight)</li>
+    <li>150g shrimp (raw weight)</li>
+    <li>Chopped green onion</li>
+    <li>1 tsp grated ginger</li>
+    <li>½ tbsp minced garlic</li>
+    <li>1 tbsp soy sauce</li>
+    <li>½ tbsp sesame oil</li>
+    <li>½ tbsp oyster sauce</li>
+    <li>1 tsp brown Splenda</li>
+    <li>½ tsp salt</li>
+    <li>1 tsp white pepper</li>
+    <li>¼ cup chicken broth</li>
+    <li>Napa cabbage leaves</li>
+    <li>Sesame seeds</li>
+    <li>2 tbsp soy sauce (for sauce)</li>
+    <li>½ tsp sesame oil (for sauce)</li>
+    <li>Pinch of chili flakes/gochugaru (for sauce)</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Combine beef, shrimp, green onion, ginger, garlic, soy sauce, sesame oil, oyster sauce, brown Splenda, salt, and white pepper in a bowl and mix well.</li>
+    <li>Line the bottom of an oven-safe dish with napa cabbage, add half the filling and flatten. Cover with napa cabbage, repeat with remaining filling, and top with a final layer of napa cabbage.</li>
+    <li>Add ¼ cup chicken broth and steam until cooked through, about 10–12 minutes.</li>
+    <li>Mix 2 tbsp soy sauce, ½ tsp sesame oil, and a pinch of chili flakes for the sauce. Top the dish with green onions, sesame seeds, and the sauce before serving.</li>
+  </ol>
+  <p class="meta">by <strong>@Chris Lee</strong> · <a href="https://www.facebook.com/share/r/1B7dyEzjtb/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post recipe cat-food">
+  <h3>Fudgy High-Protein Chocolate Cheesecake</h3>
+  <p class="lead">A blender-and-bake chocolate cheesecake that's breakfast-acceptable.</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>Greek yogurt</li>
+    <li>Cottage cheese</li>
+    <li>Eggs</li>
+    <li>Cocoa powder</li>
+    <li>Oat flour</li>
+    <li>Maple syrup</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Add Greek yogurt, cottage cheese, eggs, cocoa powder, oat flour, and maple syrup to a blender.</li>
+    <li>Blend all ingredients together until smooth.</li>
+    <li>Pour mixture into a pan and bake until set.</li>
+  </ol>
+  <p class="meta">by <strong>@theChefoutWest</strong> · <a href="https://www.facebook.com/share/r/1FMe9eAWCx/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
