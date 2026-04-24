@@ -3,7 +3,7 @@
   Scales to currentColor via CSS. Sized ~32px.
 #}
 {% macro bento_icon(slug) -%}
-<svg class="bento-icon-svg bento-icon-{{ slug }}" viewBox="0 0 32 32" aria-hidden="true" fill="none">
+<svg class="bento-icon-svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" fill="none">
   {%- if slug == 'ai' -%}
     {# Sparkle cluster #}
     <path d="M14 5 L15 11 L21 12 L15 13 L14 19 L13 13 L7 12 L13 11 Z" fill="currentColor"/>
