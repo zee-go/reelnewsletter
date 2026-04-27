@@ -111,25 +111,17 @@ button { font-family: inherit; }
 .mast-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   justify-self: center;
   color: var(--ink);
   text-decoration: none;
-  white-space: nowrap;
+  line-height: 0;
 }
 .mast-logo {
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
+  height: 56px;
+  width: auto;
+  max-width: 240px;
   display: block;
-}
-.mast-wordmark {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 26px;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  line-height: 1;
+  object-fit: contain;
 }
 .mast-nav {
   justify-self: end;

@@ -20,31 +20,7 @@
       <span class="live">●</span>&nbsp; Live · {{ total_posts }} post{{ 's' if total_posts != 1 else '' }} archived
     </div>
     <a class="mast-brand" href="{{ url('index') }}" aria-label="Zee Weekly — home">
-      <svg class="mast-logo" viewBox="0 0 100 100" aria-hidden="true" role="img" focusable="false">
-        {# Outer 8-lobed rosette — soft mandala silhouette, --ink #}
-        <path fill="none" stroke="#2a1a2e" stroke-width="2.6" stroke-linejoin="round"
-              d="M40.82,27.83 Q37.20,10.00 50.00,10.00 Q62.80,10.00 59.18,27.83
-                 Q69.23,12.66 78.28,21.72 Q87.34,30.77 72.17,40.82
-                 Q90.00,37.20 90.00,50.00 Q90.00,62.80 72.17,59.18
-                 Q87.34,69.23 78.28,78.28 Q69.23,87.34 59.18,72.17
-                 Q62.80,90.00 50.00,90.00 Q37.20,90.00 40.82,72.17
-                 Q30.77,87.34 21.72,78.28 Q12.66,69.23 27.83,59.18
-                 Q10.00,62.80 10.00,50.00 Q10.00,37.20 27.83,40.82
-                 Q12.66,30.77 21.72,21.72 Q30.77,12.66 40.82,27.83 Z"/>
-        {# Interior 4-petal vesica-piscis flower — --ink-mute mauve #}
-        <g transform="translate(50 50)" fill="none" stroke="#b892a7" stroke-width="1.8" stroke-linejoin="round">
-          <path d="M-16,0 A18.72 18.72 0 0 1 16,0 A18.72 18.72 0 0 1 -16,0 Z"/>
-          <path d="M-16,0 A18.72 18.72 0 0 1 16,0 A18.72 18.72 0 0 1 -16,0 Z" transform="rotate(45)"/>
-          <path d="M-16,0 A18.72 18.72 0 0 1 16,0 A18.72 18.72 0 0 1 -16,0 Z" transform="rotate(90)"/>
-          <path d="M-16,0 A18.72 18.72 0 0 1 16,0 A18.72 18.72 0 0 1 -16,0 Z" transform="rotate(135)"/>
-        </g>
-        {# Interlocked ZG monogram, italic Fraunces #}
-        <g font-family="Fraunces, Georgia, serif" font-style="italic" font-size="22">
-          <text x="55" y="58" text-anchor="middle" font-weight="500" fill="#b892a7">G</text>
-          <text x="45" y="58" text-anchor="middle" font-weight="600" fill="#2a1a2e">Z</text>
-        </g>
-      </svg>
-      <span class="mast-wordmark">zeeweekly</span>
+      <img class="mast-logo" src="{{ static('logo.png') }}" alt="Zee Weekly">
     </a>
     <nav class="mast-nav">
       <a href="{{ url('archive') }}"{% if page == 'archive' %} class="active"{% endif %}>Archive</a>
