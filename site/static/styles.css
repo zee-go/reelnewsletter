@@ -117,11 +117,14 @@ button { font-family: inherit; }
   line-height: 0;
 }
 .mast-logo {
-  height: 56px;
+  height: 65px;
   width: auto;
-  max-width: 240px;
+  max-width: 280px;
   display: block;
   object-fit: contain;
+  /* Drops the PNG's near-white background so the mandala blends with the
+     warm-pink masthead without needing an alpha-edited source. */
+  mix-blend-mode: multiply;
 }
 .mast-nav {
   justify-self: end;
