@@ -1,11 +1,13 @@
 # Reel Archive Index
 
-16 post(s) archived. Auto-generated from `data/reels/*.json`.
+18 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (4)
+## AI (6)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-04-27 | 3D Websites From Videos, No Coding Needed | Jo Mendes | [watch](https://www.instagram.com/reel/DXhCmYajj_X) |
+| 2026-04-27 | Build a Daily Briefing Agent with Claude | Vaibhav Sisinty | [watch](https://www.instagram.com/reel/DW85mwUg_Mf) |
 | 2026-04-22 | Claude Code Automates Your Entire Content Pipeline | Ohneis - Andries Ohneisser | [watch](https://www.instagram.com/reel/DW1yKfsAoln) |
 | 2026-04-21 | Claude AI Generates On-Brand Emails in One Prompt | Max Sturtevant | [watch](https://www.instagram.com/reel/DXSsRFxCQ0G) |
 | 2026-04-19 | ClaudeFlow: 60 Parallel Agents, 75% Cost Cut | Ajay Yadav | [watch](https://www.instagram.com/reel/DVRGrHmEmXi) |

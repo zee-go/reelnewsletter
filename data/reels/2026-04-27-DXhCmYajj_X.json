@@ -1,0 +1,22 @@
+{
+  "shortcode": "DXhCmYajj_X",
+  "url": "https://www.instagram.com/reel/DXhCmYajj_X",
+  "received_at": "2026-04-27T07:34:36+00:00",
+  "caption": "Comment AI for the link to create 3D-like website animations from simple videos using Emergent and Claude skills, turning prompts into interactive parallax sites you can generate, customize and launch without coding in just a few steps\n#aitools #emergent #webdesign #nocode #aiwebsites",
+  "author": "Jo Mendes",
+  "duration_s": 36.33300018310547,
+  "has_video": true,
+  "image_count": 0,
+  "transcript": "All these websites don't require coding knowledge or 3D skills anymore. Even your grandma can make websites like these, but it's probably not how you think. You see, if you go to this website, connect your github repo if needed, select the E1 agent and input this prompt file with your video and an inspiration website link, boom. Did you catch that though? I said video. Like in my intro, you can take a picture and use your favorite AI video generator to make a 3D video. Now with Plot inside of Emergent handling the execution, you could literally sell this as a service. You can test these for yourself, just comment AI for the links and the assets.",
+  "tag": "ai",
+  "title": "3D Websites From Videos, No Coding Needed",
+  "one_liner": "Use Emergent's E1 agent and Claude to turn AI-generated videos into interactive parallax websites without writing code.",
+  "key_points": [
+    "Go to Emergent, connect your GitHub repo, select the E1 agent, and input a prompt file with your video and an inspiration site link",
+    "Use an AI video generator to create a 3D-style video from a photo as your starting asset",
+    "Emergent's Plot handles execution, generating a customizable parallax website automatically",
+    "This workflow can be sold as a service — no coding or 3D skills required"
+  ],
+  "recipe": null,
+  "sent_in_newsletter": null
+}

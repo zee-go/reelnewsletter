@@ -1,0 +1,22 @@
+{
+  "shortcode": "DW85mwUg_Mf",
+  "url": "https://www.instagram.com/reel/DW85mwUg_Mf",
+  "received_at": "2026-04-27T07:28:13+00:00",
+  "caption": "AI agents that work while you sleep.\n\nThis is Part 1 of How I AI\n\nI built a Daily Briefing Agent in minutes using Claude Managed Agents.\n\nNews. Emails. Calendar. All summarised and dropped in my Slack DM before I wake up.\n\nNo code. No manual setup. Just describe what you want and Claude builds and runs it.\n\nThis is vibe agentic AI. And it changes everything.\n\nJoin my WhatsApp community to stay ahead in the AI game. Link in bio.",
+  "author": "Vaibhav Sisinty",
+  "duration_s": 84.69999694824219,
+  "has_video": true,
+  "image_count": 0,
+  "transcript": "Anthropic just did something wild. OpenClock could never do. And no, it's not a new model. It's not a new feature. It's an entirely new way of building AI agents that most people haven't even seen yet. This is part one of How I AI. This is Cloud Managed Agents. You just describe what you want to accomplish and Cloud builds and runs it. Here's how I built a daily briefing agent in minutes. Go to platform.cloud.com. Hit Managed Agents and click on Quick Start. Describe what you want. I said, every morning before I wake up, scan the internet for top news in my industry, summarize my important emails, check my calendar for the day and send me a 60 second brief on Slack. I connected web search, Gmail and Google Calendar all through Cloud in just one click. Then I dropped in my system prompt, scan top five news stories in my industry, pull today's meetings, summarize overnight emails that actually need my attention, package everything into one clean brief, deliver to my DM by 7 a.m. Now every morning, I wake up, news, emails and my full day already summarized. Waiting in my DM. The agent ran while I slept. Here's what else you can build with this. You can build a support agent that handles every ticket, an operations agent that runs your entire task list or a marketing analyst that drops your ad report in Slack before you wake up. Vibe coding gave everyone the ability to build apps. Vibe agentic AI gives those apps the ability to work without you. This is the next era. I share all of these exact prompts and tools to build all of this in my free WhatsApp community. Click the link in the bio.",
+  "tag": "ai",
+  "title": "Build a Daily Briefing Agent with Claude",
+  "one_liner": "Claude Managed Agents lets you build autonomous AI agents in minutes using plain language, no code required.",
+  "key_points": [
+    "Describe your task in plain English and Claude builds and runs the agent automatically",
+    "Connected Gmail, Google Calendar, and web search in one click to deliver a daily Slack brief by 7am",
+    "Agent runs overnight: surfaces top news, key emails, and calendar events before you wake up",
+    "Same approach works for support agents, ops task runners, and marketing report agents"
+  ],
+  "recipe": null,
+  "sent_in_newsletter": null
+}
