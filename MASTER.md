@@ -31,7 +31,7 @@ A Telegram bot ingests Instagram and Facebook posts you forward to it. Every 30 
 5. For photo-only posts that don't yield thumbnails, fall back to `info.json`'s `display_url` fetched with a spoofed User-Agent and Referer.
 6. Video path: `ffmpeg` extracts audio → Whisper transcribes.
 7. Photo path: images are passed directly to Claude Vision.
-8. Claude Sonnet `messages.parse()` tags the post into `{ai, investment, politics, psychology, food, other}`. Food posts also populate a structured `Recipe` (ingredients, instructions, prep_time, servings) when the caption/transcript supports it.
+8. Claude Sonnet `messages.parse()` tags the post into `{ai, marketing, investment, politics, psychology, fitness, food, other}`. Food posts also populate a structured `Recipe` (ingredients, instructions, prep_time, servings) when the caption/transcript supports it.
 9. Record saved to `data/reels/<shortcode>.json`. `data/records.csv` and `data/INDEX.md` are regenerated; optional Google Sheet row is appended.
 10. Telegram ack message is sent back to you.
 11. The commit is pushed → `site.yml` fires → Jinja2 templates render to `site/_dist/` → Pagefind indexes → GitHub Pages deploys.
@@ -43,21 +43,24 @@ A Telegram bot ingests Instagram and Facebook posts you forward to it. Every 30 
 
 | File | What it owns |
 |---|---|
-| `src/ingest.py` | Telegram polling, URL extraction (`shortcode()`), yt-dlp orchestration, pipeline runner |
-| `src/claude_client.py` | `ReelTag` + `Recipe` pydantic models, `tag_reel()` (optional images), `compose_newsletter()` with adaptive thinking, `compose_week_theme()` on Haiku for the hero headline |
+| `src/ingest.py` | Telegram polling, URL extraction (`shortcode()`), yt-dlp orchestration, image resize before Vision, Whisper audio cap, pipeline runner |
+| `src/claude_client.py` | `ReelTag` + `Recipe` pydantic models, `tag_reel()` (optional images), `compose_newsletter()` (Opus, adaptive thinking), `compose_week_theme()` (Haiku) for the hero headline, `_resize_for_vision()`, `_log_usage()` |
 | `src/issue.py` | Issue assembly rules — `ISSUE_LIMIT` (10), `PRIORITY_TIERS`, and `cut_for_issue()` used by both the site builder and the newsletter composer |
-| `src/prompts.py` | `TAG_SYSTEM_PROMPT` (categories + recipe extraction rules), `NEWSLETTER_SYSTEM_PROMPT` (voice + structure) |
-| `src/newsletter.py` | `EMAIL_CSS`, Resend `send_email()` with `or` fallback pattern |
-| `src/build_site.py` | Loads all JSON, groups by week/tag, per-week issue numbering, renders Jinja2 → `site/_dist/` |
-| `src/csv_export.py`, `src/sheets_export.py` | Flat backups — CSV in repo, optional Google Sheet |
+| `src/prompts.py` | `TAG_SYSTEM_PROMPT` (categories + recipe extraction rules), `NEWSLETTER_SYSTEM_PROMPT` (voice + structure for the email body) |
+| `src/newsletter.py` | `EMAIL_CSS` (mirrors site palette + Fraunces/Source Serif 4/JetBrains Mono), `wrap_email()` masthead+hero+footer, `_resolve_theme()` (reads `data/themes.json` first), `_compute_issue_num()`, `send_email()` |
+| `src/build_site.py` | Loads all JSON, runs `cut_for_issue()` for the home/week issue, resolves per-week themes via Haiku with `data/themes.json` fingerprint cache, renders Jinja2 → `site/_dist/` |
+| `src/csv_export.py`, `src/sheets_export.py` | Flat backups — CSV in repo (includes `caption` + `transcript`), optional Google Sheet |
 | `src/retag.py` | One-off script to re-run tagging against existing records when the taxonomy changes |
 | `src/telegram.py` | Thin `getUpdates` / `sendMessage` wrapper |
 | `.github/workflows/ingest.yml` | Cron `*/30 * * * *` |
 | `.github/workflows/newsletter.yml` | Cron `0 8 * * 5` (Friday 08:00 UTC) |
-| `.github/workflows/site.yml` | Triggers on push to `data/**` or `site/**` |
-| `site/templates/` | `base.html`, `home.html`, `tag.html`, `week.html`, `reel.html`, `archive.html`, `search.html`, `_post.html` partial |
-| `site/static/styles.css` | Sorbet palette, Fraunces / Source Serif 4 / JetBrains Mono, per-category color vars |
+| `.github/workflows/site.yml` | Triggers on push to `data/**` or `site/**`; commits `data/themes.json` cache back |
+| `site/templates/` | `base.html` (masthead, footer, subscribe popup), `home.html` (bento), `week.html`, `tag.html`, `reel.html`, `archive.html` (issue cards), `search.html`, `_post.html` (week/tag/reel card), `_bento_icon.html` (corner icons), `_cat_motif.html` (per-category section motif) |
+| `site/static/styles.css` | Warm pink-plum palette (`#fff5f2` bg, `#2a1a2e` ink), Fraunces / Source Serif 4 / JetBrains Mono, per-category color vars, bento + masonry, issue cards, motifs |
+| `site/static/logo.png` | Masthead logo — rendered with `mix-blend-mode: multiply` so the near-white background drops out |
+| `site/static/zee.jpg` | Curator portrait shown in the about block on the home page |
 | `site/static/CNAME` | Single line `zeeweekly.com` — GitHub Pages reads this to bind the custom domain |
+| `data/themes.json` | Fingerprint-keyed cache of Haiku-generated weekly headlines. Newsletter and site both read this; site rewrites it. |
 
 ---
 
@@ -96,6 +99,8 @@ Don't re-learn these the hard way:
 - **Google Workspace org policy blocks service account key creation.** Sheets export is optional and non-blocking — the CSV in the repo plus `data/INDEX.md` is the real backup. If Sheets can't work, skip it.
 - **HTTPS cert not ready immediately after the DNS flip.** GitHub's Let's Encrypt provisioning runs 15–30 minutes after the DNS check succeeds. Don't try to `PUT .../pages -F https_enforced=true` until the cert exists, or you'll get a 404.
 - **Prompt cache invalidation.** Any byte change anywhere in the cached prefix kills the cache. Keep timestamps, per-request IDs, and per-post content *after* the last `cache_control` breakpoint — never before it.
+- **Google Form subscribe submission returns HTTP 400.** Two things to check, in this order. First, the entry id you grab off `entry.NNNNN` in the rendered HTML may be a *form-level* identifier, not the question entry id; the real one comes from `FB_PUBLIC_LOAD_DATA_` in the page source. Second, if the form was created with the built-in "Collect email addresses" widget, Google reserves the field name `emailAddress` and a `entry.NNNNN`-only POST will 400. Send both names with the same value — harmless on a custom-question form, required on the built-in one.
+- **Logo PNG with a textured/cream background looks like a hard rectangle on the page.** Cheapest fix: `.mast-logo { mix-blend-mode: multiply; }` in CSS so near-white pixels drop against the page background. Real fix: alpha-cut the PNG with Pillow. Multiply darkens slightly when the page bg isn't pure white — eyeball before shipping.
 
 ---
 
