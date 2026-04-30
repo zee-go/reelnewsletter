@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-20 post(s) archived. Auto-generated from `data/reels/*.json`.
+22 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (7)
 
@@ -20,10 +20,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (2)
+## Psychology (3)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-04-30 | Delusional Optimism: Win Small, Dream Big | Charlie Rocket 🚀 Winning Streak | [watch](https://www.instagram.com/reel/DXmma_hCpcB) |
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
@@ -36,3 +37,9 @@
 | 2026-04-19 | Crispy Lentil Crackers: No Oil, All Crunch | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/18ZmgCkxLy/?mibextid=wwXIfr) |
 | 2026-04-19 | Soak Nuts for the Crispiest Granola Ever | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/1ANWnbqkp5/?mibextid=wwXIfr) |
 | 2026-04-18 | High-Protein Blueberry Cheesecake | Keto Snackz | [watch](https://www.facebook.com/share/r/18k7TN59Xg/?mibextid=wwXIfr) |
+
+## Other (1)
+
+| Date | Title | Author | Link |
+|---|---|---|---|
+| 2026-04-30 | Best The Ordinary Products Ranked | Dermarkologist | [watch](https://www.facebook.com/share/r/1J7qTt67Mx/?mibextid=wwXIfr) |
