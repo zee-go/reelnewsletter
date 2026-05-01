@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 003</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 003
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of May 1, 2026</div>
+    <h1>AI Tools Lower the Barrier to Digital Creation</h1>
+    <div class="hero-meta">
+      6 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">This week leaned heavy on AI workflows — agents that brief you, build for you, and film for you. We also picked up a personal brand roadmap, a small-wins mindset, and a skincare shortcut on the side.</p>
+
+<h2>AI</h2>
+
+<article class="post cat-ai">
+  <h3>Claude Code Automates Full Video Production</h3>
+  <p class="lead">A hands-off pipeline that turns one terminal command into finished UGC video.</p>
+  <ul>
+    <li>Claude Code connects to Higgsfield through Playwright MCP, taking full control of the browser to navigate and submit prompts.</li>
+    <li>Custom Claude skills are tuned for Seedance 2.0 — model selection, camera motion, and final output all handled.</li>
+    <li>Trigger the entire workflow with a single sentence in your terminal; Claude runs the rest.</li>
+    <li>Pitched as a way to replace a marketing team for product UGC at scale.</li>
+  </ul>
+  <p class="meta">by <strong>@Camila Tunoni</strong> · <a href="https://www.instagram.com/reel/DXHdtoCjPGW">Watch →</a></p>
+</article>
+
+<article class="post cat-ai">
+  <h3>3D Websites From Videos, No Coding Needed</h3>
+  <p class="lead">Emergent's E1 agent plus Claude turns an AI video into an interactive parallax site.</p>
+  <ul>
+    <li>Connect your GitHub to Emergent, pick the E1 agent, and feed it a prompt file with your video and an inspiration link.</li>
+    <li>Use any AI video generator to spin up a 3D-style video from a single photo as your starting asset.</li>
+    <li>Emergent's Plot handles the build, outputting a customizable parallax site automatically.</li>
+    <li>Easy to package as a productized service — no coding or 3D chops required.</li>
+  </ul>
+  <p class="meta">by <strong>@Jo Mendes</strong> · <a href="https://www.instagram.com/reel/DXhCmYajj_X">Watch →</a></p>
+</article>
+
+<article class="post cat-ai">
+  <h3>Build a Daily Briefing Agent with Claude</h3>
+  <p class="lead">Claude Managed Agents lets you spin up autonomous agents in plain English.</p>
+  <ul>
+    <li>Describe the task in natural language; Claude builds and runs the agent for you.</li>
+    <li>One-click connections to Gmail, Google Calendar, and web search power a 7am Slack brief.</li>
+    <li>The agent runs overnight, surfacing top news, key emails, and calendar events before you're up.</li>
+    <li>Same pattern extends to support agents, ops runners, and marketing reports.</li>
+  </ul>
+  <p class="meta">by <strong>@Vaibhav Sisinty</strong> · <a href="https://www.instagram.com/reel/DW85mwUg_Mf">Watch →</a></p>
+</article>
+
+<h2>Marketing</h2>
+
+<article class="post cat-marketing">
+  <h3>Build a Personal Brand in 3.5 Months</h3>
+  <p class="lead">A week-by-week roadmap to launch, grow, and monetize a personal brand.</p>
+  <ul>
+    <li>Weeks 1–2: mind-map your life, interests, and experiences — you are the niche, not a topic.</li>
+    <li>Month 1: post 5–7x/week, turn one idea into five, add personal "mirror" content, then review watch time, saves, and shares.</li>
+    <li>Month 2: amplify what landed, post discovery + connection + trust content weekly, cycle-sync creation if applicable.</li>
+    <li>Month 3: batch-film a buffer and layer in money content — mirror, magnet, money every week.</li>
+  </ul>
+  <p class="meta">by <strong>@lauren | social media strategist</strong> · <a href="https://www.instagram.com/reel/DXmFSpMDGYn">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Delusional Optimism: Win Small, Dream Big</h3>
+  <p class="lead">Stack tiny wins until the audacious dream feels inevitable.</p>
+  <ul>
+    <li>Reframe big dreams as easy by breaking them into small, actionable tasks.</li>
+    <li>Start each morning with a "winning streak" — making your bed counts, and the momentum is real.</li>
+    <li>Small wins build optimism, optimism breeds delusion, delusion fuels fearless action.</li>
+    <li>Expect resistance: chasing big dreams makes you a target for doubt — from others and from yourself.</li>
+  </ul>
+  <p class="meta">by <strong>@Charlie Rocket</strong> · <a href="https://www.instagram.com/reel/DXmma_hCpcB">Watch →</a></p>
+</article>
+
+<h2>Other</h2>
+
+<article class="post cat-other">
+  <h3>Best The Ordinary Products Ranked</h3>
+  <p class="lead">A creator's shortlist after working through the entire The Ordinary catalog.</p>
+  <ul>
+    <li>Claims to have tried every product in the line — so the filter is at least thorough.</li>
+    <li>Top picks are shared via a ShopMy link rather than called out on screen.</li>
+    <li>No specifics on why each product made the cut, so treat it as a starting list, not a verdict.</li>
+  </ul>
+  <p class="meta">by <strong>@Dermarkologist</strong> · <a href="https://www.facebook.com/share/r/1J7qTt67Mx/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
