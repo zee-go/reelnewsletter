@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-23 post(s) archived. Auto-generated from `data/reels/*.json`.
+28 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (8)
 
@@ -21,10 +21,14 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (3)
+## Psychology (7)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-03 | Stop Letting Fear Write the Full Story | The Flint \| The Core Blueprint for Ambitious Thinkers | [watch](https://www.instagram.com/reel/DWJ1mZbDTmr) |
+| 2026-05-03 | Stop Fixing ADHD — Start Power-Maxing It | We Who War Within | [watch](https://www.instagram.com/reel/DXmRo6wgF1O) |
+| 2026-05-03 | You Just Got 10 Years Back | DIA | [watch](https://www.instagram.com/reel/DXlH9XkDA8c) |
+| 2026-05-03 | Hack Your ADHD With Parasympathetic Routines | Dr. Chris Lee | [watch](https://www.instagram.com/reel/DV_L8otjkc9) |
 | 2026-04-30 | Delusional Optimism: Win Small, Dream Big | Charlie Rocket 🚀 Winning Streak | [watch](https://www.instagram.com/reel/DXmma_hCpcB) |
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
