@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-22 post(s) archived. Auto-generated from `data/reels/*.json`.
+23 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (7)
+## AI (8)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-02 | Claude Code Automates Cinematic AI Videos | spandana | [watch](https://www.instagram.com/reel/DXJwgCUAW75) |
 | 2026-04-28 | Claude Code Automates Full Video Production | Camila Tunoni | [watch](https://www.instagram.com/reel/DXHdtoCjPGW) |
 | 2026-04-27 | 3D Websites From Videos, No Coding Needed | Jo Mendes | [watch](https://www.instagram.com/reel/DXhCmYajj_X) |
 | 2026-04-27 | Build a Daily Briefing Agent with Claude | Vaibhav Sisinty | [watch](https://www.instagram.com/reel/DW85mwUg_Mf) |
