@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-28 post(s) archived. Auto-generated from `data/reels/*.json`.
+29 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (8)
 
@@ -21,10 +21,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (7)
+## Psychology (8)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-05 | Co-Regulation: Why Your Circle Shapes Your Nervous System | Chris Lee - Nervous System Tools and Strategies | [watch](https://www.instagram.com/reel/DXzEuy-uAVn) |
 | 2026-05-03 | Stop Letting Fear Write the Full Story | The Flint \| The Core Blueprint for Ambitious Thinkers | [watch](https://www.instagram.com/reel/DWJ1mZbDTmr) |
 | 2026-05-03 | Stop Fixing ADHD — Start Power-Maxing It | We Who War Within | [watch](https://www.instagram.com/reel/DXmRo6wgF1O) |
 | 2026-05-03 | You Just Got 10 Years Back | DIA | [watch](https://www.instagram.com/reel/DXlH9XkDA8c) |
