@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 004</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 004
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of May 8, 2026</div>
+    <h1>AI Tools Lower the Barrier to Digital Creation</h1>
+    <div class="hero-meta">
+      7 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">This week leaned heavy on the inner world: nervous systems, ADHD wiring, and the stories fear tries to write for us. On the outside, we looked at automating cinematic video with Claude Code and rethinking what a personal brand actually is.</p>
+
+<h2>AI</h2>
+
+<article class="post cat-ai">
+  <h3>Claude Code Automates Cinematic AI Videos</h3>
+  <p class="lead">One concept in, a finished cinematic video out — with Claude Code driving the whole browser session.</p>
+  <ul>
+    <li>Claude Code controls the browser via Playwright MCP, logging into Higgsfield and running the full generation flow hands-free.</li>
+    <li>Custom Claude Skills tuned for Seedance 2.0 turn a single brand idea into prompts covering camera motion, lighting, and temporal consistency.</li>
+    <li>End-to-end autonomous: type the concept, walk away, come back to a finished video.</li>
+    <li>Higgsfield is currently up to 70% off unlimited Seedance 2.0 generations.</li>
+  </ul>
+  <p class="meta">by <strong>@spandana</strong> · <a href="https://www.instagram.com/reel/DXJwgCUAW75">Watch →</a></p>
+</article>
+
+<h2>Marketing</h2>
+
+<article class="post cat-marketing">
+  <h3>You Are the Niche: Personal Brand Strategy</h3>
+  <p class="lead">Stop picking a niche — build the brand around who you actually are.</p>
+  <ul>
+    <li>Lead with an anchor topic, a personal journey, or both — the combination is where loyalty lives.</li>
+    <li>People connect to humans with perspective, not to content categories.</li>
+    <li>Your real brand is whatever you think about daily and could talk about for hours without notes.</li>
+    <li>Mixing expertise with a personal narrative (like a public growth bet) adds the entertainment layer that pulls audiences deeper.</li>
+  </ul>
+  <p class="meta">by <strong>@lauren | social media strategist</strong> · <a href="https://www.instagram.com/reel/DXwgOI6sXhX">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Co-Regulation: Why Your Circle Shapes Your Nervous System</h3>
+  <p class="lead">Your brain mirrors the people around you, so stressed company keeps your system on edge.</p>
+  <ul>
+    <li>The fusiform gyrus reads faces and body language, tuning your nervous system to match.</li>
+    <li>Time around dysregulated people keeps you locked in low-grade threat detection.</li>
+    <li>Saying no conserves internal resources — burnout is borrowing from tomorrow to pay for today.</li>
+    <li>Boundaries (or full cutoffs) with draining people count as legitimate regulation, not cruelty.</li>
+  </ul>
+  <p class="meta">by <strong>@Chris Lee - Nervous System Tools and Strategies</strong> · <a href="https://www.instagram.com/reel/DXzEuy-uAVn">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Stop Letting Fear Write the Full Story</h3>
+  <p class="lead">Mental discipline is refusing to treat the worst-case scenario as the only case.</p>
+  <ul>
+    <li>Fixating on one bad outcome makes the body react as if it's already happening.</li>
+    <li>Widening the frame to multiple possible outcomes physically calms the system.</li>
+    <li>Thoughts are interpretations, not facts — and interpretations are editable.</li>
+    <li>Discipline isn't forced positivity; it's holding neutral so negativity doesn't become the default lens.</li>
+  </ul>
+  <p class="meta">by <strong>@The Flint</strong> · <a href="https://www.instagram.com/reel/DWJ1mZbDTmr">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Stop Fixing ADHD — Start Power-Maxing It</h3>
+  <p class="lead">ADHD is an interest-based nervous system; it gets powerful when you stop fighting it.</p>
+  <ul>
+    <li>Focus is activated by genuine interest, not willpower — design for engagement instead of forcing it.</li>
+    <li>Crashes aren't laziness; they're the tax on overmasking and running a neurodivergent brain on neurotypical settings.</li>
+    <li>Close small open loops, allow side quests, and rest before the crash, not after.</li>
+    <li>Trade "perfect" for "done" and build life around what actually engages you.</li>
+  </ul>
+  <p class="meta">by <strong>@We Who War Within</strong> · <a href="https://www.instagram.com/reel/DXmRo6wgF1O">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Hack Your ADHD With Parasympathetic Routines</h3>
+  <p class="lead">Bookend the day with calming routines and hyperfixation becomes something you can switch on.</p>
+  <ul>
+    <li>Alcohol's appeal to ADHD brains hints they're chasing a parasympathetic, down-regulated state.</li>
+    <li>Parasympathetic routines at the start and end of the day stabilize dopamine and set the tone.</li>
+    <li>High-stimulation behaviors used strategically mid-day can trigger productive hyperfixation.</li>
+    <li>The real superpower is learning to enter and exit hyperfixation on demand.</li>
+  </ul>
+  <p class="meta">by <strong>@Dr. Chris Lee</strong> · <a href="https://www.instagram.com/reel/DV_L8otjkc9">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>You Just Got 10 Years Back</h3>
+  <p class="lead">A short guided visualization that uses future regret to jolt you into acting now.</p>
+  <ul>
+    <li>Picture your life ten years from now gone wrong — wrong job, unhappy, unfulfilled.</li>
+    <li>You find a photo of your younger self and beg for another shot.</li>
+    <li>The turn: opening your eyes means you already have it.</li>
+    <li>Prospective regret as a trigger for immediate action.</li>
+  </ul>
+  <p class="meta">by <strong>@DIA</strong> · <a href="https://www.instagram.com/reel/DXlH9XkDA8c">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
