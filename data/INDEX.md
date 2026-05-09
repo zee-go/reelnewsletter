@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-29 post(s) archived. Auto-generated from `data/reels/*.json`.
+30 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (8)
 
@@ -34,10 +34,11 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (5)
+## Food (6)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-09 | Chemical Engineer's Science-Backed Lemon Loaf | AYO FURY | [watch](https://www.instagram.com/reel/DXu031riLeM) |
 | 2026-04-21 | Napa Soup Dumpling Lasagna Recipe | Chris Lee | [watch](https://www.facebook.com/share/r/1B7dyEzjtb/?mibextid=wwXIfr) |
 | 2026-04-19 | Fudgy High-Protein Chocolate Cheesecake | theChefoutWest | [watch](https://www.facebook.com/share/r/1FMe9eAWCx/?mibextid=wwXIfr) |
 | 2026-04-19 | Crispy Lentil Crackers: No Oil, All Crunch | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/18ZmgCkxLy/?mibextid=wwXIfr) |
