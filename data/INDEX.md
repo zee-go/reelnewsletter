@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-30 post(s) archived. Auto-generated from `data/reels/*.json`.
+31 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (8)
 
@@ -21,10 +21,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (8)
+## Psychology (9)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-10 | Mental Rehearsal Cuts Monday ADHD Friction | Ana Urban \| ADHD + Mindset Coach | [watch](https://www.instagram.com/reel/DYDA3PypDcf) |
 | 2026-05-05 | Co-Regulation: Why Your Circle Shapes Your Nervous System | Chris Lee - Nervous System Tools and Strategies | [watch](https://www.instagram.com/reel/DXzEuy-uAVn) |
 | 2026-05-03 | Stop Letting Fear Write the Full Story | The Flint \| The Core Blueprint for Ambitious Thinkers | [watch](https://www.instagram.com/reel/DWJ1mZbDTmr) |
 | 2026-05-03 | Stop Fixing ADHD — Start Power-Maxing It | We Who War Within | [watch](https://www.instagram.com/reel/DXmRo6wgF1O) |
