@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-36 post(s) archived. Auto-generated from `data/reels/*.json`.
+37 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (8)
 
@@ -21,10 +21,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (10)
+## Psychology (11)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-14 | Daniel Pink's Scientific Secrets of Perfect Timing | Anna Akana | [watch](https://www.facebook.com/share/r/1CVBNE72G1/?mibextid=wwXIfr) |
 | 2026-05-14 | Break Rules to Wire Your Brain for Success | Emily McDonald | [watch](https://www.instagram.com/reel/DYPq3P_CgbM) |
 | 2026-05-10 | Mental Rehearsal Cuts Monday ADHD Friction | Ana Urban \| ADHD + Mindset Coach | [watch](https://www.instagram.com/reel/DYDA3PypDcf) |
 | 2026-05-05 | Co-Regulation: Why Your Circle Shapes Your Nervous System | Chris Lee - Nervous System Tools and Strategies | [watch](https://www.instagram.com/reel/DXzEuy-uAVn) |
