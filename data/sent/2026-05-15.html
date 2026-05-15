@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 005</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 005
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of May 15, 2026</div>
+    <h1>Psychology Hacks Meet Kitchen Shortcuts: Brain Over Convenience</h1>
+    <div class="hero-meta">
+      9 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">A week heavy on the inner world and the dinner table: one sharp marketing reset, four angles on rewiring how we think and time our days, and a small parade of recipes that range from gyros to a chemically optimized lemon loaf. Less doing, more deciding what to do — and then eating well about it.</p>
+
+<h2>Marketing</h2>
+
+<article class="post cat-marketing">
+  <h3>Sell Emotions, Not Products — Stay Simple</h3>
+  <p class="lead">Stop reinventing desires; sell one clear outcome to one specific audience on one platform.</p>
+  <ul>
+    <li>People buy states of mind — empowerment, freedom, prestige, security — not products.</li>
+    <li>Define who you're selling to, what they want, and the specific outcome you deliver.</li>
+    <li>Complex offers and mismatched audiences kill revenue; simplicity creates leverage.</li>
+    <li>One problem, one audience, one offer, one platform drives consistent five-figure results.</li>
+  </ul>
+  <p class="meta">by <strong>@Ivania Delgado</strong> · <a href="https://www.instagram.com/reel/DVbdMVCDhKL">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Quantum Leap Into Your Highest Timeline</h3>
+  <p class="lead">Visualize your life six months out and start acting from that future self today.</p>
+  <ul>
+    <li>Imagine a FaceTime call six months from now where you've already achieved your goal — and use that vision as your current reality.</li>
+    <li>Identify the self-imposed identity cap holding you back and consciously release it.</li>
+    <li>Don't wait six months — take one action today that signals you've already arrived.</li>
+    <li>Catch yourself venting or playing small and redirect: behave as the version who has already made it.</li>
+  </ul>
+  <p class="meta">by <strong>@BELLA SOLANOT</strong> · <a href="https://www.instagram.com/reel/DWXw_6iEaNI">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Daniel Pink's Scientific Secrets of Perfect Timing</h3>
+  <p class="lead">A comedic summary of <em>When</em> on scheduling your day around your natural energy cycles.</p>
+  <ul>
+    <li>Most people peak analytically in the morning — do focused work then, creative work in the afternoon.</li>
+    <li>Everyone follows a peak → trough → recovery cycle; the 1–4 p.m. slump is ideal for low-stakes tasks like email.</li>
+    <li>Optimal productivity ratio: roughly 52 minutes of work, 17 minutes of break.</li>
+    <li>Timing leaks everywhere — morning surgeries have fewer errors, morning court appearances get more lenient rulings, and workout timing depends on your chronotype.</li>
+  </ul>
+  <p class="meta">by <strong>@Anna Akana</strong> · <a href="https://www.facebook.com/share/r/1CVBNE72G1/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Break Rules to Wire Your Brain for Success</h3>
+  <p class="lead">Playing by your own rules activates dopamine and agency; defaulting to others' rules wires you for mediocrity.</p>
+  <ul>
+    <li>Following others' rules trains repetitive survival loops, suppressing motivation and authenticity.</li>
+    <li>Taking personal risks activates exploratory brain networks and boosts dopamine.</li>
+    <li>Breaking from the expected strengthens the prefrontal cortex and disrupts default-mode autopilot.</li>
+    <li>Perceived agency is one of the strongest predictors of well-being.</li>
+  </ul>
+  <p class="meta">by <strong>@Emily McDonald</strong> · <a href="https://www.instagram.com/reel/DYPq3P_CgbM">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Mental Rehearsal Cuts Monday ADHD Friction</h3>
+  <p class="lead">Visualization can lower friction across all six core ADHD hallmarks before a task even starts.</p>
+  <ul>
+    <li>Mental rehearsal helps the ADHD brain perceive a task as worth attention before starting.</li>
+    <li>Targets all six hallmarks: attention, memory, time management, emotional regulation, impulse control, and organization.</li>
+    <li>Upcoming training pairs audio tracks with music matched to ADHD nervous system needs.</li>
+    <li>Tracks are purpose-built for sustaining attention, impulse control, time management, and emotional regulation.</li>
+  </ul>
+  <p class="meta">by <strong>@Ana Urban</strong> · <a href="https://www.instagram.com/reel/DYDA3PypDcf">Watch →</a></p>
+</article>
+
+<h2>Food</h2>
+
+<article class="post recipe cat-food">
+  <h3>Homemade Beef & Lamb Gyros Hack</h3>
+  <p class="lead">A parchment-paper rolling trick that gets you spit-roast gyro texture from a home oven.</p>
+  <p class="recipe-meta">Prep: 30 min · Serves: 4</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>0.5 lb chuck steak, ground</li>
+    <li>0.5 lb lamb, ground</li>
+    <li>1 small onion, grated</li>
+    <li>1 tbsp dried Greek oregano</li>
+    <li>1 tsp garlic</li>
+    <li>1 tsp paprika</li>
+    <li>1 tsp cumin</li>
+    <li>Salt and pepper to taste</li>
+    <li>Greek olive oil</li>
+    <li>1 garlic clove, grated (tzatziki)</li>
+    <li>3 tbsp red wine vinegar (tzatziki)</li>
+    <li>Zest of 1 lemon (tzatziki)</li>
+    <li>1 English cucumber, seeded and grated (tzatziki)</li>
+    <li>1.5 tsp dried oregano (tzatziki)</li>
+    <li>16 oz full-fat Greek yogurt (tzatziki)</li>
+    <li>Fresh dill to taste (tzatziki)</li>
+    <li>Warmed pita, caramelized onion, tomatoes, Greek feta, parsley to serve</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Grind chuck and lamb together. Mix with grated onion, oregano, garlic, paprika, cumin, salt, and pepper.</li>
+    <li>Place the mixture on parchment, cover with another sheet, and roll to ¼-inch thick.</li>
+    <li>Drizzle with Greek olive oil and bake at 400°F for 20–25 minutes. Rest 8 minutes before slicing.</li>
+    <li>For the tzatziki: combine grated garlic, red wine vinegar, lemon zest, squeezed cucumber, oregano, salt, pepper, Greek yogurt, and dill. Chill until needed.</li>
+    <li>Assemble in warmed pita with meat, caramelized onion, tomato, feta, parsley, and a drizzle of olive oil.</li>
+  </ol>
+  <p class="meta">by <strong>@Cooking with Shereen</strong> · <a href="https://www.facebook.com/share/v/1PxYTCtoak/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post recipe cat-food">
+  <h3>Lazy Dan Dan Noodles in 15 Minutes</h3>
+  <p class="lead">A one-pot dan dan with crispy pork and a tahini-chili sauce that comes together faster than delivery.</p>
+  <p class="recipe-meta">Prep: under 15 min</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>Noodles (quantity as desired)</li>
+    <li>Ground pork</li>
+    <li>Soy sauce (for pork)</li>
+    <li>Garlic</li>
+    <li>Tahini</li>
+    <li>Chili oil</li>
+    <li>Soy sauce (for sauce)</li>
+    <li>Sesame oil</li>
+    <li>Chinkiang vinegar</li>
+    <li>Sugar</li>
+    <li>Green onions</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Cook noodles according to package instructions and set aside.</li>
+    <li>Crisp the ground pork in a pan, then add soy sauce and garlic. Set aside.</li>
+    <li>In the same pan, fry tahini, chili oil, soy sauce, sesame oil, Chinkiang vinegar, sugar, and green onions until combined.</li>
+    <li>Toss the noodles and pork into the sauce until coated.</li>
+    <li>Serve immediately.</li>
+  </ol>
+  <p class="meta">by <strong>@Chef Fatty</strong> · <a href="https://www.facebook.com/share/r/1bR21zwtV1/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post recipe cat-food">
+  <h3>Overnight Greek Yogurt Cream Cheese</h3>
+  <p class="lead">Three ingredients, one sieve, and you've replaced the tub in your fridge.</p>
+  <p class="recipe-meta">Prep: 5 min active, overnight passive · Serves: 4–6</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>500g 5% organic Greek yogurt</li>
+    <li>1¼ tsp salt</li>
+    <li>2 tsp lemon juice</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Mix the salt and lemon juice into the Greek yogurt.</li>
+    <li>Line a sieve with kitchen paper and set it over a bowl.</li>
+    <li>Pour the yogurt mixture onto the paper.</li>
+    <li>Leave in the fridge overnight to strain.</li>
+    <li>Remove, shape as desired, and top with honey, olive oil, or fresh herbs.</li>
+  </ol>
+  <p class="meta">by <strong>@Ro</strong> · <a href="https://www.instagram.com/reel/DYKu6r6I0EJ">Watch →</a></p>
+</article>
+
+<article class="post recipe cat-food">
+  <h3>Chemical Engineer's Science-Backed Lemon Loaf</h3>
+  <p class="lead">A chemical engineer reverse-engineers maximum citrus intensity using flavor-molecule chemistry.</p>
+  <p class="recipe-meta">Prep: 20 min + 55–60 min bake · Serves: 1 loaf (8x4 pan)</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>165g granulated sugar</li>
+    <li>Zest of 1 lemon</li>
+    <li>Zest of 1 lime</li>
+    <li>Zest of 1 orange</li>
+    <li>1 tsp grated fresh ginger</li>
+    <li>1 egg</li>
+    <li>75g olive oil</li>
+    <li>65g almond milk</li>
+    <li>145g AP flour</li>
+    <li>1 tsp baking powder</li>
+    <li>½ tsp salt</li>
+    <li>30g lemon juice (about ½ lemon)</li>
+    <li>10g lime juice (about ½ lime)</li>
+    <li>30g lemon juice (syrup)</li>
+    <li>15g lime juice (syrup)</li>
+    <li>25g powdered sugar (syrup)</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Preheat oven to 160°C/320°F (convection) or 180°C/350°F (no fan). Grease and line an 8x4 loaf tin.</li>
+    <li>Combine sugar, all zests, and ginger in a large bowl. Rub together with your fingers until the sugar resembles damp yellow sand. Rest 15 minutes.</li>
+    <li>Add egg and olive oil; whisk and let sit 5 minutes until most of the sugar dissolves.</li>
+    <li>Add milk and whisk until fully dissolved.</li>
+    <li>Add flour, baking powder, salt, lemon juice, and lime juice all at once; mix until just combined.</li>
+    <li>Pour into the tin and bake 55–60 minutes, until golden and springy on top.</li>
+    <li>Stir the syrup ingredients together. Rest the loaf 10 minutes out of the oven, then poke holes throughout with a skewer.</li>
+    <li>Spoon the lemon-lime syrup over the hot loaf, including the edges, and let it soak in.</li>
+    <li>Optional: glaze with runny Greek yogurt, powdered sugar, and lemon juice once nearly cool. Wrap tightly overnight for maximum moisture.</li>
+  </ol>
+  <p class="meta">by <strong>@AYO FURY</strong> · <a href="https://www.instagram.com/reel/DXu031riLeM">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
