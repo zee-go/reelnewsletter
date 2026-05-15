@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-39 post(s) archived. Auto-generated from `data/reels/*.json`.
+40 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (8)
 
@@ -21,10 +21,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (13)
+## Psychology (14)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-15 | Breaking the Self-Improvement Self-Destruction Cycle | josh czuba | [watch](https://www.instagram.com/reel/DW9PTpiji4R) |
 | 2026-05-15 | You're Between Chapters, Not Broken | Heidi Tacktill \| Somatic Breathwork | [watch](https://www.instagram.com/reel/DXrsNdZAJel) |
 | 2026-05-15 | Quantum Leap Into Your Highest Timeline | BELLA SOLANOT \| Writer • Expander | [watch](https://www.instagram.com/reel/DWXw_6iEaNI) |
 | 2026-05-14 | Daniel Pink's Scientific Secrets of Perfect Timing | Anna Akana | [watch](https://www.facebook.com/share/r/1CVBNE72G1/?mibextid=wwXIfr) |
