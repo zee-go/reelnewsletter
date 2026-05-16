@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-40 post(s) archived. Auto-generated from `data/reels/*.json`.
+41 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (8)
 
@@ -21,10 +21,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (14)
+## Psychology (15)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-16 | Your Brain Only Sees What It Looks For | Dr. Bing, MD MPH | [watch](https://www.facebook.com/share/r/1Cjx2YmHmd/?mibextid=wwXIfr) |
 | 2026-05-15 | Breaking the Self-Improvement Self-Destruction Cycle | josh czuba | [watch](https://www.instagram.com/reel/DW9PTpiji4R) |
 | 2026-05-15 | You're Between Chapters, Not Broken | Heidi Tacktill \| Somatic Breathwork | [watch](https://www.instagram.com/reel/DXrsNdZAJel) |
 | 2026-05-15 | Quantum Leap Into Your Highest Timeline | BELLA SOLANOT \| Writer • Expander | [watch](https://www.instagram.com/reel/DWXw_6iEaNI) |
