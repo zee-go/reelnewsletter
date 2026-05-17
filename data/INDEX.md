@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-43 post(s) archived. Auto-generated from `data/reels/*.json`.
+44 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (8)
 
@@ -21,10 +21,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (17)
+## Psychology (18)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-17 | Women's Wealth Blocks: Pleasure, Power, Death | Sky Fisher | [watch](https://www.instagram.com/reel/DV9XueckgCu) |
 | 2026-05-16 | Create to Escape the Consumption Trap | Nuffsaid Channel | [watch](https://www.instagram.com/reel/DXs_QQ-iKMo) |
 | 2026-05-16 | Be Delusional for 30 Days | Antoine Martel | [watch](https://www.instagram.com/reel/DXp1CHOj6cY) |
 | 2026-05-16 | Your Brain Only Sees What It Looks For | Dr. Bing, MD MPH | [watch](https://www.facebook.com/share/r/1Cjx2YmHmd/?mibextid=wwXIfr) |
