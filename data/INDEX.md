@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-46 post(s) archived. Auto-generated from `data/reels/*.json`.
+49 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (8)
 
@@ -21,10 +21,13 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (19)
+## Psychology (22)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-19 | The Upper Limit: Fear of Your Own Success | Alyssa Daphne \| Self Growth & Cozy Mindset Mastery | [watch](https://www.instagram.com/reel/DWkDTj6iWoG) |
+| 2026-05-19 | Weird ADHD Hacks That Actually Work | Adhd Treatment | [watch](https://www.facebook.com/share/r/1NrcUPUUB8/?mibextid=wwXIfr) |
+| 2026-05-19 | Why Unfinished Relationships Haunt Us | Mini Philosophy | [watch](https://www.facebook.com/share/r/1ayhPQ3yFL/?mibextid=wwXIfr) |
 | 2026-05-18 | Resistance Is the Audition for Your Next Level | Paget Kagy \| Quantum Energy Coach | [watch](https://www.instagram.com/reel/DW85mf2DFJp) |
 | 2026-05-17 | Women's Wealth Blocks: Pleasure, Power, Death | Sky Fisher | [watch](https://www.instagram.com/reel/DV9XueckgCu) |
 | 2026-05-16 | Create to Escape the Consumption Trap | Nuffsaid Channel | [watch](https://www.instagram.com/reel/DXs_QQ-iKMo) |
