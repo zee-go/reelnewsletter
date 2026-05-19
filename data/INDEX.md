@@ -1,11 +1,13 @@
 # Reel Archive Index
 
-49 post(s) archived. Auto-generated from `data/reels/*.json`.
+52 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (8)
+## AI (10)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-19 | AI Agent Automates Your Second Brain | Alina Pak | [watch](https://www.instagram.com/reel/DYcu-OZArsi) |
+| 2026-05-19 | Build $8k/Month Faceless YouTube Channel with AI | Rui Fu | [watch](https://www.instagram.com/reel/DYWFQKAPgmF) |
 | 2026-05-02 | Claude Code Automates Cinematic AI Videos | spandana | [watch](https://www.instagram.com/reel/DXJwgCUAW75) |
 | 2026-04-28 | Claude Code Automates Full Video Production | Camila Tunoni | [watch](https://www.instagram.com/reel/DXHdtoCjPGW) |
 | 2026-04-27 | 3D Websites From Videos, No Coding Needed | Jo Mendes | [watch](https://www.instagram.com/reel/DXhCmYajj_X) |
@@ -62,8 +64,9 @@
 | 2026-04-19 | Soak Nuts for the Crispiest Granola Ever | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/1ANWnbqkp5/?mibextid=wwXIfr) |
 | 2026-04-18 | High-Protein Blueberry Cheesecake | Keto Snackz | [watch](https://www.facebook.com/share/r/18k7TN59Xg/?mibextid=wwXIfr) |
 
-## Other (1)
+## Other (2)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-19 | Build a $150K/Month Mobile App Blueprint | Steven \| Building Viral Apps | [watch](https://www.instagram.com/reel/DXmWZC4oy_o) |
 | 2026-04-30 | Best The Ordinary Products Ranked | Dermarkologist | [watch](https://www.facebook.com/share/r/1J7qTt67Mx/?mibextid=wwXIfr) |

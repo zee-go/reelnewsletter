@@ -1,0 +1,22 @@
+{
+  "shortcode": "DYcu-OZArsi",
+  "url": "https://www.instagram.com/reel/DYcu-OZArsi",
+  "received_at": "2026-05-19T21:44:20+00:00",
+  "caption": "second brain setup in 4 steps:\n\n→ drop it — every article, video, link goes in one /raw folder. no sorting, no tags. i drop it and forget it.\n→ extract — my agent reads /raw and turns the mess into clean, linked notes.\n→ direct — one file, CLAUDE.md, holds the rules: how notes get written, the folder structure, how the brain should grow.\n→ automate — cron jobs run a daily review + weekly audit. i stopped maintaining it completely.\n\nthe wiki gets denser every day from my sources. the brain grows while i live my life.\n\ncomment “brain” and i’ll send you the full system + my CLAUDE.md.\n\n#secondbrain #obsidian #claudeai #aiagents",
+  "author": "Alina Pak",
+  "duration_s": 59.0,
+  "has_video": true,
+  "image_count": 0,
+  "transcript": "You know when you save a post and you're like, yeah, I'm definitely gonna check it out later This is so important and you never open it again I found a solution my agent now watches them for me and feeds it all into my second brain Here's how my second brain works. I dump everything videos articles links into a raw folder. I don't sort anything I don't tag I just drop it and forget about it. My agent goes into the folder extract all the good information and turns my messy Info dump into knowledge. It creates new notes in my wiki. It connects concepts together and builds context Automatically, but how does the agent know what to do? Just one file claw dot MD the rules the workflows my writing style the folder structure Instructions on how the brain should evolve here is mine You can just copy or create yours and the last thing most people miss this I schedule daily reviews and weekly audits with this you stop maintaining the system by hand My fat second brain gets fatter every day from my sources common brain and I'll send you all the instructions",
+  "tag": "ai",
+  "title": "AI Agent Automates Your Second Brain",
+  "one_liner": "Use an AI agent and CLAUDE.md rules file to auto-process saved links into a self-growing knowledge wiki.",
+  "key_points": [
+    "Dump all links/articles into a raw folder with zero sorting — let the agent handle it",
+    "An AI agent extracts key info and builds linked notes in your wiki automatically",
+    "One CLAUDE.md file defines writing style, folder structure, and how the brain should evolve",
+    "Cron-scheduled daily reviews and weekly audits eliminate all manual maintenance"
+  ],
+  "recipe": null,
+  "sent_in_newsletter": null
+}
