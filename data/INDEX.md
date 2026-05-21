@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-52 post(s) archived. Auto-generated from `data/reels/*.json`.
+54 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (10)
 
@@ -50,10 +50,11 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (9)
+## Food (10)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-21 | Mediterranean Eggplant Pocket Bake | Shred Happens | [watch](https://www.facebook.com/share/r/1B9YW6xRJH/?mibextid=wwXIfr) |
 | 2026-05-13 | Homemade Beef & Lamb Gyros Hack | Cooking with Shereen | [watch](https://www.facebook.com/share/v/1PxYTCtoak/?mibextid=wwXIfr) |
 | 2026-05-13 | Lazy Dan Dan Noodles in 15 Minutes | Chef Fatty | [watch](https://www.facebook.com/share/r/1bR21zwtV1/?mibextid=wwXIfr) |
 | 2026-05-11 | Overnight Greek Yogurt Cream Cheese | Ro | [watch](https://www.instagram.com/reel/DYKu6r6I0EJ) |
@@ -64,9 +65,10 @@
 | 2026-04-19 | Soak Nuts for the Crispiest Granola Ever | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/1ANWnbqkp5/?mibextid=wwXIfr) |
 | 2026-04-18 | High-Protein Blueberry Cheesecake | Keto Snackz | [watch](https://www.facebook.com/share/r/18k7TN59Xg/?mibextid=wwXIfr) |
 
-## Other (2)
+## Other (3)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-21 | 5-Day Dolomites Road Trip Itinerary | Voyages with Val | [watch](https://www.facebook.com/share/r/18j9EWGYHv/?mibextid=wwXIfr) |
 | 2026-05-19 | Build a $150K/Month Mobile App Blueprint | Steven \| Building Viral Apps | [watch](https://www.instagram.com/reel/DXmWZC4oy_o) |
 | 2026-04-30 | Best The Ordinary Products Ranked | Dermarkologist | [watch](https://www.facebook.com/share/r/1J7qTt67Mx/?mibextid=wwXIfr) |
