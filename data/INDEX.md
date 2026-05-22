@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-54 post(s) archived. Auto-generated from `data/reels/*.json`.
+55 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (10)
+## AI (11)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-22 | 7 Claude Skills for a Creator Studio | Cindy Zhu | [watch](https://www.instagram.com/reel/DYh0vdAv2_s) |
 | 2026-05-19 | AI Agent Automates Your Second Brain | Alina Pak | [watch](https://www.instagram.com/reel/DYcu-OZArsi) |
 | 2026-05-19 | Build $8k/Month Faceless YouTube Channel with AI | Rui Fu | [watch](https://www.instagram.com/reel/DYWFQKAPgmF) |
 | 2026-05-02 | Claude Code Automates Cinematic AI Videos | spandana | [watch](https://www.instagram.com/reel/DXJwgCUAW75) |
