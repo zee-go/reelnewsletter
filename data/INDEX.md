@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-55 post(s) archived. Auto-generated from `data/reels/*.json`.
+57 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (11)
 
@@ -24,10 +24,12 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (22)
+## Psychology (24)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-22 | Date to Know Yourself, Not Find Someone | رغدان | [watch](https://www.instagram.com/reel/DTPnt1BEqiT) |
+| 2026-05-22 | Stop Waiting to Feel Ready to Create | Megs 🧚‍♀️ Creative & Emotional alchemist | [watch](https://www.instagram.com/reel/DYmbZdcK2LD) |
 | 2026-05-19 | The Upper Limit: Fear of Your Own Success | Alyssa Daphne \| Self Growth & Cozy Mindset Mastery | [watch](https://www.instagram.com/reel/DWkDTj6iWoG) |
 | 2026-05-19 | Weird ADHD Hacks That Actually Work | Adhd Treatment | [watch](https://www.facebook.com/share/r/1NrcUPUUB8/?mibextid=wwXIfr) |
 | 2026-05-19 | Why Unfinished Relationships Haunt Us | Mini Philosophy | [watch](https://www.facebook.com/share/r/1ayhPQ3yFL/?mibextid=wwXIfr) |
