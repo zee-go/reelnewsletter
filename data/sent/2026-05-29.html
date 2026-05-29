@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 007</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 007
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of May 29, 2026</div>
+    <h1>Internal Blocks Meet External Tactics: A Losing Game</h1>
+    <div class="hero-meta">
+      9 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">This week leaned hard into the inner game — wounds, nervous systems, identity loops, and the uncomfortable truth that most "hacks" are just avoidance in a trench coat. Marketing and psychology kept blurring into each other, which honestly tracks.</p>
+
+<h2>Marketing</h2>
+
+<article class="post cat-marketing">
+  <h3>The Triangle of Yapping Framework</h3>
+  <p class="lead">A three-part structure for talking-head videos that actually hold attention.</p>
+  <ul>
+    <li>Open with T/T (Thought or Topic) — drop viewers mid-conversation, skip the intro fluff.</li>
+    <li>Layer in MAES (Metaphor, Analogy, Example, Story) to make dry topics land.</li>
+    <li>Close with A/N (Application or Next Steps) so viewers know what to do next.</li>
+    <li>Stacked together, it gives every video a repeatable spine for retention.</li>
+  </ul>
+  <p class="meta">by <strong>@Jaden Young</strong> · <a href="https://www.instagram.com/reel/DYwzNAbiY1J">Watch →</a></p>
+</article>
+
+<article class="post cat-marketing">
+  <h3>Content Hacks Are Fake — Learn Fundamentals Instead</h3>
+  <p class="lead">A blunt reminder that the "secret trick" economy is mostly fiction.</p>
+  <ul>
+    <li>VPN posting, copying links to Google, tagging big creators — fabricated, none of it moves the needle.</li>
+    <li>There's no magic posting time, hashtag formula, or algorithm cheat code.</li>
+    <li>We chase hacks because certainty feels safer than building real skill.</li>
+    <li>Growth comes from knowing what to post, how to position, and how to optimize each video.</li>
+  </ul>
+  <p class="meta">by <strong>@Lana Kearney Social</strong> · <a href="https://www.instagram.com/reel/DYW5O2cofkl">Watch →</a></p>
+</article>
+
+<article class="post cat-marketing">
+  <h3>$4K/Day Using AI to Find Demand Gaps</h3>
+  <p class="lead">Mine competitor complaints, find the gap, ship the product.</p>
+  <ul>
+    <li>"Complaint harvesting": prompt AI to pull negative reviews from top sellers in your niche.</li>
+    <li>Look for the hidden demand gap — the recurring pain point no current product solves.</li>
+    <li>Use Canva AI to spin up a digital product targeting that exact missing solution.</li>
+    <li>Products built on unmet demand sell themselves because they're the only real answer.</li>
+  </ul>
+  <p class="meta">by <strong>@James Oreilly</strong> · <a href="https://www.instagram.com/reel/DYhWzTuuhpI">Watch →</a></p>
+</article>
+
+<article class="post cat-marketing">
+  <h3>Your Unhealed Wounds Are Sabotaging Your Marketing</h3>
+  <p class="lead">Eight self-sabotage patterns in coaches and healers, each tied to a specific wound.</p>
+  <ul>
+    <li>Fear of selling = past manipulative sales experiences; fix by healing the money story and clarifying your transformation.</li>
+    <li>Inconsistency = fear of success and distrust of future self; fix by committing to your "Main Character Message" before you feel ready.</li>
+    <li>Perfectionism = protection tied to conditional love; fix by posting imperfectly for one person, one problem.</li>
+    <li>Metric obsession = outsourcing self-worth to an algorithm; fix by anchoring to WHY and showing up in service, not audition.</li>
+  </ul>
+  <p class="meta">by <strong>@Kenzi Rose</strong> · <a href="https://www.instagram.com/reel/DYQGKOnSHFZ">Watch →</a></p>
+</article>
+
+<article class="post cat-marketing">
+  <h3>Rewire Identity to Unlock Viral Growth</h3>
+  <p class="lead">The pitch: your nervous system, not your strategy, is gatekeeping your reach.</p>
+  <ul>
+    <li>Inconsistency online is your self-concept lagging behind your ambition.</li>
+    <li>Mental blocks, viral blocks, and money blocks are the same block wearing different outfits.</li>
+    <li>The method combines content strategy with "identity alchemy" to build a movement.</li>
+    <li>CTA: comment "QUANTUM" to ask about 1:1 coaching.</li>
+  </ul>
+  <p class="meta">by <strong>@Jayda Jones</strong> · <a href="https://www.instagram.com/reel/DWFPf_hjygy">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Why Your Body Rejects Big Money</h3>
+  <p class="lead">Unfamiliar wealth reads as threat — and your identity quietly pushes it back out.</p>
+  <ul>
+    <li>The cringe of imagining $30k/month is a nervous system safety response, not a character flaw.</li>
+    <li>When money arrives, an old identity loop activates and finds a way to spend or repel it.</li>
+    <li>That same loop (say, self-trust) shows up across relationships and work, not just finances.</li>
+    <li>Breaking it means naming the loop, then upgrading the identity that has to hold the money.</li>
+  </ul>
+  <p class="meta">by <strong>@Kay</strong> · <a href="https://www.instagram.com/reel/DX-VM41hUdJ">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Retrain Your Brain to Stop Obsessing Over Someone</h3>
+  <p class="lead">A 30-second morning practice aimed at the amygdala's abandonment alarm.</p>
+  <ul>
+    <li>The amygdala flags abandonment as danger (wired ages 0–6), triggering chemicals that force repetitive thoughts.</li>
+    <li>The brain is most malleable in alpha/theta/delta states — right at waking, falling asleep, or in deep meditation.</li>
+    <li>The moment you wake, spend 30 seconds speaking to yourself with extreme tenderness, like to a baby.</li>
+    <li>After ~30 days, obsessive thoughts thin out — hours apart, then days, then weeks.</li>
+  </ul>
+  <p class="meta">by <strong>@Heal with Aishu</strong> · <a href="https://www.instagram.com/reel/DY3ZDcRq9Vy">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Find Your Hunger or Stay Broke</h3>
+  <p class="lead">A hard-edged take that hunger, not talent or luck, is the real variable.</p>
+  <ul>
+    <li>Talent and luck are overrated; sustained hunger and sacrifice do the heavy lifting.</li>
+    <li>While others rest or celebrate, high achievers are still hunting the next win.</li>
+    <li>The price is real: strained relationships, missed moments, social isolation.</li>
+    <li>Ask what comfort you'll sacrifice that others won't — no answer means no edge.</li>
+  </ul>
+  <p class="meta">by <strong>@Angela Soko</strong> · <a href="https://www.instagram.com/reel/DSxzsicEVwj">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Date to Know Yourself, Not Find Someone</h3>
+  <p class="lead">Dating as a mirror for your patterns, not a search engine for a partner.</p>
+  <ul>
+    <li>Use dates to notice where you abandon yourself, not to audition for a relationship.</li>
+    <li>Not everyone entering your life can actually build with you — learn to spot shelter-seekers vs. builders.</li>
+    <li>Suffering tends to come from skipping the witnessing stage and jumping straight to wanting.</li>
+    <li>The real work: telling genuine ease apart from emotional escape.</li>
+  </ul>
+  <p class="meta">by <strong>@رغدان</strong> · <a href="https://www.instagram.com/reel/DTPnt1BEqiT">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
