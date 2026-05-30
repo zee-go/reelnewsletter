@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-68 post(s) archived. Auto-generated from `data/reels/*.json`.
+75 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (11)
+## AI (12)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-30 | 3 Claude Prompts to Grow a YouTube Channel | Grow Channels | [watch](https://www.instagram.com/p/DY4no4nDEJ5) |
 | 2026-05-22 | 7 Claude Skills for a Creator Studio | Cindy Zhu | [watch](https://www.instagram.com/reel/DYh0vdAv2_s) |
 | 2026-05-19 | AI Agent Automates Your Second Brain | Alina Pak | [watch](https://www.instagram.com/reel/DYcu-OZArsi) |
 | 2026-05-19 | Build $8k/Month Faceless YouTube Channel with AI | Rui Fu | [watch](https://www.instagram.com/reel/DYWFQKAPgmF) |
@@ -24,10 +25,14 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (28)
+## Psychology (32)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-30 | Wrong Relationships Reveal Who You Really Are | Hetal Patel | [watch](https://www.instagram.com/p/DXz7B7MEQZL) |
+| 2026-05-30 | Naikan: The Japanese Method That Dissolves Depression | Manifestation \| Abundance \| Mindset | [watch](https://www.instagram.com/p/DYRgD1XjDn0) |
+| 2026-05-30 | Fear vs. Desire: How to Know Your Answer | Jefferson Isesele \| Branding Coach | [watch](https://www.instagram.com/p/DYpcDUviOOm) |
+| 2026-05-30 | The Greek Technique That Banned Fear of Failure | Manifestingblisss | [watch](https://www.instagram.com/p/DYxmNf_jL5z) |
 | 2026-05-30 | You're Safe — Just Post It | Sebastian Scales | [watch](https://www.instagram.com/reel/DYbxJxlBEaZ) |
 | 2026-05-29 | Why Your Body Rejects Big Money | Kay ☀️ Money Loops + Identity Rewiring | [watch](https://www.instagram.com/reel/DX-VM41hUdJ) |
 | 2026-05-29 | Retrain Your Brain to Stop Obsessing Over Someone | Heal with Aishu 🫶 | [watch](https://www.instagram.com/reel/DY3ZDcRq9Vy) |

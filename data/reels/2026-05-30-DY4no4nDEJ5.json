@@ -1,21 +1,21 @@
 {
   "shortcode": "DY4no4nDEJ5",
   "url": "https://www.instagram.com/p/DY4no4nDEJ5",
-  "received_at": "2026-05-30T18:48:00+00:00",
+  "received_at": "2026-05-30T21:08:57+00:00",
   "caption": "Comment “CLAUDE” to get the full PDF guide 👇🏼\n\nDisclaimer: Information shared here is for educational purposes only. Individuals and business owners should evaluate their own business strategies, and identify any potential risks. The information shared here is not a guarantee of success. Your results may vary.",
   "author": "Grow Channels",
   "duration_s": 0,
   "has_video": false,
   "image_count": 5,
   "transcript": "",
-  "tag": "marketing",
-  "title": "3 Claude Prompts to Grow YouTube Fast",
-  "one_liner": "Use Claude AI and 3 specific prompts to research niches, analyze competitors, and generate viral YouTube video ideas.",
+  "tag": "ai",
+  "title": "3 Claude Prompts to Grow a YouTube Channel",
+  "one_liner": "Use Claude AI with 3 specific prompts to find niches, analyze competitors, and generate viral YouTube video ideas.",
   "key_points": [
-    "Find niches using NexLev: target competitors with under 100k subs but over 500k monthly views",
-    "Prompt #1 (Channel Forensics): assign Claude as an Elite YouTube Title Strategist to reverse-engineer viral patterns in your niche",
-    "Prompt #2 (Competitor Research): feed Claude a competitor's channel blueprint PDF to extract title formats, thumbnail types, and view-count insights",
-    "Prompt #3 (Viral Video Ideas): provide Claude two documents — channel blueprint + your own data — to generate new high-potential video concepts"
+    "Find a niche using NexLev: target competitors under 100k subs but pulling 500k+ views/month",
+    "Prompt #1 (Channel Forensics): assign Claude the role of Elite YouTube Title Strategist to reverse-engineer viral patterns",
+    "Prompt #2 (Competitor Research): feed Claude a PDF channel blueprint with view counts and title data for deep analysis",
+    "Prompt #3 (Viral Video Ideas): provide Claude two documents — channel blueprint + top video analysis — to generate new high-potential video concepts"
   ],
   "recipe": null,
   "sent_in_newsletter": null
