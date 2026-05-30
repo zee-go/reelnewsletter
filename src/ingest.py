@@ -173,6 +173,57 @@ def _download_from_info(info: dict, workdir: Path) -> list[Path]:
     return out
 
 
+def _download_from_embed(url: str, workdir: Path) -> list[Path]:
+    # IG's public /embed/captioned/ page exposes every carousel slide as a JSON
+    # `display_url`, even when yt-dlp's Instagram extractor returns no formats
+    # and no thumbnails. No auth required.
+    code = shortcode(url)
+    if code == "unknown" or "instagram.com" not in url.lower():
+        return []
+    embed_url = f"https://www.instagram.com/p/{code}/embed/captioned/"
+    ua = (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 "
+        "(KHTML, like Gecko) Version/17.1 Safari/605.1.15"
+    )
+    try:
+        r = requests.get(embed_url, headers={"User-Agent": ua}, timeout=30)
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  embed fallback: fetch failed: {e}", flush=True)
+        return []
+    raw = re.findall(r'\\"display_url\\":\\"([^"]+?\.(?:jpg|jpeg|webp|heic)[^"]*?)\\"', r.text)
+    if not raw:
+        print(f"  embed fallback: no display_url matches in {len(r.text)}-byte page", flush=True)
+    seen: set[str] = set()
+    candidates: list[str] = []
+    for u in raw:
+        clean = re.sub(r"\\+/", "/", u)
+        if clean not in seen:
+            seen.add(clean)
+            candidates.append(clean)
+    img_headers = {
+        "User-Agent": ua,
+        "Accept": "image/webp,image/apng,image/*,*/*;q=0.8",
+        "Referer": "https://www.instagram.com/",
+    }
+    out: list[Path] = []
+    for i, img_url in enumerate(candidates[:MAX_IMAGES_PER_POST]):
+        try:
+            ir = requests.get(img_url, headers=img_headers, timeout=30)
+            ir.raise_for_status()
+            content = ir.content
+            if len(content) > MAX_IMAGE_BYTES:
+                continue
+            ct = (ir.headers.get("content-type") or "").split(";")[0].strip().lower()
+            ext = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp"}.get(ct, ".jpg")
+            path = workdir / f"embed_{i}{ext}"
+            path.write_bytes(content)
+            out.append(path)
+        except Exception as e:
+            print(f"  embed image {i} failed: {e}", flush=True)
+    return out
+
+
 def download_content(url: str, workdir: Path) -> dict:
     """Download video or images + metadata. Returns dict with videos, images, caption, author, duration."""
     r1 = subprocess.run(
@@ -198,6 +249,10 @@ def download_content(url: str, workdir: Path) -> dict:
                 print(f"  photo fallback: no info.json. "
                       f"ytdlp-v1 stderr: {r1.stderr[:300]} "
                       f"ytdlp-v2 stderr: {r2.stderr[:300]}", flush=True)
+        if not images:
+            images = _download_from_embed(url, workdir)
+            if images:
+                print(f"  embed fallback: recovered {len(images)} image(s)", flush=True)
 
     if not videos and not images:
         raise RuntimeError(
