@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-65 post(s) archived. Auto-generated from `data/reels/*.json`.
+67 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (11)
 
@@ -24,10 +24,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (27)
+## Psychology (28)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-05-30 | You're Safe — Just Post It | Sebastian Scales | [watch](https://www.instagram.com/reel/DYbxJxlBEaZ) |
 | 2026-05-29 | Why Your Body Rejects Big Money | Kay ☀️ Money Loops + Identity Rewiring | [watch](https://www.instagram.com/reel/DX-VM41hUdJ) |
 | 2026-05-29 | Retrain Your Brain to Stop Obsessing Over Someone | Heal with Aishu 🫶 | [watch](https://www.instagram.com/reel/DY3ZDcRq9Vy) |
 | 2026-05-22 | Find Your Hunger or Stay Broke | Angela Soko \| High Ticket Sales | [watch](https://www.instagram.com/reel/DSxzsicEVwj) |
