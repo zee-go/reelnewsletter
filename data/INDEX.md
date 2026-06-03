@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-75 post(s) archived. Auto-generated from `data/reels/*.json`.
+76 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -25,10 +25,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (32)
+## Psychology (33)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-03 | Clarity Comes From Action, Not Waiting | Alchemist | [watch](https://www.instagram.com/reel/DZGHb0-O2jz) |
 | 2026-05-30 | Wrong Relationships Reveal Who You Really Are | Hetal Patel | [watch](https://www.instagram.com/p/DXz7B7MEQZL) |
 | 2026-05-30 | Naikan: The Japanese Method That Dissolves Depression | Manifestation \| Abundance \| Mindset | [watch](https://www.instagram.com/p/DYRgD1XjDn0) |
 | 2026-05-30 | Fear vs. Desire: How to Know Your Answer | Jefferson Isesele \| Branding Coach | [watch](https://www.instagram.com/p/DYpcDUviOOm) |
