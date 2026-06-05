@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 008</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 008
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of June 5, 2026</div>
+    <h1>Building a Digital Brand Requires Facing Yourself First</h1>
+    <div class="hero-meta">
+      10 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">A heavy week on the Claude-as-co-founder front — prompts, workflows, and ebook plays stacking up fast. On the other side of the brain, we kept saving things about fear: fear of being seen, fear of failure, fear dressed up as indecision. Strategy and self-awareness, side by side.</p>
+
+<h2>AI</h2>
+
+<article class="post cat-ai">
+  <h3>3 Claude Prompts to Grow a YouTube Channel</h3>
+  <p class="lead">A three-prompt sequence that turns Claude into a title strategist, competitor analyst, and idea generator.</p>
+  <ul>
+    <li>Find a niche on NexLev: competitors under 100k subs pulling 500k+ monthly views.</li>
+    <li>Prompt 1 — Channel Forensics: cast Claude as an Elite YouTube Title Strategist to reverse-engineer viral patterns.</li>
+    <li>Prompt 2 — Competitor Research: feed Claude a channel-blueprint PDF with view counts and titles for deep analysis.</li>
+    <li>Prompt 3 — Viral Ideas: combine the blueprint and top-video analysis to generate fresh high-potential concepts.</li>
+  </ul>
+  <p class="meta">by <strong>@Grow Channels</strong> · <a href="https://www.instagram.com/p/DY4no4nDEJ5">Watch →</a></p>
+</article>
+
+<h2>Marketing</h2>
+
+<article class="post cat-marketing">
+  <h3>7 Claude Prompts to Sell Digital Products on Instagram</h3>
+  <p class="lead">Seven fill-in-the-blank prompts that take you from product idea to carousel CTA.</p>
+  <ul>
+    <li>Prompt 1: top five profitable digital product ideas for your niche, ranked by ease and income potential.</li>
+    <li>Prompt 2: a full product outline — name, subtitle, table of contents, and a quick win for the buyer.</li>
+    <li>Prompt 3: five Instagram bios under 150 characters that convert without sounding salesy.</li>
+    <li>Prompt 4: a 9-slide carousel with hook, value, myth-bust, social proof, and a soft CTA.</li>
+  </ul>
+  <p class="meta">by <strong>@aipagedaily</strong> · <a href="https://www.instagram.com/p/DX8xw6BFvPF">Watch →</a></p>
+</article>
+
+<article class="post cat-marketing">
+  <h3>Claude + Canva Workflow for Viral Carousels</h3>
+  <p class="lead">Structure first, design last — the order that keeps people swiping past slide 3.</p>
+  <ul>
+    <li>Beautiful design flops without flow; weak hooks lose people by slide 3.</li>
+    <li>Start in Claude: scroll-stopping hooks, contrarian angles, and a 10-slide tension-to-CTA spine.</li>
+    <li>Every slide should build momentum to the next, not just deliver information.</li>
+    <li>Canva comes last. Strategy → structure → design is the sequence that lifts completion.</li>
+  </ul>
+  <p class="meta">by <strong>@Sociyell</strong> · <a href="https://www.instagram.com/p/DX9vUA2geyz">Watch →</a></p>
+</article>
+
+<article class="post cat-marketing">
+  <h3>Use Claude to Build a $16K Ebook Business</h3>
+  <p class="lead">A four-step faceless-page system for turning Claude outputs into a digital product line.</p>
+  <ul>
+    <li>Pick an evergreen niche — money, luxury, motivation, relationships, entertainment — that always pulls views.</li>
+    <li>Use Claude's "Digital Product Builder" prompt to produce an ebook, PDF guide, or course in about ten minutes.</li>
+    <li>Wrap it in a faceless page with a brandable name, clean bio, and a single tight niche.</li>
+    <li>Production stack: Claude for scripts, Pexels for visuals, Opus for clips, Edits for subtitles.</li>
+  </ul>
+  <p class="meta">by <strong>@Connor Rutherford</strong> · <a href="https://www.instagram.com/p/DXxHB6Yj4kF">Watch →</a></p>
+</article>
+
+<article class="post cat-marketing">
+  <h3>Fear of Being Seen Is an Identity Problem</h3>
+  <p class="lead">A reframe of visibility as identity work, not a content-volume problem.</p>
+  <ul>
+    <li>The fear traces back to core wounds — shame, unworthiness, rejection, betrayal — formed early and reinforced later.</li>
+    <li>Posting more isn't the same as being seen; visibility requires an authentic identity, not extra output.</li>
+    <li>Unhealed wounds in your energy field tend to attract scarcity, isolation, and stagnant results.</li>
+    <li>The Visibility 360 Method clears the wounds, shifts identity to an authentic soul-self, then builds the brand on top.</li>
+  </ul>
+  <p class="meta">by <strong>@Kristen Shea</strong> · <a href="https://www.instagram.com/reel/DWLKtlPBVwJ">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Clarity Comes From Action, Not Waiting</h3>
+  <p class="lead">A short argument against the myth that clarity arrives before you move.</p>
+  <ul>
+    <li>You don't wait for clarity — execution is what produces it.</li>
+    <li>The fear that failure won't serve you is the real root of inaction.</li>
+    <li>Destruction and setbacks often propel you into the next stage.</li>
+    <li>Only a decision followed by action moves time forward.</li>
+  </ul>
+  <p class="meta">by <strong>@Alchemist</strong> · <a href="https://www.instagram.com/reel/DZGHb0-O2jz">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Wrong Relationships Reveal Who You Really Are</h3>
+  <p class="lead">The wrong person isn't a detour — they're a mirror you didn't ask for.</p>
+  <ul>
+    <li>They expose blind spots: over-investing early, tolerating misalignment for too long.</li>
+    <li>What looks like a flaw is usually a coping pattern they revealed, not one they created.</li>
+    <li>Mismatch clarifies your non-negotiables faster than any theory could.</li>
+    <li>The value isn't the mismatch — it's the self-awareness it forces.</li>
+  </ul>
+  <p class="meta">by <strong>@Hetal Patel</strong> · <a href="https://www.instagram.com/p/DXz7B7MEQZL">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Naikan: The Japanese Method That Dissolves Depression</h3>
+  <p class="lead">A 1940s Japanese practice that treats depression with honest accounting.</p>
+  <ul>
+    <li>Three questions per relationship: what they did for you, what you did for them, what trouble you caused them.</li>
+    <li>Most people find their giving was smaller and their harm larger than memory suggested.</li>
+    <li>The victim narrative is expensive to maintain; Naikan dissolves it by restoring the context pain stripped out.</li>
+    <li>Kyushu University research found significant drops in depression and improved relationship quality.</li>
+  </ul>
+  <p class="meta">by <strong>@Manifestation | Abundance | Mindset</strong> · <a href="https://www.instagram.com/p/DYRgD1XjDn0">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Fear vs. Desire: How to Know Your Answer</h3>
+  <p class="lead">A clean little heuristic for when you can't tell which voice is talking.</p>
+  <ul>
+    <li>Hunting for reasons not to do it usually means fear is negotiating you out of the right choice.</li>
+    <li>Hunting for reasons to do it usually means desire is building a case against what you already know is wrong.</li>
+    <li>Fear talks you out of alignment; desire talks you into chaos.</li>
+    <li>The answer isn't how badly you want it — it's how honest you'll be about why you're still debating.</li>
+  </ul>
+  <p class="meta">by <strong>@Jefferson Isesele</strong> · <a href="https://www.instagram.com/p/DYpcDUviOOm">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>The Greek Technique That Banned Fear of Failure</h3>
+  <p class="lead">An ancient pre-game ritual that modern neuroscience now calls exposure reconsolidation.</p>
+  <ul>
+    <li>Greek athletes practiced prokatalēpsis: vividly imagining defeat the night before competing to drain its emotional charge.</li>
+    <li>The amygdala can't sustain fear for outcomes the conscious mind has already accepted — cortisol quiets, survival mode exits.</li>
+    <li>Modern research calls this exposure reconsolidation: rewiring fear by confronting, not avoiding, the feared outcome.</li>
+    <li>Chronic fear elevates cortisol and suppresses T-cells, degrading clarity, health, and flow.</li>
+  </ul>
+  <p class="meta">by <strong>@Manifestingblisss</strong> · <a href="https://www.instagram.com/p/DYxmNf_jL5z">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
