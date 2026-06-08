@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-76 post(s) archived. Auto-generated from `data/reels/*.json`.
+77 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -78,10 +78,11 @@
 | 2026-04-19 | Soak Nuts for the Crispiest Granola Ever | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/1ANWnbqkp5/?mibextid=wwXIfr) |
 | 2026-04-18 | High-Protein Blueberry Cheesecake | Keto Snackz | [watch](https://www.facebook.com/share/r/18k7TN59Xg/?mibextid=wwXIfr) |
 
-## Other (3)
+## Other (4)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-08 | Atlantis (2001) Inspired Book Recommendations | Annaberlin.writes | [watch](https://www.facebook.com/share/r/1D3TAg4Hui/?mibextid=wwXIfr) |
 | 2026-05-21 | 5-Day Dolomites Road Trip Itinerary | Voyages with Val | [watch](https://www.facebook.com/share/r/18j9EWGYHv/?mibextid=wwXIfr) |
 | 2026-05-19 | Build a $150K/Month Mobile App Blueprint | Steven \| Building Viral Apps | [watch](https://www.instagram.com/reel/DXmWZC4oy_o) |
 | 2026-04-30 | Best The Ordinary Products Ranked | Dermarkologist | [watch](https://www.facebook.com/share/r/1J7qTt67Mx/?mibextid=wwXIfr) |
