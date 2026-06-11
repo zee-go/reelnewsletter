@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-80 post(s) archived. Auto-generated from `data/reels/*.json`.
+81 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -64,10 +64,11 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (11)
+## Food (12)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-11 | Mother-in-Law's Easy Preserved Lemons | Raquels Pantry | [watch](https://www.facebook.com/share/r/17GmbhBEfE/?mibextid=wwXIfr) |
 | 2026-06-08 | Greek Chicken Thighs Sheet Pan Dinner | Foodbymaria | [watch](https://www.facebook.com/share/r/17UK4A1YSc/?mibextid=wwXIfr) |
 | 2026-05-21 | Mediterranean Eggplant Pocket Bake | Shred Happens | [watch](https://www.facebook.com/share/r/1B9YW6xRJH/?mibextid=wwXIfr) |
 | 2026-05-13 | Homemade Beef & Lamb Gyros Hack | Cooking with Shereen | [watch](https://www.facebook.com/share/v/1PxYTCtoak/?mibextid=wwXIfr) |
