@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 009</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 009
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of June 12, 2026</div>
+    <h1>Subconscious Desires Drive Both Dinner and Commerce</h1>
+    <div class="hero-meta">
+      5 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">A lean week of saves: the unconscious machinery behind selling and self-sabotage, two sheet-pan-friendly kitchen wins, and a librarian's book list for anyone still emotionally attached to Atlantis. No AI or investment hits this round — just persuasion, lemons, and courage.</p>
+
+<h2>Marketing</h2>
+
+<article class="post cat-marketing">
+  <h3>Humans Are Unconscious — Use It to Sell</h3>
+  <p class="lead">The argument that good marketing is really just well-aimed autopilot.</p>
+  <ul>
+    <li>People don't decide so much as react — unconscious scripts run the show.</li>
+    <li>Effective marketing finds those scripts and presses the right buttons.</li>
+    <li>The same logic, Owen claims, underpins attraction.</li>
+    <li>His receipt: $100M in sales attributed to applying it.</li>
+  </ul>
+  <p class="meta">by <strong>@Owen Cook</strong> · <a href="https://www.instagram.com/reel/DYCslvgJRnQ">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Fear Is the Sign You're Evolving</h3>
+  <p class="lead">Peter Crone reframes pre-decision dread as proof you're on the right track.</p>
+  <ul>
+    <li>Fear at a crossroads is a growth signal, not a stop sign.</li>
+    <li>The ego defends old identities — even ones disguised as a steady paycheck.</li>
+    <li>The "scary future" your mind plays on loop hasn't actually happened.</li>
+    <li>Doubt kills more ideas than failure ever does.</li>
+  </ul>
+  <p class="meta">by <strong>@Peter Crone - The Mind Architect</strong> · <a href="https://www.instagram.com/reel/DY-IggBMm8X">Watch →</a></p>
+</article>
+
+<h2>Food</h2>
+
+<article class="post recipe cat-food">
+  <h3>Mother-in-Law's Easy Preserved Lemons</h3>
+  <p class="lead">A low-effort jar that pays you back for weeks in salads, grains, and roasted veg.</p>
+  <p class="recipe-meta">Prep: 15 min · Serves: 1 jar</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>1–4 lemons (depending on jar size)</li>
+    <li>Coarse sea salt, several generous pinches</li>
+    <li>Olive oil, enough to fully cover the lemons</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Sterilize a clean glass jar with boiling water and let it dry.</li>
+    <li>Wash the lemons and slice into thin rounds.</li>
+    <li>Layer lemon slices and a good pinch of salt alternately until the jar is packed.</li>
+    <li>Press everything down firmly so the lemons start releasing their juice.</li>
+    <li>Pour olive oil over the top until the lemons are fully submerged.</li>
+    <li>Seal and store in a cool place for at least 3 days before using — 1–2 weeks gets you that mellow, fermented depth.</li>
+  </ol>
+  <p class="meta">by <strong>@Raquels Pantry</strong> · <a href="https://www.facebook.com/share/r/17GmbhBEfE/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post recipe cat-food">
+  <h3>Greek Chicken Thighs Sheet Pan Dinner</h3>
+  <p class="lead">One pan, yogurt-marinated thighs, and a Mediterranean cast of supporting players.</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>Chicken thighs</li>
+    <li>Greek yogurt (for the marinade)</li>
+    <li>Lemon (for the marinade)</li>
+    <li>Potatoes</li>
+    <li>Butter beans</li>
+    <li>Artichokes</li>
+    <li>Olives</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Whisk together the Greek yogurt and lemon marinade and coat the chicken thighs thoroughly.</li>
+    <li>Arrange the marinated thighs on a sheet pan.</li>
+    <li>Scatter the potatoes, butter beans, artichokes, and olives around the chicken.</li>
+    <li>Bake until the chicken is cooked through and the potatoes are tender.</li>
+  </ol>
+  <p class="meta">by <strong>@Foodbymaria</strong> · <a href="https://www.facebook.com/share/r/17UK4A1YSc/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<h2>Other</h2>
+
+<article class="post cat-other">
+  <h3>Atlantis (2001) Inspired Book Recommendations</h3>
+  <p class="lead">For everyone still nursing a Milo Thatch-shaped hole in their reading list.</p>
+  <ul>
+    <li><em>To Sleep in a Sea of Stars</em> — lost civilizations and ancient tech.</li>
+    <li><em>Adventures of Amina al-Sirafi</em> — misfit crews chasing dangerous artifacts.</li>
+    <li><em>The Starless Sea</em> — scholars unraveling secrets in a hidden world.</li>
+    <li><em>The Stardust Grail</em> — archaeological mysteries, but in space.</li>
+  </ul>
+  <p class="meta">by <strong>@Annaberlin.writes</strong> · <a href="https://www.facebook.com/share/r/1D3TAg4Hui/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
