@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-81 post(s) archived. Auto-generated from `data/reels/*.json`.
+83 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -25,10 +25,12 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (34)
+## Psychology (36)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-13 | Treat Social Media as Shadow Work | I-XÆh | [watch](https://www.instagram.com/reel/DZVMoYRP-_A) |
+| 2026-06-13 | Ego Is the Only Barrier to Manifestation | Luke Spurgeon | [watch](https://www.instagram.com/reel/DWym8ROjaEP) |
 | 2026-06-08 | Fear Is the Sign You're Evolving | Peter Crone - The Mind Architect | [watch](https://www.instagram.com/reel/DY-IggBMm8X) |
 | 2026-06-03 | Clarity Comes From Action, Not Waiting | Alchemist | [watch](https://www.instagram.com/reel/DZGHb0-O2jz) |
 | 2026-05-30 | Wrong Relationships Reveal Who You Really Are | Hetal Patel | [watch](https://www.instagram.com/p/DXz7B7MEQZL) |
