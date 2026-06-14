@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-84 post(s) archived. Auto-generated from `data/reels/*.json`.
+86 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -25,10 +25,12 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (36)
+## Psychology (38)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-14 | 4 Weird Habits to Manifest What You Want | Sumit | [watch](https://www.instagram.com/p/DZeQej_FIWl) |
+| 2026-06-14 | There Is No Spoon: Trauma and Identity | We Who War Within | [watch](https://www.instagram.com/reel/DWRVphagM8N) |
 | 2026-06-13 | Treat Social Media as Shadow Work | I-XÆh | [watch](https://www.instagram.com/reel/DZVMoYRP-_A) |
 | 2026-06-13 | Ego Is the Only Barrier to Manifestation | Luke Spurgeon | [watch](https://www.instagram.com/reel/DWym8ROjaEP) |
 | 2026-06-08 | Fear Is the Sign You're Evolving | Peter Crone - The Mind Architect | [watch](https://www.instagram.com/reel/DY-IggBMm8X) |
