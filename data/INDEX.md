@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-88 post(s) archived. Auto-generated from `data/reels/*.json`.
+89 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -25,10 +25,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (39)
+## Psychology (40)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-17 | Aging Gives More Than It Takes | TMI Aunt Tammi \| Messy Midlife Stories | [watch](https://www.instagram.com/reel/DZq2CqvRjYF) |
 | 2026-06-17 | Follow Your Excitement to Your Best Timeline | James Xander | [watch](https://www.instagram.com/reel/DY977qaCeMN) |
 | 2026-06-14 | 4 Weird Habits to Manifest What You Want | Sumit | [watch](https://www.instagram.com/p/DZeQej_FIWl) |
 | 2026-06-14 | There Is No Spoon: Trauma and Identity | We Who War Within | [watch](https://www.instagram.com/reel/DWRVphagM8N) |
