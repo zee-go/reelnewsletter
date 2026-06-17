@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-87 post(s) archived. Auto-generated from `data/reels/*.json`.
+88 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -25,10 +25,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (38)
+## Psychology (39)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-17 | Follow Your Excitement to Your Best Timeline | James Xander | [watch](https://www.instagram.com/reel/DY977qaCeMN) |
 | 2026-06-14 | 4 Weird Habits to Manifest What You Want | Sumit | [watch](https://www.instagram.com/p/DZeQej_FIWl) |
 | 2026-06-14 | There Is No Spoon: Trauma and Identity | We Who War Within | [watch](https://www.instagram.com/reel/DWRVphagM8N) |
 | 2026-06-13 | Treat Social Media as Shadow Work | I-XÆh | [watch](https://www.instagram.com/reel/DZVMoYRP-_A) |
