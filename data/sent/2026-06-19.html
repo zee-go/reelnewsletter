@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 010</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 010
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of June 19, 2026</div>
+    <h1>Psychology's Manifestation Obsession Meets Real Trauma Work</h1>
+    <div class="hero-meta">
+      8 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">A heavy lean into psychology this week — identity, manifestation, and the messy work of becoming. Plus a satirical jab at hustle culture and a clever party trick for your next charcuterie board.</p>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Aging Gives More Than It Takes</h3>
+  <p class="lead">True self-worth comes from becoming yourself, not preserving your appearance.</p>
+  <ul>
+    <li>Society profits from women's insecurity, convincing them preservation matters more than personal growth.</li>
+    <li>Becoming yourself requires failure, embarrassment, and wrong turns — that's how real confidence is built.</li>
+    <li>Aging grants freedom from needing others' validation and the confidence to set firm boundaries.</li>
+    <li>Wisdom is the real glow-up, but it can't be packaged and sold.</li>
+  </ul>
+  <p class="meta">by <strong>@TMI Aunt Tammi | Messy Midlife Stories</strong> · <a href="https://www.instagram.com/reel/DZq2CqvRjYF">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Follow Your Excitement to Your Best Timeline</h3>
+  <p class="lead">Following your highest excitement in each moment, without attachment, leads you to your greatest possible life.</p>
+  <ul>
+    <li>Choose the option with the most excitement at every decision point — it's your soul signaling the right path.</li>
+    <li>Take excitement as far as possible but no further, with zero attachment to outcomes.</li>
+    <li>Excitement without external motivation still holds value — it leads to unexpected blessings.</li>
+    <li>Bashar/Daryl Anka's framework: chaining excitement breadcrumbs creates a life beyond what you could imagine.</li>
+  </ul>
+  <p class="meta">by <strong>@James Xander</strong> · <a href="https://www.instagram.com/reel/DY977qaCeMN">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>4 Weird Habits to Manifest What You Want</h3>
+  <p class="lead">Four unconventional embodiment practices designed to rewire your subconscious toward abundance and attraction.</p>
+  <ul>
+    <li>Want things without asking "how" — focus on the feeling, not the logistics.</li>
+    <li>Sit in upscale spaces (e.g., hotel lobbies) to practice feeling like you belong there.</li>
+    <li>Over-tip slightly beyond comfort to signal to your subconscious that money flows freely.</li>
+    <li>Buy one small "next-level" item monthly so your environment reinforces a higher self-standard.</li>
+  </ul>
+  <p class="meta">by <strong>@Sumit</strong> · <a href="https://www.instagram.com/p/DZeQej_FIWl">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>There Is No Spoon: Trauma and Identity</h3>
+  <p class="lead">Painful identity beliefs are just rehearsed survival code your brain wrote — not permanent truths about who you are.</p>
+  <ul>
+    <li>Traumatic experiences cause the brain to build identity statements ("I'm broken", "I'm too much") as survival interpretations, not facts.</li>
+    <li>Neurologically, these beliefs are just rehearsed neural pathways — they feel like identity but aren't permanent.</li>
+    <li>Metacognition (prefrontal cortex stepping back) lets you question who or what taught you those beliefs, loosening their grip.</li>
+    <li>Healing isn't becoming someone new — it's recognizing that trauma-built identities were survival code, not your true self.</li>
+  </ul>
+  <p class="meta">by <strong>@We Who War Within</strong> · <a href="https://www.instagram.com/reel/DWRVphagM8N">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Treat Social Media as Shadow Work</h3>
+  <p class="lead">Posting on social media as exposure therapy reveals and disrupts limiting self-stories.</p>
+  <ul>
+    <li>Treat social media like shadow work — putting vulnerable parts of yourself on a global stage.</li>
+    <li>View the algorithm as a feedback system, not an enemy.</li>
+    <li>Disruption and discomfort are necessary to break down false self-narratives.</li>
+    <li>Honoring your authentic, playful energy earns genuine audience connection.</li>
+  </ul>
+  <p class="meta">by <strong>@I-XÆh</strong> · <a href="https://www.instagram.com/reel/DZVMoYRP-_A">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Ego Is the Only Barrier to Manifestation</h3>
+  <p class="lead">True manifestation requires dissolving ego and believing you already have what you want.</p>
+  <ul>
+    <li>Ego creates the illusion of separation; in reality, we are all the same universal consciousness.</li>
+    <li>Manifestation works because you already are everything — you just need to tune into the right frequency.</li>
+    <li>Perception shapes physical experience: changing how you see a situation changes how you live it.</li>
+    <li>Belief must be total — any doubt means you don't truly believe, and manifestation fails.</li>
+  </ul>
+  <p class="meta">by <strong>@Luke Spurgeon</strong> · <a href="https://www.instagram.com/reel/DWym8ROjaEP">Watch →</a></p>
+</article>
+
+<h2>Food</h2>
+
+<article class="post recipe cat-food">
+  <h3>Italian Sushi Charcuterie Board Bites</h3>
+  <p class="lead">Roll your favorite charcuterie ingredients into bite-sized "Italian sushi" rolls for easy entertaining.</p>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Roll charcuterie board ingredients (meats, cheeses, etc.) into tight sushi-style rolls.</li>
+    <li>Slice into bite-sized pieces.</li>
+    <li>Arrange on a board and serve.</li>
+  </ol>
+  <p class="meta">by <strong>@Champagne Ang</strong> · <a href="https://www.facebook.com/share/r/18ocV2UnKA/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<h2>Other</h2>
+
+<article class="post cat-other">
+  <h3>Satirical Rant: Grift Like a Fake Monk</h3>
+  <p class="lead">A satirical take mocking influencer fraud by urging viewers to lie and fake credentials to get rich.</p>
+  <ul>
+    <li>Uses Jay Shetty's $100M Spotify deal as the punchline of a grift joke.</li>
+    <li>Sarcastically instructs viewers to sell courses on things they know nothing about.</li>
+    <li>Argues that "too much shame" is why regular people don't succeed — played for laughs.</li>
+    <li>Parody of hustle-culture advice dressed as sincere self-improvement content.</li>
+  </ul>
+  <p class="meta">by <strong>@Luke Cook</strong> · <a href="https://www.instagram.com/reel/DY-b--4SqWF">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
