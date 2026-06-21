@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-89 post(s) archived. Auto-generated from `data/reels/*.json`.
+91 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -25,10 +25,12 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (40)
+## Psychology (42)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-21 | Choosing Yourself Over Loyalty to Others | aya shelbs l dallas \| wellness \| lifestyle  🧚‍♂️ | [watch](https://www.instagram.com/reel/DZ0nOlTh6zU) |
+| 2026-06-21 | The Science Behind Delusional Optimism | Tim Denning | [watch](https://www.instagram.com/p/DZw5U5DDumI) |
 | 2026-06-17 | Aging Gives More Than It Takes | TMI Aunt Tammi \| Messy Midlife Stories | [watch](https://www.instagram.com/reel/DZq2CqvRjYF) |
 | 2026-06-17 | Follow Your Excitement to Your Best Timeline | James Xander | [watch](https://www.instagram.com/reel/DY977qaCeMN) |
 | 2026-06-14 | 4 Weird Habits to Manifest What You Want | Sumit | [watch](https://www.instagram.com/p/DZeQej_FIWl) |
