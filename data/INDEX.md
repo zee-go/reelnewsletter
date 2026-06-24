@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-92 post(s) archived. Auto-generated from `data/reels/*.json`.
+93 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -25,10 +25,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (42)
+## Psychology (43)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-24 | Why ADHD Women Crash Before Their Period | Feminine Mastery | [watch](https://www.facebook.com/share/v/1EUDBLPkaN/?mibextid=wwXIfr) |
 | 2026-06-21 | Choosing Yourself Over Loyalty to Others | aya shelbs l dallas \| wellness \| lifestyle  🧚‍♂️ | [watch](https://www.instagram.com/reel/DZ0nOlTh6zU) |
 | 2026-06-21 | The Science Behind Delusional Optimism | Tim Denning | [watch](https://www.instagram.com/p/DZw5U5DDumI) |
 | 2026-06-17 | Aging Gives More Than It Takes | TMI Aunt Tammi \| Messy Midlife Stories | [watch](https://www.instagram.com/reel/DZq2CqvRjYF) |
