@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 011</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 011
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of June 26, 2026</div>
+    <h1>Psychology Dominates as Instagram Grows Lonely</h1>
+    <div class="hero-meta">
+      5 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">This week skewed inward: four psychology saves circling identity, hormones, and the stories we tell ourselves — plus one marketing playbook for getting that inner work seen on Instagram.</p>
+
+<h2>Marketing</h2>
+
+<article class="post cat-marketing">
+  <h3>7 AI Prompts to Grow Instagram Fast</h3>
+  <p class="lead">A tight prompt stack for turning ChatGPT into your Reels writers' room.</p>
+  <ul>
+    <li>Mine viral trends in your niche and spin out five shareable ideas.</li>
+    <li>Convert audience pain points into provocative 10-word hooks.</li>
+    <li>Generate 30-second Reel scripts with hook, story, and CTA — no padding.</li>
+    <li>Repurpose one idea into a Reel, a carousel, and a static post at once.</li>
+  </ul>
+  <p class="meta">by <strong>@Camila Markson</strong> · <a href="https://www.instagram.com/reel/DZp9QIOo4H3">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<p>From manifesting to menstrual cycles to the quiet math of optimism — the brain had a busy week.</p>
+
+<article class="post cat-psychology">
+  <h3>Embody Boldly: Reality Prints What You Hold</h3>
+  <p class="lead">Reality doesn't audit your authenticity — it just renders whatever identity you fully commit to.</p>
+  <ul>
+    <li>Embodiment works regardless of ethics, so genuine people have no excuse to shrink.</li>
+    <li>The bottleneck isn't reality being harsh — it's your nervous system flinching from visibility.</li>
+    <li>Money, love, and status follow fully expressed identity, not careful ones.</li>
+    <li>Being misunderstood is the cost of being seen at all.</li>
+  </ul>
+  <p class="meta">by <strong>@Courtney Alexis Cho</strong> · <a href="https://www.instagram.com/reel/DXHiI-Glms-">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Why ADHD Women Crash Before Their Period</h3>
+  <p class="lead">Estrogen runs dopamine, so the luteal-phase drop hits ADHD brains twice as hard.</p>
+  <ul>
+    <li>Almost 50% of women with ADHD report PMDD, versus 28% in the general population.</li>
+    <li>ADHD is a dopamine-regulation difference, and estrogen directly drives dopamine.</li>
+    <li>When estrogen falls, already-low dopamine collapses — taking executive function with it.</li>
+    <li>Many were medicated for anxiety or depression for years before the cycle link surfaced.</li>
+  </ul>
+  <p class="meta">by <strong>@Feminine Mastery</strong> · <a href="https://www.facebook.com/share/v/1EUDBLPkaN/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Choosing Yourself Over Loyalty to Others</h3>
+  <p class="lead">A reframe of "selfish" as the overdue correction after years of self-abandonment.</p>
+  <ul>
+    <li>Treating others how you want to be treated can quietly mean ignoring your own needs.</li>
+    <li>Staying loyal to undeserving people is a slow form of self-abandonment.</li>
+    <li>After an 8-year marriage and heartbreak, presence and self-priority become non-negotiable.</li>
+    <li>Living in the moment, for yourself, reads as self-respect — not selfishness.</li>
+  </ul>
+  <p class="meta">by <strong>@aya shelbs</strong> · <a href="https://www.instagram.com/reel/DZ0nOlTh6zU">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>The Science Behind Delusional Optimism</h3>
+  <p class="lead">The brain is a prediction machine — feed it a better belief and watch it find evidence.</p>
+  <ul>
+    <li>Whatever belief you hold, your brain surfaces matching evidence on autopilot.</li>
+    <li>Optimists aren't failure-proof; they just recover faster and compound the gains.</li>
+    <li>Rejection becomes redirection, failure becomes data, bad days become setups.</li>
+    <li>Not magical thinking — a logical feedback loop dressed up as vibes.</li>
+  </ul>
+  <p class="meta">by <strong>@Tim Denning</strong> · <a href="https://www.instagram.com/p/DZw5U5DDumI">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
