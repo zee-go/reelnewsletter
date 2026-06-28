@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-94 post(s) archived. Auto-generated from `data/reels/*.json`.
+95 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -74,10 +74,11 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (13)
+## Food (14)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-06-28 | Greek Sheet Pan Chicken with Ladolemono | The Mediterranean Dish | [watch](https://www.facebook.com/share/r/1LZAPAfBNo/?mibextid=wwXIfr) |
 | 2026-06-16 | Italian Sushi Charcuterie Board Bites | Champagne Ang | [watch](https://www.facebook.com/share/r/18ocV2UnKA/?mibextid=wwXIfr) |
 | 2026-06-11 | Mother-in-Law's Easy Preserved Lemons | Raquels Pantry | [watch](https://www.facebook.com/share/r/17GmbhBEfE/?mibextid=wwXIfr) |
 | 2026-06-08 | Greek Chicken Thighs Sheet Pan Dinner | Foodbymaria | [watch](https://www.facebook.com/share/r/17UK4A1YSc/?mibextid=wwXIfr) |
