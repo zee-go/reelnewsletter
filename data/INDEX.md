@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-96 post(s) archived. Auto-generated from `data/reels/*.json`.
+97 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -25,10 +25,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (44)
+## Psychology (45)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-07-04 | You Find Your Voice By Using It | caro brooks | [watch](https://www.instagram.com/reel/DaWQd3Oy46p) |
 | 2026-06-24 | Embody Boldly: Reality Prints What You Hold | Courtney Alexis Cho 🍒 | [watch](https://www.instagram.com/reel/DXHiI-Glms-) |
 | 2026-06-24 | Why ADHD Women Crash Before Their Period | Feminine Mastery | [watch](https://www.facebook.com/share/v/1EUDBLPkaN/?mibextid=wwXIfr) |
 | 2026-06-21 | Choosing Yourself Over Loyalty to Others | aya shelbs l dallas \| wellness \| lifestyle  🧚‍♂️ | [watch](https://www.instagram.com/reel/DZ0nOlTh6zU) |
