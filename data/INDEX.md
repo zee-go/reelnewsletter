@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-99 post(s) archived. Auto-generated from `data/reels/*.json`.
+100 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
@@ -25,10 +25,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (46)
+## Psychology (47)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-07-07 | Resistance Means You're Almost There | Paget Kagy \| Quantum Queen | [watch](https://www.instagram.com/reel/DaVHqXbEYoR) |
 | 2026-07-07 | Stop Trying: Effortless Action and Belief | Harry Miller | [watch](https://www.instagram.com/reel/Dads19hh_3B) |
 | 2026-07-04 | You Find Your Voice By Using It | caro brooks | [watch](https://www.instagram.com/reel/DaWQd3Oy46p) |
 | 2026-06-24 | Embody Boldly: Reality Prints What You Hold | Courtney Alexis Cho 🍒 | [watch](https://www.instagram.com/reel/DXHiI-Glms-) |
