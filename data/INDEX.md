@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-100 post(s) archived. Auto-generated from `data/reels/*.json`.
+101 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (12)
 
