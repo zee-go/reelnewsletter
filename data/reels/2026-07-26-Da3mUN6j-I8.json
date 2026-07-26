@@ -1,0 +1,22 @@
+{
+  "shortcode": "Da3mUN6j-I8",
+  "url": "https://www.instagram.com/p/Da3mUN6j-I8",
+  "received_at": "2026-07-26T07:43:47+00:00",
+  "caption": "Follow @thewizeai to stay ahead with AI\n\nComment “PROMPTS” and we will send you 50 of our best AI prompts for productivity and decision making straight to your DM for free.\n\nThe concept underneath Tencent’s Agent Memory is a semantic pyramid. Raw conversations become atoms, atoms roll up into scenarios, scenarios roll up into a persona, and every layer stays as readable markdown you can open, audit, and edit.\n\nThat auditability is the actual breakthrough. Vector memories fail silently because nobody can inspect them. A memory you can read and correct turns your assistant’s picture of you into something you own instead of something you hope is accurate.\n\nFollow @thewizeai to stay ahead with AI\n\nSource: https://github.com/TencentCloud/TencentDB-Agent-Memory\n\n#AI #OpenSource #AIAgents #ArtificialIntelligence #TechNews",
+  "author": "Artificial Intelligence l Business",
+  "duration_s": 0,
+  "has_video": false,
+  "image_count": 5,
+  "transcript": "",
+  "tag": "ai",
+  "title": "China Open-Sources Free Local AI Agent Memory",
+  "one_liner": "Tencent's open-source Agent Memory lets AI agents remember everything locally for free using a readable semantic pyramid.",
+  "key_points": [
+    "Tencent open-sourced Agent Memory, replacing paid memory layers with a free local alternative",
+    "Uses a semantic pyramid: raw conversations → atoms → scenarios → persona, all stored as readable markdown",
+    "Auditability is the key breakthrough — unlike vector memories, you can inspect, edit, and own your agent's memory",
+    "Available on GitHub under TencentCloud/TencentDB-Agent-Memory"
+  ],
+  "recipe": null,
+  "sent_in_newsletter": null
+}

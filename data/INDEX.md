@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-104 post(s) archived. Auto-generated from `data/reels/*.json`.
+105 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (12)
+## AI (13)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-07-26 | China Open-Sources Free Local AI Agent Memory | Artificial Intelligence l Business | [watch](https://www.instagram.com/p/Da3mUN6j-I8) |
 | 2026-05-30 | 3 Claude Prompts to Grow a YouTube Channel | Grow Channels | [watch](https://www.instagram.com/p/DY4no4nDEJ5) |
 | 2026-05-22 | 7 Claude Skills for a Creator Studio | Cindy Zhu | [watch](https://www.instagram.com/reel/DYh0vdAv2_s) |
 | 2026-05-19 | AI Agent Automates Your Second Brain | Alina Pak | [watch](https://www.instagram.com/reel/DYcu-OZArsi) |
