@@ -13,7 +13,7 @@ Share Instagram and Facebook posts to a Telegram bot throughout the week — get
 - Instagram reels (`/reel/`), posts (`/p/`, photos or videos), carousels, IGTV (`/tv/`)
 - Facebook reels, videos (`/watch`, `/video`), `fb.watch` links, photo posts
 
-Videos are transcribed via Whisper. Photo posts and carousels are understood via Claude Vision (reads text overlays and describes image content). Recipes (tag=food) have structured ingredients + instructions extracted into the digest.
+Videos are transcribed locally with faster-whisper. Photo posts and carousels are understood via Claude Vision (reads text overlays and describes image content). Recipes (tag=food) have structured ingredients + instructions extracted into the digest.
 
 ## How it works
 
@@ -35,8 +35,9 @@ Cost: ~$1/month.
 ### 2. API keys
 
 - **Anthropic** — [console.anthropic.com](https://console.anthropic.com) → API Keys
-- **OpenAI** — [platform.openai.com/api-keys](https://platform.openai.com/api-keys) (used for Whisper)
 - **Resend** — [resend.com](https://resend.com) → API Keys (3k emails/mo free)
+
+Transcription runs locally via [faster-whisper](https://github.com/SYSTRAN/faster-whisper) — no API key or account needed.
 
 ### 3a. Google Sheet backup (optional but recommended)
 
@@ -72,7 +73,6 @@ Settings → Secrets and variables → Actions → New repository secret:
 | `TELEGRAM_BOT_TOKEN` | From BotFather |
 | `TELEGRAM_ALLOWED_CHAT_ID` | Your chat ID (integer) |
 | `ANTHROPIC_API_KEY` | From Anthropic console |
-| `OPENAI_API_KEY` | From OpenAI platform |
 | `RESEND_API_KEY` | From Resend |
 | `NEWSLETTER_TO_EMAIL` | Where to send the digest |
 | `NEWSLETTER_FROM` | Optional — `Name <from@yourdomain>`. Default: `Reel Digest <onboarding@resend.dev>` |
@@ -118,7 +118,6 @@ brew install ffmpeg  # or apt-get install ffmpeg on Linux
 export TELEGRAM_BOT_TOKEN=...
 export TELEGRAM_ALLOWED_CHAT_ID=...
 export ANTHROPIC_API_KEY=...
-export OPENAI_API_KEY=...
 export RESEND_API_KEY=...
 export NEWSLETTER_TO_EMAIL=...
 
@@ -147,5 +146,5 @@ data/
 ## Known risks
 
 - **Instagram may block yt-dlp** on GitHub Actions IPs. Mitigation: fallback to `instaloader` with a session cookie stored as a secret. Swap the `download_reel` implementation in `src/ingest.py` if this happens.
-- **Non-English reels**: Whisper is multilingual but quality varies. Pass a `language` hint in `src/ingest.py` if you find the transcripts are poor.
+- **Non-English reels**: Whisper is multilingual but quality varies. If transcripts are poor, bump the model with `WHISPER_MODEL=large-v3` (default is `small`) — slower but more accurate.
 - **Empty week**: if you save zero reels for a week, the Friday workflow logs "No reels to send" and skips the email.
