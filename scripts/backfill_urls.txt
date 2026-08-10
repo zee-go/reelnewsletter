@@ -1,0 +1,21 @@
+# Reels that failed transcription during the OpenAI key outage (2026-07-10 .. 2026-08-07).
+# Recovered from GitHub Actions ingest logs. Re-processed via:
+#   python src/ingest.py --backfill scripts/backfill_urls.txt
+# Stamped with the current time so they land in the current week's digest.
+https://www.instagram.com/reel/DaaTEORulVt
+https://www.facebook.com/share/v/188eqDwR1f/?mibextid=wwXIfr
+https://www.instagram.com/reel/Danl7GeM3rB
+https://www.facebook.com/share/v/1CkPTBKhkE/?mibextid=wwXIfr
+https://www.instagram.com/reel/DaDGXTNptdl
+https://www.instagram.com/reel/DaxwCd3sv5m
+https://www.instagram.com/reel/DZ_FyKuvnrF
+https://www.instagram.com/reel/DZc2ci4xCp6
+https://www.facebook.com/share/r/1DD5CsxpUn/?mibextid=wwXIfr
+https://www.facebook.com/share/r/19VkNCSt2r/?mibextid=wwXIfr
+https://www.instagram.com/reel/DWJU2WAjHQJ
+https://www.instagram.com/reel/DbG2xtlJu3o
+https://www.facebook.com/share/r/1EMenc4HUn/?mibextid=wwXIfr
+https://www.instagram.com/reel/DbTC-JOSoI9
+https://www.facebook.com/share/r/1H3nK3gZf9/?mibextid=wwXIfr
+https://www.facebook.com/share/r/1921qdGEzo/?mibextid=wwXIfr
+https://www.instagram.com/reel/Dbq6b2xSMCQ

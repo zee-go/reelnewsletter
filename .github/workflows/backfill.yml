@@ -1,0 +1,84 @@
+name: backfill
+
+# Manually re-process a list of URLs that failed ingestion (e.g. during the
+# OpenAI transcription-key outage). Reads scripts/backfill_urls.txt by default,
+# stamps records with the current time, and commits them like a normal ingest.
+
+on:
+  workflow_dispatch:
+    inputs:
+      file:
+        description: "URL list file to process"
+        required: true
+        default: "scripts/backfill_urls.txt"
+      dry_run:
+        description: "Dry run (process but don't write/commit records)"
+        type: boolean
+        required: true
+        default: true
+
+concurrency:
+  group: ingest
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-${{ hashFiles('requirements.txt') }}-small
+
+      - name: Write Instagram cookies file (if provided)
+        env:
+          INSTAGRAM_COOKIES: ${{ secrets.INSTAGRAM_COOKIES }}
+        run: |
+          if [ -n "$INSTAGRAM_COOKIES" ]; then
+            echo "$INSTAGRAM_COOKIES" > /tmp/ig_cookies.txt
+            echo "INSTAGRAM_COOKIES_FILE=/tmp/ig_cookies.txt" >> "$GITHUB_ENV"
+            echo "Cookies file written."
+          else
+            echo "No INSTAGRAM_COOKIES secret set — proceeding without auth (Instagram may block)."
+          fi
+
+      - name: Run backfill
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ALLOWED_CHAT_ID: ${{ secrets.TELEGRAM_ALLOWED_CHAT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GSHEET_ID: ${{ secrets.GSHEET_ID }}
+          GSHEET_SERVICE_ACCOUNT_JSON: ${{ secrets.GSHEET_SERVICE_ACCOUNT_JSON }}
+        run: |
+          python src/ingest.py --backfill "${{ inputs.file }}" \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Commit recovered reels
+        if: ${{ inputs.dry_run == false }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain data/)" ]; then
+            git add data/
+            git commit -m "backfill: recover reels that failed during the transcription outage"
+            git push
+          else
+            echo "No new data to commit."
+          fi

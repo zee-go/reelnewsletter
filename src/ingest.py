@@ -368,11 +368,63 @@ def write_record(record: dict) -> Path:
     return out
 
 
+def backfill(urls_file: Path, dry_run: bool) -> int:
+    """Re-process a list of URLs (one per line, '#' comments allowed), skipping
+    Telegram. Records are stamped with the current time so they land in the
+    current week. Used to recover inputs that failed transiently (e.g. a dead
+    transcription key) and were never persisted."""
+    lines = urls_file.read_text().splitlines()
+    urls = [ln.strip() for ln in lines if ln.strip() and not ln.strip().startswith("#")]
+    print(f"Backfilling {len(urls)} URL(s) with current-week timestamps...", flush=True)
+
+    processed = 0
+    failed: list[tuple[str, str]] = []
+    for url in urls:
+        received_at = datetime.now(timezone.utc).isoformat()
+        try:
+            record = process_reel(url, received_at)
+        except Exception as e:
+            print(f"Failed to process {url}: {e}", flush=True)
+            failed.append((url, str(e)))
+            continue
+        if dry_run:
+            print(f"[dry-run] would save {record['shortcode']} [{record['tag']}] "
+                  f"{record['one_liner']}", flush=True)
+            processed += 1
+            continue
+        path = write_record(record)
+        processed += 1
+        kind = "video" if record["has_video"] else f"{record['image_count']} image(s)"
+        print(f"Saved {path.name} [{record['tag']}] ({kind}) {record['one_liner']}", flush=True)
+        try:
+            sheets_export.append(record)
+        except Exception as e:
+            print(f"  sheets_export failed (non-fatal): {e}", flush=True)
+
+    if processed and not dry_run:
+        try:
+            csv_export.rebuild()
+            print("Rebuilt data/records.csv and data/INDEX.md.", flush=True)
+        except Exception as e:
+            print(f"csv_export failed (non-fatal): {e}", flush=True)
+
+    print(f"Backfill done: {processed} processed, {len(failed)} failed.", flush=True)
+    for url, e in failed:
+        print(f"  FAILED {url}: {e}", flush=True)
+    return 1 if failed and processed == 0 else 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true",
                         help="Process but don't send Telegram replies or commit state.")
+    parser.add_argument("--backfill", metavar="FILE",
+                        help="Re-process URLs listed in FILE (one per line), stamped "
+                             "with the current time, skipping Telegram polling.")
     args = parser.parse_args()
+
+    if args.backfill:
+        return backfill(Path(args.backfill), args.dry_run)
 
     state = load_state()
     offset = state.get("telegram_offset", 0)
