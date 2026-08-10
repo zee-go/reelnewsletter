@@ -1,11 +1,13 @@
 # Reel Archive Index
 
-106 post(s) archived. Auto-generated from `data/reels/*.json`.
+123 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (14)
+## AI (16)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-08-10 | Build a Fully Autonomous Instagram AI Agent | Angus the Nontechnical | [watch](https://www.instagram.com/reel/DZc2ci4xCp6) |
+| 2026-08-10 | Claude AI Workflow for Instagram Carousels | Anjela Petkova | [watch](https://www.instagram.com/reel/DaxwCd3sv5m) |
 | 2026-07-28 | Use Claude to Apply Nietzsche's Philosophy to Your Life | Think GPT | [watch](https://www.instagram.com/p/DbDK03zmHXz) |
 | 2026-07-26 | China Open-Sources Free Local AI Agent Memory | Artificial Intelligence l Business | [watch](https://www.instagram.com/p/Da3mUN6j-I8) |
 | 2026-05-30 | 3 Claude Prompts to Grow a YouTube Channel | Grow Channels | [watch](https://www.instagram.com/p/DY4no4nDEJ5) |
@@ -27,10 +29,17 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (47)
+## Psychology (54)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-08-10 | Life Is a Cosmic Game You Play on Yourself | Priscilla 寶珊 | [watch](https://www.instagram.com/reel/DbTC-JOSoI9) |
+| 2026-08-10 | The 72-Hour Manifestation Collapse Method | Paget Kagy \| Quantum Queen | [watch](https://www.instagram.com/reel/DWJU2WAjHQJ) |
+| 2026-08-10 | 6 Manifestation Habits That Actually Work | Courtney Alexis Cho 🍒 | [watch](https://www.instagram.com/reel/DZ_FyKuvnrF) |
+| 2026-08-10 | Seduce the Universe With a Better Story | James Xander | [watch](https://www.instagram.com/reel/DaDGXTNptdl) |
+| 2026-08-10 | Your Luteal Phase Is Your Sharpest Week | Feminine Mastery | [watch](https://www.facebook.com/share/v/1CkPTBKhkE/?mibextid=wwXIfr) |
+| 2026-08-10 | 3 Tricks to Reprogram Your Millionaire Mindset | Marley Rose Harris \| Business, Money & Subconscious Mind | [watch](https://www.instagram.com/reel/Danl7GeM3rB) |
+| 2026-08-10 | Oxytocin: The Real Medicine of Women | Dr. Gabrielle Naomi | [watch](https://www.facebook.com/share/v/188eqDwR1f/?mibextid=wwXIfr) |
 | 2026-07-07 | Resistance Means You're Almost There | Paget Kagy \| Quantum Queen | [watch](https://www.instagram.com/reel/DaVHqXbEYoR) |
 | 2026-07-07 | Stop Trying: Effortless Action and Belief | Harry Miller | [watch](https://www.instagram.com/reel/Dads19hh_3B) |
 | 2026-07-04 | You Find Your Voice By Using It | caro brooks | [watch](https://www.instagram.com/reel/DaWQd3Oy46p) |
@@ -79,10 +88,11 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (17)
+## Food (18)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-08-10 | Crispy Feta Phyllo Bites with Honey | Food My Muse | [watch](https://www.facebook.com/share/r/1H3nK3gZf9/?mibextid=wwXIfr) |
 | 2026-07-08 | Kefbab: Kebab, Tzatziki & Sweet Potato Wedges | Alan Parsemain  | [watch](https://www.facebook.com/share/r/1BmYx5p2g7/?mibextid=wwXIfr) |
 | 2026-07-06 | Greek Lamb Chops (Paidakia) Recipe | Marina Lydia Georgallides | [watch](https://www.facebook.com/share/r/1QxcDuWjZD/?mibextid=wwXIfr) |
 | 2026-07-02 | Baked Peaches & Brie Charcuterie Dip | Frohneats | [watch](https://www.facebook.com/share/r/1CDBJDmVCD/?mibextid=wwXIfr) |
@@ -101,10 +111,13 @@
 | 2026-04-19 | Soak Nuts for the Crispiest Granola Ever | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/1ANWnbqkp5/?mibextid=wwXIfr) |
 | 2026-04-18 | High-Protein Blueberry Cheesecake | Keto Snackz | [watch](https://www.facebook.com/share/r/18k7TN59Xg/?mibextid=wwXIfr) |
 
-## Other (5)
+## Other (8)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-08-10 | 10 Niche Design Styles to Try Today | A.Song Studio | [watch](https://www.facebook.com/share/r/1921qdGEzo/?mibextid=wwXIfr) |
+| 2026-08-10 | Anime You Can Finish in One Night | Ricehatguy | [watch](https://www.facebook.com/share/r/19VkNCSt2r/?mibextid=wwXIfr) |
+| 2026-08-10 | Underrated Anime Masterpieces You Must Watch | Ricehatguy | [watch](https://www.facebook.com/share/r/1DD5CsxpUn/?mibextid=wwXIfr) |
 | 2026-06-13 | Satirical Rant: Grift Like a Fake Monk | Luke Cook | [watch](https://www.instagram.com/reel/DY-b--4SqWF) |
 | 2026-06-08 | Atlantis (2001) Inspired Book Recommendations | Annaberlin.writes | [watch](https://www.facebook.com/share/r/1D3TAg4Hui/?mibextid=wwXIfr) |
 | 2026-05-21 | 5-Day Dolomites Road Trip Itinerary | Voyages with Val | [watch](https://www.facebook.com/share/r/18j9EWGYHv/?mibextid=wwXIfr) |

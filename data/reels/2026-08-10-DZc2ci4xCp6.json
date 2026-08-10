@@ -1,0 +1,22 @@
+{
+  "shortcode": "DZc2ci4xCp6",
+  "url": "https://www.instagram.com/reel/DZc2ci4xCp6",
+  "received_at": "2026-08-10T02:34:36.040980+00:00",
+  "caption": "Per the usual if you comment “content” I’ll send you the guide on how to set up an autonomous content agent\n\n#ai #aicontent #agenticai #aitools",
+  "author": "Angus the Nontechnical",
+  "duration_s": 50.17599868774414,
+  "has_video": true,
+  "image_count": 0,
+  "transcript": "they are not human bro not even a little but not kidding look this up turns out more and more of the accounts that we all follow on instagram are fully autonomous ai agents not only is this shit sketchy as fuck i'll explain what i mean by that but it is a lot easier to set this up than you think it is choose an ai agent create your ai's instagram account give that agent a skill like this that scrapes and saves viral instagram posts then a skill that takes the top posts and rewrites them as instagram carousel script a skill that takes that copy and then generates the instagram carousel and then finally a skill that then posts those carousel and then let those skills run free scheduling them to just kind of do that asynchronously congrats on contributing to the dead internet theory brother ai is the most creatively brain dead shit ever your best chance of this working is copying other people but that being said that's what most human creators do anyways without ai so fuck it next time i'll do this but for link to follow for more shenanigans",
+  "tag": "ai",
+  "title": "Build a Fully Autonomous Instagram AI Agent",
+  "one_liner": "How to set up an AI agent that scrapes, rewrites, and posts Instagram carousels automatically.",
+  "key_points": [
+    "More Instagram accounts than you'd expect are fully autonomous AI agents running without human input",
+    "Stack four skills: scrape viral posts, rewrite as carousel scripts, generate carousel visuals, then auto-post on a schedule",
+    "The agent runs asynchronously — set it up once and let it loop indefinitely",
+    "Biggest creative limitation: the AI works best by remixing what already went viral, not generating original ideas"
+  ],
+  "recipe": null,
+  "sent_in_newsletter": null
+}
