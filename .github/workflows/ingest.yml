@@ -29,6 +29,12 @@ jobs:
       - name: Install Python deps
         run: pip install -r requirements.txt
 
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-${{ hashFiles('requirements.txt') }}-small
+
       - name: Write Instagram cookies file (if provided)
         env:
           INSTAGRAM_COOKIES: ${{ secrets.INSTAGRAM_COOKIES }}
@@ -45,7 +51,6 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_ALLOWED_CHAT_ID: ${{ secrets.TELEGRAM_ALLOWED_CHAT_ID }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GSHEET_ID: ${{ secrets.GSHEET_ID }}
           GSHEET_SERVICE_ACCOUNT_JSON: ${{ secrets.GSHEET_SERVICE_ACCOUNT_JSON }}

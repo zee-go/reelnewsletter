@@ -10,7 +10,6 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-import openai
 import requests
 
 import telegram
@@ -29,9 +28,13 @@ IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_IMAGES_PER_POST = 5
 MAX_IMAGE_BYTES = 5 * 1024 * 1024
 
-# Whisper is priced per audio-second. Reels are usually <2 min; cap at 10 min
-# to contain worst-case cost when someone forwards a long Facebook upload.
+# Transcription runs locally on CPU (faster-whisper), so runtime scales with
+# audio length. Reels are usually <2 min; cap at 10 min to contain worst-case
+# processing time when someone forwards a long Facebook upload.
 WHISPER_MAX_AUDIO_SECONDS = 600
+# faster-whisper model size. "small" is a good CPU quality/speed tradeoff;
+# override with WHISPER_MODEL (e.g. "base" for faster, "large-v3" for best).
+WHISPER_MODEL = os.environ.get("WHISPER_MODEL", "small")
 
 URL_RE = re.compile(
     r"https?://(?:www\.|m\.)?"
@@ -285,18 +288,30 @@ def extract_audio(video_path: Path, out_path: Path, duration_s: int = 0) -> None
         cmd += ["-t", str(WHISPER_MAX_AUDIO_SECONDS)]
         print(
             f"  Source video is {duration_s}s; capping transcript audio at "
-            f"{WHISPER_MAX_AUDIO_SECONDS}s to limit Whisper cost.",
+            f"{WHISPER_MAX_AUDIO_SECONDS}s to limit transcription time.",
             flush=True,
         )
     cmd.append(str(out_path))
     subprocess.run(cmd, check=True)
 
 
+_whisper_model = None
+
+
+def _get_whisper_model():
+    global _whisper_model
+    if _whisper_model is None:
+        from faster_whisper import WhisperModel
+
+        # int8 on CPU is the fastest with negligible quality loss for speech.
+        _whisper_model = WhisperModel(WHISPER_MODEL, device="cpu", compute_type="int8")
+    return _whisper_model
+
+
 def transcribe(audio_path: Path) -> str:
-    client = openai.OpenAI()
-    with audio_path.open("rb") as f:
-        result = client.audio.transcriptions.create(model="whisper-1", file=f)
-    return result.text or ""
+    model = _get_whisper_model()
+    segments, _ = model.transcribe(str(audio_path))
+    return " ".join(seg.text.strip() for seg in segments).strip()
 
 
 def process_reel(url: str, received_at: str) -> dict:
