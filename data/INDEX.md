@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-123 post(s) archived. Auto-generated from `data/reels/*.json`.
+125 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (16)
 
@@ -29,10 +29,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (54)
+## Psychology (55)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-08-12 | Your Purpose Avoidance Has a Body Count | Destiny \| Subconscious Reprogramming & Mindset | [watch](https://www.instagram.com/reel/Db6INFbvUAf) |
 | 2026-08-10 | Life Is a Cosmic Game You Play on Yourself | Priscilla 寶珊 | [watch](https://www.instagram.com/reel/DbTC-JOSoI9) |
 | 2026-08-10 | The 72-Hour Manifestation Collapse Method | Paget Kagy \| Quantum Queen | [watch](https://www.instagram.com/reel/DWJU2WAjHQJ) |
 | 2026-08-10 | 6 Manifestation Habits That Actually Work | Courtney Alexis Cho 🍒 | [watch](https://www.instagram.com/reel/DZ_FyKuvnrF) |
@@ -88,10 +89,11 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (18)
+## Food (19)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-08-12 | High-Protein Pumpkin Chocolate Brownie | Samer Hammedi | [watch](https://www.facebook.com/share/v/19NjcEEbCh/?mibextid=wwXIfr) |
 | 2026-08-10 | Crispy Feta Phyllo Bites with Honey | Food My Muse | [watch](https://www.facebook.com/share/r/1H3nK3gZf9/?mibextid=wwXIfr) |
 | 2026-07-08 | Kefbab: Kebab, Tzatziki & Sweet Potato Wedges | Alan Parsemain  | [watch](https://www.facebook.com/share/r/1BmYx5p2g7/?mibextid=wwXIfr) |
 | 2026-07-06 | Greek Lamb Chops (Paidakia) Recipe | Marina Lydia Georgallides | [watch](https://www.facebook.com/share/r/1QxcDuWjZD/?mibextid=wwXIfr) |
