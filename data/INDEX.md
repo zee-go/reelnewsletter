@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-127 post(s) archived. Auto-generated from `data/reels/*.json`.
+129 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (16)
 
@@ -90,10 +90,12 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (19)
+## Food (21)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-08-20 | Honey Baked Camembert with Peaches & Prosciutto | Pobari Kitchen | [watch](https://www.facebook.com/share/r/1GKLJTrZEV/?mibextid=wwXIfr) |
+| 2026-08-20 | Summer Market Charcuterie Dip Recipe | Frohneats | [watch](https://www.facebook.com/share/r/19MAjURAdB/?mibextid=wwXIfr) |
 | 2026-08-12 | High-Protein Pumpkin Chocolate Brownie | Samer Hammedi | [watch](https://www.facebook.com/share/v/19NjcEEbCh/?mibextid=wwXIfr) |
 | 2026-08-10 | Crispy Feta Phyllo Bites with Honey | Food My Muse | [watch](https://www.facebook.com/share/r/1H3nK3gZf9/?mibextid=wwXIfr) |
 | 2026-07-08 | Kefbab: Kebab, Tzatziki & Sweet Potato Wedges | Alan Parsemain  | [watch](https://www.facebook.com/share/r/1BmYx5p2g7/?mibextid=wwXIfr) |
