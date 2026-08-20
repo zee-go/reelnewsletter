@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-126 post(s) archived. Auto-generated from `data/reels/*.json`.
+127 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (16)
 
@@ -29,10 +29,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (55)
+## Psychology (56)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-08-19 | Build Self-Trust to Unlock Your Potential | MILAN | [watch](https://www.instagram.com/reel/DaDVQfSK3qL) |
 | 2026-08-12 | Your Purpose Avoidance Has a Body Count | Destiny \| Subconscious Reprogramming & Mindset | [watch](https://www.instagram.com/reel/Db6INFbvUAf) |
 | 2026-08-10 | Life Is a Cosmic Game You Play on Yourself | Priscilla 寶珊 | [watch](https://www.instagram.com/reel/DbTC-JOSoI9) |
 | 2026-08-10 | The 72-Hour Manifestation Collapse Method | Paget Kagy \| Quantum Queen | [watch](https://www.instagram.com/reel/DWJU2WAjHQJ) |
