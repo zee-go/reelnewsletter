@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 017</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 017
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of August 21, 2026</div>
+    <h1>Indulgence and Self-Improvement Battle for Weekend Attention</h1>
+    <div class="hero-meta">
+      4 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">A quieter week, heavy on stone fruit and self-reflection. We leaned into baked-cheese season, thought about the quiet math of self-trust, and picked up a color grade for the last of the summer photos.</p>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Build Self-Trust to Unlock Your Potential</h3>
+  <p class="lead">The ceiling on your results is usually the ceiling on how much you trust yourself.</p>
+  <ul>
+    <li>Current results tend to mirror your internal level of self-trust and conviction.</li>
+    <li>The subconscious quietly caps what you believe you can receive — and it has to be reshaped, not bulldozed.</li>
+    <li>Build trust through tiny, consistently kept commitments rather than dramatic overhauls.</li>
+    <li>Repetition creates evidence, evidence builds conviction, and conviction is what actually moves the needle.</li>
+  </ul>
+  <p class="meta">by <strong>@MILAN</strong> · <a href="https://www.instagram.com/reel/DaDVQfSK3qL">Watch →</a></p>
+</article>
+
+<h2>Food</h2>
+
+<article class="post recipe cat-food">
+  <h3>Honey Baked Camembert with Peaches & Prosciutto</h3>
+  <p class="lead">A molten wheel of camembert with peaches, prosciutto, walnuts, and honey — the entire appetizer course in one dish.</p>
+  <p class="recipe-meta">Prep: 25 min (including resting time) · Serves: 2–4</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>1 wheel camembert</li>
+    <li>2–3 peaches, sliced</li>
+    <li>3–4 slices prosciutto (jambon cru)</li>
+    <li>Handful of walnuts</li>
+    <li>Drizzle of honey</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Remove camembert from the fridge and let it rest at room temperature for 20 minutes.</li>
+    <li>Slice peaches into pieces.</li>
+    <li>Place camembert in a baking dish and top with peach slices, prosciutto, walnuts, and a drizzle of honey.</li>
+    <li>Bake at 190°C / 380°F for 15–20 minutes until the cheese is fully melted and golden.</li>
+    <li>Serve immediately with bread or crackers.</li>
+  </ol>
+  <p class="meta">by <strong>@Pobari Kitchen</strong> · <a href="https://www.facebook.com/share/r/1GKLJTrZEV/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post recipe cat-food">
+  <h3>Summer Market Charcuterie Dip</h3>
+  <p class="lead">If the camembert felt too tidy, here's a messier baked Brie with blackberries, peaches, and hot garlic honey.</p>
+  <p class="recipe-meta">Prep: 15–20 min · Serves: 2–4</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>8 oz Brie, cut into large cubes</li>
+    <li>1/4 cup fresh blackberries</li>
+    <li>1/2 medium peach, diced</li>
+    <li>2 oz prosciutto, torn into pieces</li>
+    <li>1/4 cup Marcona almonds, roughly chopped</li>
+    <li>1 tsp fresh thyme leaves</li>
+    <li>1/4 tsp kosher salt</li>
+    <li>1/4 tsp freshly cracked black pepper</li>
+    <li>1/2 cup hot garlic honey</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Heat oven to 375°F.</li>
+    <li>Add Brie, blackberries, peaches, and prosciutto to a small baking dish.</li>
+    <li>Season lightly with thyme, salt, and black pepper.</li>
+    <li>Drizzle with hot garlic honey and bake for 12–15 minutes, until Brie is soft and gooey and fruit is bubbling.</li>
+    <li>Finish with Marcona almonds, more fresh thyme, and an extra drizzle of hot garlic honey.</li>
+    <li>Serve immediately with toasted bread, crostini, or crackers.</li>
+  </ol>
+  <p class="meta">by <strong>@Frohneats</strong> · <a href="https://www.facebook.com/share/r/19MAjURAdB/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<h2>Other</h2>
+
+<article class="post cat-other">
+  <h3>Euro Summer Photo Editing Guide</h3>
+  <p class="lead">A Lightroom recipe for that warm, sun-bleached, slightly-film Euro summer look.</p>
+  <ul>
+    <li>Walks through Lightroom settings to land a warm, sun-soaked color grade.</li>
+    <li>Aimed at a vintage, film-inspired feel — the one every European travel carousel is chasing.</li>
+    <li>Treat the numbers as a starting point; results shift depending on the original photo.</li>
+  </ul>
+  <p class="meta">by <strong>@Matt Solie</strong> · <a href="https://www.instagram.com/reel/Dbv_aLPhavs">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
