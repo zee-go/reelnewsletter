@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-129 post(s) archived. Auto-generated from `data/reels/*.json`.
+130 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (16)
 
@@ -29,10 +29,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (56)
+## Psychology (57)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-01 | 1940s Japanese Method That Cured Depression | Manifestation \| Abundance \| Mindset | [watch](https://www.instagram.com/p/DcTfUOgD9IE) |
 | 2026-08-19 | Build Self-Trust to Unlock Your Potential | MILAN | [watch](https://www.instagram.com/reel/DaDVQfSK3qL) |
 | 2026-08-12 | Your Purpose Avoidance Has a Body Count | Destiny \| Subconscious Reprogramming & Mindset | [watch](https://www.instagram.com/reel/Db6INFbvUAf) |
 | 2026-08-10 | Life Is a Cosmic Game You Play on Yourself | Priscilla 寶珊 | [watch](https://www.instagram.com/reel/DbTC-JOSoI9) |
