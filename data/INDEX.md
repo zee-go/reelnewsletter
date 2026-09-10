@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-130 post(s) archived. Auto-generated from `data/reels/*.json`.
+131 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (16)
 
@@ -117,10 +117,11 @@
 | 2026-04-19 | Soak Nuts for the Crispiest Granola Ever | Wendy the Food Scientist | [watch](https://www.facebook.com/share/r/1ANWnbqkp5/?mibextid=wwXIfr) |
 | 2026-04-18 | High-Protein Blueberry Cheesecake | Keto Snackz | [watch](https://www.facebook.com/share/r/18k7TN59Xg/?mibextid=wwXIfr) |
 
-## Other (9)
+## Other (10)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-10 | Heartfelt Message from an Ex on Arrival | VB | [watch](https://www.instagram.com/reel/Dc7KiDlqCi3) |
 | 2026-08-15 | Euro Summer Photo Editing Guide | Matt Solie | [watch](https://www.instagram.com/reel/Dbv_aLPhavs) |
 | 2026-08-10 | 10 Niche Design Styles to Try Today | A.Song Studio | [watch](https://www.facebook.com/share/r/1921qdGEzo/?mibextid=wwXIfr) |
 | 2026-08-10 | Anime You Can Finish in One Night | Ricehatguy | [watch](https://www.facebook.com/share/r/19VkNCSt2r/?mibextid=wwXIfr) |
