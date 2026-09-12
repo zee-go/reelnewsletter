@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-131 post(s) archived. Auto-generated from `data/reels/*.json`.
+132 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (16)
 
@@ -29,10 +29,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (57)
+## Psychology (58)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-12 | 10 Questions to Clarify What You Actually Want | Simon \| Relationship Clarity | [watch](https://www.instagram.com/reel/DckV0frNW-p) |
 | 2026-09-01 | 1940s Japanese Method That Cured Depression | Manifestation \| Abundance \| Mindset | [watch](https://www.instagram.com/p/DcTfUOgD9IE) |
 | 2026-08-19 | Build Self-Trust to Unlock Your Potential | MILAN | [watch](https://www.instagram.com/reel/DaDVQfSK3qL) |
 | 2026-08-12 | Your Purpose Avoidance Has a Body Count | Destiny \| Subconscious Reprogramming & Mindset | [watch](https://www.instagram.com/reel/Db6INFbvUAf) |
