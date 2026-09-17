@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-132 post(s) archived. Auto-generated from `data/reels/*.json`.
+133 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (16)
 
@@ -29,10 +29,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (58)
+## Psychology (59)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-17 | Visualise Inconvenience, Not the Dream Moment | Law of Attraction Academy | [watch](https://www.instagram.com/p/DdXQ4RwgI0M) |
 | 2026-09-12 | 10 Questions to Clarify What You Actually Want | Simon \| Relationship Clarity | [watch](https://www.instagram.com/reel/DckV0frNW-p) |
 | 2026-09-01 | 1940s Japanese Method That Cured Depression | Manifestation \| Abundance \| Mindset | [watch](https://www.instagram.com/p/DcTfUOgD9IE) |
 | 2026-08-19 | Build Self-Trust to Unlock Your Potential | MILAN | [watch](https://www.instagram.com/reel/DaDVQfSK3qL) |
