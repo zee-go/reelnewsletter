@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-135 post(s) archived. Auto-generated from `data/reels/*.json`.
+136 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (17)
+## AI (18)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-21 | Claude Builds Your YouTube Channel Free | Freedomaccelerator | [watch](https://www.instagram.com/p/DdY8dxWDmWj) |
 | 2026-09-21 | Claude AI Wrote a $7 Digital Product | James Oreilly | [watch](https://www.instagram.com/reel/Ddbfmawztww) |
 | 2026-08-10 | Build a Fully Autonomous Instagram AI Agent | Angus the Nontechnical | [watch](https://www.instagram.com/reel/DZc2ci4xCp6) |
 | 2026-08-10 | Claude AI Workflow for Instagram Carousels | Anjela Petkova | [watch](https://www.instagram.com/reel/DaxwCd3sv5m) |
