@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-133 post(s) archived. Auto-generated from `data/reels/*.json`.
+135 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (16)
+## AI (17)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-21 | Claude AI Wrote a $7 Digital Product | James Oreilly | [watch](https://www.instagram.com/reel/Ddbfmawztww) |
 | 2026-08-10 | Build a Fully Autonomous Instagram AI Agent | Angus the Nontechnical | [watch](https://www.instagram.com/reel/DZc2ci4xCp6) |
 | 2026-08-10 | Claude AI Workflow for Instagram Carousels | Anjela Petkova | [watch](https://www.instagram.com/reel/DaxwCd3sv5m) |
 | 2026-07-28 | Use Claude to Apply Nietzsche's Philosophy to Your Life | Think GPT | [watch](https://www.instagram.com/p/DbDK03zmHXz) |
@@ -93,10 +94,11 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (21)
+## Food (22)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-21 | Spicy Short Rib Brothy Rice Bowl | britacooks | [watch](https://www.facebook.com/share/r/19VW7HosTg/?mibextid=wwXIfr) |
 | 2026-08-20 | Honey Baked Camembert with Peaches & Prosciutto | Pobari Kitchen | [watch](https://www.facebook.com/share/r/1GKLJTrZEV/?mibextid=wwXIfr) |
 | 2026-08-20 | Summer Market Charcuterie Dip Recipe | Frohneats | [watch](https://www.facebook.com/share/r/19MAjURAdB/?mibextid=wwXIfr) |
 | 2026-08-12 | High-Protein Pumpkin Chocolate Brownie | Samer Hammedi | [watch](https://www.facebook.com/share/v/19NjcEEbCh/?mibextid=wwXIfr) |
