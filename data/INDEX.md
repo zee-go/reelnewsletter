@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-136 post(s) archived. Auto-generated from `data/reels/*.json`.
+137 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (18)
+## AI (19)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-22 | ChatGPT Codex Edited This Entire Reel | Zoe Lu | [watch](https://www.instagram.com/reel/DdTqgBFFVlU) |
 | 2026-09-21 | Claude Builds Your YouTube Channel Free | Freedomaccelerator | [watch](https://www.instagram.com/p/DdY8dxWDmWj) |
 | 2026-09-21 | Claude AI Wrote a $7 Digital Product | James Oreilly | [watch](https://www.instagram.com/reel/Ddbfmawztww) |
 | 2026-08-10 | Build a Fully Autonomous Instagram AI Agent | Angus the Nontechnical | [watch](https://www.instagram.com/reel/DZc2ci4xCp6) |
