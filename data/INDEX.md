@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-137 post(s) archived. Auto-generated from `data/reels/*.json`.
+138 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (19)
 
@@ -96,10 +96,11 @@
 | 2026-04-20 | Close the Gap Between Deciding and Doing | Claire Beluga | [watch](https://www.facebook.com/share/v/18SeGNcAeB/?mibextid=wwXIfr) |
 | 2026-04-19 | How Language Shapes How You Think | TED | [watch](https://www.facebook.com/share/v/18FYK3aRdN/?mibextid=wwXIfr) |
 
-## Food (22)
+## Food (23)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-23 | Killer Crack Chicken Marinade Recipe | hungry happens | [watch](https://www.facebook.com/share/r/1C2AyvLzx6/?mibextid=wwXIfr) |
 | 2026-09-21 | Spicy Short Rib Brothy Rice Bowl | britacooks | [watch](https://www.facebook.com/share/r/19VW7HosTg/?mibextid=wwXIfr) |
 | 2026-08-20 | Honey Baked Camembert with Peaches & Prosciutto | Pobari Kitchen | [watch](https://www.facebook.com/share/r/1GKLJTrZEV/?mibextid=wwXIfr) |
 | 2026-08-20 | Summer Market Charcuterie Dip Recipe | Frohneats | [watch](https://www.facebook.com/share/r/19MAjURAdB/?mibextid=wwXIfr) |
