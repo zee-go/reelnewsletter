@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-139 post(s) archived. Auto-generated from `data/reels/*.json`.
+141 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (19)
 
@@ -32,10 +32,12 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (60)
+## Psychology (62)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-09-23 | Why You Can't Hold the Life You Manifest | Rachael ✦ Energy & Expansion | [watch](https://www.instagram.com/reel/Db93KOFtUnU) |
+| 2026-09-23 | Stay Open to How the Universe Delivers | FLOSS | [watch](https://www.instagram.com/reel/DdmVT0ugnZB) |
 | 2026-09-23 | Embrace the Unknown to Transform Your Life | richard sabiaga | [watch](https://www.instagram.com/reel/DdkiF2iimNt) |
 | 2026-09-17 | Visualise Inconvenience, Not the Dream Moment | Law of Attraction Academy | [watch](https://www.instagram.com/p/DdXQ4RwgI0M) |
 | 2026-09-12 | 10 Questions to Clarify What You Actually Want | Simon \| Relationship Clarity | [watch](https://www.instagram.com/reel/DckV0frNW-p) |
