@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zee Weekly · Issue N° 021</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; padding:0; background:#FFFDFC; color:#1A1A1A; }
+  .wrap { padding:32px 16px; }
+  .container {
+    max-width:640px; margin:0 auto; background:#FFFFFF;
+    border:1px solid #E8E2D1; border-radius:4px; overflow:hidden;
+    font-family:'Source Serif 4',Georgia,serif;
+    color:#1A1A1A; line-height:1.6; font-size:17px;
+  }
+
+  /* Masthead — mirrors site header */
+  .masthead {
+    padding:20px 32px; border-bottom:1px solid #E8E2D1;
+    display:table; width:100%; box-sizing:border-box;
+  }
+  .masthead-left, .masthead-right {
+    display:table-cell; vertical-align:middle;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .masthead-right { text-align:right; }
+  .masthead-right a { color:#6b6056; text-decoration:none; }
+  .brand-dot { color:#ff6fa5; font-size:10px; }
+  .brand {
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600; font-size:15px; letter-spacing:-0.01em;
+    color:#1A1A1A; text-transform:none; text-decoration:none;
+  }
+
+  /* Hero — theme headline + issue / date */
+  .hero { padding:36px 32px 8px; }
+  .hero .kicker {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.14em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .hero h1 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:30px; line-height:1.12; letter-spacing:-0.025em;
+    font-weight:600; color:#1A1A1A; margin:0 0 18px; text-wrap:balance;
+  }
+  .hero-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 4px;
+  }
+  .hero-meta .sep { color:#c9bfae; margin:0 8px; }
+
+  /* Body */
+  .body { padding:8px 32px 8px; }
+  .intro {
+    font-family:'Fraunces',Georgia,serif;
+    font-style:italic; font-size:19px; line-height:1.5;
+    color:#3a332c; margin:24px 0 32px; text-wrap:pretty;
+  }
+
+  /* Section headers — color rule + label, mirrors site */
+  h2 {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase;
+    color:#1A1A1A; margin:40px 0 18px; padding:0 0 10px;
+    border-bottom:1px solid #E8E2D1; position:relative;
+  }
+  h2::before {
+    content:""; display:inline-block; width:14px; height:2px;
+    background:#a89f8f; margin-right:10px; vertical-align:middle;
+  }
+
+  /* Cards */
+  .post {
+    background:#FFFFFF;
+    border:1px solid #E8E2D1; border-top:3px solid #a89f8f; border-radius:3px;
+    padding:22px 24px; margin:0 0 16px;
+  }
+  .post h3 {
+    font-family:'Fraunces',Georgia,serif;
+    font-size:22px; font-weight:600; line-height:1.2; letter-spacing:-0.015em;
+    margin:0 0 10px; color:#1A1A1A;
+  }
+  .post .lead { margin:0 0 12px; color:#1A1A1A; font-size:17px; }
+  .post ul, .post ol { margin:10px 0 14px; padding-left:20px; color:#3a332c; }
+  .post ul li, .post ol li { margin:0 0 6px; }
+  .meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.04em; color:#6b6056;
+    margin:14px 0 0; padding-top:12px; border-top:1px solid #F0E9D8;
+  }
+  .meta a {
+    color:#1A1A1A; text-decoration:none; font-weight:600;
+    border-bottom:1.5px solid; padding-bottom:1px;
+  }
+
+  /* Per-category accent colors, matching site --cat-X */
+  .cat-ai         { border-top-color:#ff6fa5; }
+  .cat-ai         .meta a { border-bottom-color:#ff6fa5; }
+  .cat-ai         h2::before { background:#ff6fa5; }
+  .cat-marketing  { border-top-color:#6aa7f5; }
+  .cat-marketing  .meta a { border-bottom-color:#6aa7f5; }
+  .cat-investment { border-top-color:#5fcfbc; }
+  .cat-investment .meta a { border-bottom-color:#5fcfbc; }
+  .cat-politics   { border-top-color:#f5b84a; }
+  .cat-politics   .meta a { border-bottom-color:#f5b84a; }
+  .cat-psychology { border-top-color:#c78fd9; }
+  .cat-psychology .meta a { border-bottom-color:#c78fd9; }
+  .cat-fitness    { border-top-color:#7dc87a; }
+  .cat-fitness    .meta a { border-bottom-color:#7dc87a; }
+  .cat-food       { border-top-color:#ff9b7a; }
+  .cat-food       .meta a { border-bottom-color:#ff9b7a; }
+  .cat-other      { border-top-color:#a89f8f; }
+  .cat-other      .meta a { border-bottom-color:#a89f8f; }
+
+  /* Recipe — tinted body on top of food accent */
+  .post.recipe { background:rgba(255,155,122,0.08); }
+  .recipe-meta {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#6b6056; margin:0 0 14px;
+  }
+  .recipe p strong {
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    color:#1A1A1A; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; font-weight:600;
+  }
+  .recipe .ingredients, .recipe .steps { margin:6px 0 16px; }
+
+  /* Footer — matches site footer */
+  .footer {
+    padding:28px 32px 32px; margin-top:8px;
+    border-top:1px solid #E8E2D1;
+    font-family:'JetBrains Mono','SF Mono',Menlo,Monaco,monospace;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#6b6056;
+  }
+  .footer a { color:#6b6056; text-decoration:none; }
+  .footer .row { display:table; width:100%; }
+  .footer .row > div { display:table-cell; vertical-align:middle; }
+  .footer .right { text-align:right; }
+  .footer .right a + a { margin-left:16px; }
+
+  a { color:#1A1A1A; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="container">
+  <div class="masthead">
+    <div class="masthead-left">
+      <span class="brand-dot">●</span>&nbsp;&nbsp;<a class="brand" href="https://zeeweekly.com">Zee Weekly</a>
+    </div>
+    <div class="masthead-right">
+      Issue N° 021
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="kicker">Week of September 25, 2026</div>
+    <h1>AI Tools Promised, Universe Vaguely Delivers, Chicken Marinates</h1>
+    <div class="hero-meta">
+      8 picks
+      <span class="sep">·</span> AI &amp; Marketing first
+      <span class="sep">·</span> <a href="https://zeeweekly.com" style="color:inherit;">Read online →</a>
+    </div>
+  </div>
+
+  <div class="body">
+<p class="intro">This week leans into AI as a creative co-worker, some nervous-system honesty about why we self-sabotage, and two dinners worth clearing your calendar for. No marketing or investment saves this round — just tools, mindset, and food.</p>
+
+<h2>AI</h2>
+
+<article class="post cat-ai">
+  <h3>ChatGPT Codex Edited This Entire Reel</h3>
+  <p class="lead">A creator handed raw footage and a style guide to Codex and let it cut the whole reel.</p>
+  <ul>
+    <li>Build a style guide documenting your fonts, animations, sound effects, and cut rules to feed into Codex.</li>
+    <li>Upload a skills package (like Hey Jen's Hyper Frame) to train Codex on editing, motion, and cutting logic.</li>
+    <li>Drop raw footage in with a clear brief and style reference, then iterate through drafts.</li>
+    <li>The payoff: a reusable editing process that matches your voice without ever opening editing software.</li>
+  </ul>
+  <p class="meta">by <strong>@Zoe Lu</strong> · <a href="https://www.instagram.com/reel/DdTqgBFFVlU">Watch →</a></p>
+</article>
+
+<article class="post cat-ai">
+  <h3>Claude Builds Your YouTube Channel Free</h3>
+  <p class="lead">Claude, pointed at MrBeast's growth playbook, becomes a free channel-building assistant.</p>
+  <ul>
+    <li>Claude can execute the 800M-subscriber strategy for your own channel.</li>
+    <li>No fee to use the system — it runs entirely inside the AI.</li>
+    <li>Full step-by-step training unlocks by commenting "AI" on the post.</li>
+  </ul>
+  <p class="meta">by <strong>@Freedomaccelerator</strong> · <a href="https://www.instagram.com/p/DdY8dxWDmWj">Watch →</a></p>
+</article>
+
+<article class="post cat-ai">
+  <h3>Claude AI Wrote a $7 Digital Product</h3>
+  <p class="lead">The right prompts turned Claude into a small product factory — and the product replaced a salary.</p>
+  <ul>
+    <li>Claude can draft sellable digital products fast when the prompts are targeted.</li>
+    <li>A single $7 product generated enough revenue to replace a full-time salary.</li>
+    <li>Prompt engineering is the real differentiator, not the model.</li>
+    <li>The creator shares his exact prompts to replicate the process.</li>
+  </ul>
+  <p class="meta">by <strong>@James Oreilly</strong> · <a href="https://www.instagram.com/reel/Ddbfmawztww">Watch →</a></p>
+</article>
+
+<h2>Psychology</h2>
+
+<article class="post cat-psychology">
+  <h3>Why You Can't Hold the Life You Manifest</h3>
+  <p class="lead">Your nervous system quietly drags you back to the familiar when life upgrades faster than it can absorb.</p>
+  <ul>
+    <li>A dysregulated nervous system pulls you toward old habits even after external success.</li>
+    <li>Regulation isn't about staying calm — it's about expanding capacity to receive more.</li>
+    <li>Small, repeated new experiences teach your system that an upgraded life is safe.</li>
+    <li>Jools LeBron's viral-to-broke arc is a live case study of abundance outpacing inner capacity.</li>
+  </ul>
+  <p class="meta">by <strong>@Rachael ✦ Energy & Expansion</strong> · <a href="https://www.instagram.com/reel/Db93KOFtUnU">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Stay Open to How the Universe Delivers</h3>
+  <p class="lead">Know what you want — then get out of the way of how it shows up.</p>
+  <ul>
+    <li>Be picky about your desires, not about the delivery route.</li>
+    <li>Controlling the "how" makes life predictable and small.</li>
+    <li>Surrender the mechanism and let the orchestration happen elsewhere.</li>
+    <li>Openness is what invites the unexpected, magical version.</li>
+  </ul>
+  <p class="meta">by <strong>@FLOSS</strong> · <a href="https://www.instagram.com/reel/DdmVT0ugnZB">Watch →</a></p>
+</article>
+
+<article class="post cat-psychology">
+  <h3>Embrace the Unknown to Transform Your Life</h3>
+  <p class="lead">Predicting the future from your past just rebuilds your past.</p>
+  <ul>
+    <li>Using old evidence to forecast forward recreates the same outcomes.</li>
+    <li>Discomfort with the unknown is exactly where meaningful change lives.</li>
+    <li>Letting go of old expectations opens the door to actually choosing a new life.</li>
+    <li>Try something new in the next three months and be "radically delusional" about what's possible.</li>
+  </ul>
+  <p class="meta">by <strong>@richard sabiaga</strong> · <a href="https://www.instagram.com/reel/DdkiF2iimNt">Watch →</a></p>
+</article>
+
+<h2>Food</h2>
+
+<article class="post recipe cat-food">
+  <h3>Killer Crack Chicken Marinade</h3>
+  <p class="lead">A punchy, high-heat marinade that turns weeknight chicken into something worth remembering.</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>olive oil</li>
+    <li>sesame oil</li>
+    <li>soy sauce</li>
+    <li>Worcestershire sauce</li>
+    <li>honey</li>
+    <li>lemon juice</li>
+    <li>garlic</li>
+    <li>ginger</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Whisk together olive oil, sesame oil, soy sauce, Worcestershire, honey, lemon juice, garlic, and ginger in a bowl.</li>
+    <li>Add chicken and marinate — the longer, the better.</li>
+    <li>Bake at 450°F for 35 minutes.</li>
+  </ol>
+  <p class="meta">by <strong>@hungry happens</strong> · <a href="https://www.facebook.com/share/r/1C2AyvLzx6/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+
+<article class="post recipe cat-food">
+  <h3>Spicy Short Rib Brothy Rice Bowl</h3>
+  <p class="lead">Pressure-cooked short ribs swimming in coconut red curry broth over rice — comfort food with real depth.</p>
+  <p class="recipe-meta">Prep: 45 min pressure cook + prep</p>
+  <p><strong>Ingredients</strong></p>
+  <ul class="ingredients">
+    <li>short ribs</li>
+    <li>salt</li>
+    <li>red curry paste</li>
+    <li>shallots</li>
+    <li>ginger</li>
+    <li>garlic</li>
+    <li>soy sauce</li>
+    <li>beef stock</li>
+    <li>fish sauce</li>
+    <li>brown sugar</li>
+    <li>coconut milk</li>
+    <li>rice</li>
+    <li>green onions</li>
+    <li>sesame seeds</li>
+  </ul>
+  <p><strong>Instructions</strong></p>
+  <ol class="steps">
+    <li>Season short ribs with salt and sear on all sides in the pressure cooker.</li>
+    <li>Fry red curry paste in the pot, then add shallots, ginger, and garlic.</li>
+    <li>Add ribs back in with soy sauce, beef stock, fish sauce, and brown sugar.</li>
+    <li>Pressure cook on high for 45 minutes, then let pressure release naturally.</li>
+    <li>Shred meat from the short ribs.</li>
+    <li>Strain aromatics from the broth and stir in coconut milk.</li>
+    <li>Serve hot broth over rice and shredded beef; garnish with green onions and sesame seeds.</li>
+  </ol>
+  <p class="meta">by <strong>@britacooks</strong> · <a href="https://www.facebook.com/share/r/19VW7HosTg/?mibextid=wwXIfr">Watch →</a></p>
+</article>
+  </div>
+
+  <div class="footer">
+    <div class="row">
+      <div>© 2026 Zee Weekly · Curated by Zee</div>
+      <div class="right">
+        <a href="https://zeeweekly.com">zeeweekly.com</a>
+        <a href="https://zeeweekly.com/archive/">Archive</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
