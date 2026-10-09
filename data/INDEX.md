@@ -1,6 +1,6 @@
 # Reel Archive Index
 
-142 post(s) archived. Auto-generated from `data/reels/*.json`.
+143 post(s) archived. Auto-generated from `data/reels/*.json`.
 
 ## AI (19)
 
@@ -32,10 +32,11 @@
 |---|---|---|---|
 | 2026-04-22 | AI Hype Masks Real Market Risks | kyla scanlon | [watch](https://www.instagram.com/reel/DXK9DbGjxiv) |
 
-## Psychology (62)
+## Psychology (63)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-10-08 | Stop Waiting for Permission to Be Seen | Paget Kagy \| Quantum Queen | [watch](https://www.instagram.com/reel/DePvipuiuGv) |
 | 2026-09-23 | Why You Can't Hold the Life You Manifest | Rachael ✦ Energy & Expansion | [watch](https://www.instagram.com/reel/Db93KOFtUnU) |
 | 2026-09-23 | Stay Open to How the Universe Delivers | FLOSS | [watch](https://www.instagram.com/reel/DdmVT0ugnZB) |
 | 2026-09-23 | Embrace the Unknown to Transform Your Life | richard sabiaga | [watch](https://www.instagram.com/reel/DdkiF2iimNt) |
