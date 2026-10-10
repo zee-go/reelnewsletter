@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-144 post(s) archived. Auto-generated from `data/reels/*.json`.
+145 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (19)
+## AI (20)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-10-10 | Claude AI Automates Video Editing Timeline | Colton Dean | [watch](https://www.instagram.com/reel/DeIGbZypIUb) |
 | 2026-09-22 | ChatGPT Codex Edited This Entire Reel | Zoe Lu | [watch](https://www.instagram.com/reel/DdTqgBFFVlU) |
 | 2026-09-21 | Claude Builds Your YouTube Channel Free | Freedomaccelerator | [watch](https://www.instagram.com/p/DdY8dxWDmWj) |
 | 2026-09-21 | Claude AI Wrote a $7 Digital Product | James Oreilly | [watch](https://www.instagram.com/reel/Ddbfmawztww) |
