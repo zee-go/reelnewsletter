@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-145 post(s) archived. Auto-generated from `data/reels/*.json`.
+146 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (20)
+## AI (21)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-10-25 | 3 Tips to Make Claude Video Edits Unique | softgirlnocode | [watch](https://www.instagram.com/reel/De1xXtICvqs) |
 | 2026-10-10 | Claude AI Automates Video Editing Timeline | Colton Dean | [watch](https://www.instagram.com/reel/DeIGbZypIUb) |
 | 2026-09-22 | ChatGPT Codex Edited This Entire Reel | Zoe Lu | [watch](https://www.instagram.com/reel/DdTqgBFFVlU) |
 | 2026-09-21 | Claude Builds Your YouTube Channel Free | Freedomaccelerator | [watch](https://www.instagram.com/p/DdY8dxWDmWj) |
