@@ -1,11 +1,12 @@
 # Reel Archive Index
 
-147 post(s) archived. Auto-generated from `data/reels/*.json`.
+148 post(s) archived. Auto-generated from `data/reels/*.json`.
 
-## AI (22)
+## AI (23)
 
 | Date | Title | Author | Link |
 |---|---|---|---|
+| 2026-10-28 | Distribution Beats Building in the AI Era | vibecodingiseasy | [watch](https://www.instagram.com/reel/De7wKl7SBOX) |
 | 2026-10-25 | Build Your Own AI Video Editor Free | Michael Quoc Ly | [watch](https://www.instagram.com/reel/De2SEI7JP8r) |
 | 2026-10-25 | 3 Tips to Make Claude Video Edits Unique | softgirlnocode | [watch](https://www.instagram.com/reel/De1xXtICvqs) |
 | 2026-10-10 | Claude AI Automates Video Editing Timeline | Colton Dean | [watch](https://www.instagram.com/reel/DeIGbZypIUb) |
